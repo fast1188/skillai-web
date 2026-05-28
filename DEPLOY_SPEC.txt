@@ -1,0 +1,37 @@
+﻿# SkillAI 网站克隆部署规格书
+# 目标：克隆 https://ai.160.com/ → 替换为 SkillAI 内容 → 部署 skillai.top
+# 日期：2026-05-29
+
+---
+
+## 步骤 1：扒站与资源下载
+- 使用 Playwright 抓取 https://ai.160.com/ 的完整静态资源
+- 保存为纯静态文件，包含 HTML、CSS、JS、图片、字体
+- 目录：./original_site/
+
+## 步骤 2：生成替换规则 REPLACE_RULES.md
+- 所有联系电话、QQ、邮箱、客服号 → 微信 KAKA12512535
+- 所有二维码图片 → /assets/qrcode-our.png
+- 所有下载按钮链接 → /downloads/openclaw-setup.exe
+- Title 及 Footer 版权 → SkillAI · skillai.top
+- 保留原站所有布局、颜色、动画、JS 交互，严禁删减代码
+
+## 步骤 3：构建克隆站点 ./dist/
+- 基于 ./original_site/ 执行全局替换
+- 包含：index.html, css/, js/, images/
+- assets/qrcode-our.png (200x200 占位PNG)
+- downloads/openclaw-setup.exe (0KB 占位文件)
+
+## 步骤 4：视觉校验
+- 对比原站与 ./dist/index.html 结构
+- 检查布局错乱、资源404、JS报错
+- 输出 Visual_Check_Report.txt
+
+## 步骤 5：输出部署清单 DEPLOY.md
+- 替换真实二维码、安装包
+- 上传 dist/ 至 skillai.top 服务器根目录
+
+## 约束
+- 禁止 Tailwind/Bootstrap 重构
+- 基于原站源码修改
+- wget 失败自动改用 Playwright
