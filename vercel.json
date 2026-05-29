@@ -2,7 +2,10 @@
   "buildCommand": null,
   "outputDirectory": "dist",
   "framework": null,
-  "routes": [
-    { "src": "/(.*)", "dest": "/" }
+  "redirects": [
+    { "source": "/tutorial.html", "destination": "/tutorial/", "permanent": true },
+    { "source": "/download.html", "destination": "/download/", "permanent": true },
+    { "source": "/news.html", "destination": "/news/", "permanent": true },
+    { "source": "/cooperation.html", "destination": "/cooperation/", "permanent": true }
   ]
 }
