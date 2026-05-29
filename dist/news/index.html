@@ -4,130 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>动态资讯 - OpenClaw Hermes Codex 官方社区</title>
-<meta name="description" content="OpenClaw Hermes Codex 官方社区。产品更新、使用教程、AI 行业资讯与技术分享。与开发者一起探索 AI 自动化的无限可能。">
-<meta name="keywords" content="OpenClaw动态,AI社区,产品更新,技术博客,AI行业新闻,开发者社区">
+<meta name="description" content="OpenClaw Hermes Codex 官方社区。产品更新、使用教程、AI 行业资讯与技术分享。">
+<meta name="keywords" content="OpenClaw动态,AI社区,产品更新,技术博客,AI行业新闻">
 <meta property="og:title" content="动态资讯 - OpenClaw Hermes Codex 官方社区">
-<meta property="og:description" content="OpenClaw Hermes Codex 官方社区。产品更新、使用教程、AI 行业资讯与技术分享。">
-<meta property="og:type" content="website">
+<meta property="og:description" content="OpenClaw Hermes Codex 官方社区。产品更新、使用教程、AI 行业资讯。">
 <link rel="canonical" href="https://skillai.top/news/">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0e1a;--bg2:#0d1320;--card:rgba(255,255,255,0.03);--card-h:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.06);--border-h:rgba(255,255,255,0.12);--text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;--accent:#00d4ff;--green:#4ade80;--yellow:#fbbf24;--purple:#a78bfa;--pink:#f472b6;--orange:#fb923c;--radius:16px;--font:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif}
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.8;-webkit-font-smoothing:antialiased}
+:root{--bg:#0a0e1a;--bg2:#0d1320;--card:rgba(255,255,255,0.02);--card-h:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.06);--border-h:rgba(255,255,255,0.1);--text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;--accent:#00d4ff;--green:#4ade80;--yellow:#fbbf24;--purple:#a78bfa;--orange:#fb923c;--radius:12px;--font:-apple-system,BlinkMacSystemFont,"Inter","PingFang SC","Segoe UI",sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.7;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
-.container{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.container{max-width:960px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
 
 /* Header */
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;padding:12px 0}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s;border-bottom:1px solid transparent;padding:10px 0}
 .header.scrolled{background:rgba(10,14,26,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
 .nav{display:flex;align-items:center;justify-content:space-between}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.95rem}
-.nav-brand img{width:36px;height:36px;border-radius:8px}
-.nav-links{display:flex;gap:4px;list-style:none}
-.nav-links a{padding:8px 16px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s,background .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.06)}
-.nav-actions{display:flex;gap:8px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.92rem}
+.nav-brand img{width:34px;height:34px;border-radius:8px}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{padding:7px 14px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.05)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
 .btn-primary{background:var(--accent);color:#0a0e1a}
 .btn-primary:hover{background:#33ddff;transform:translateY(-1px)}
 .mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:4px}
 
 /* Hero */
-.news-hero{padding:130px 0 40px;text-align:center}
-.news-hero .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:20px;font-size:.78rem;background:rgba(0,212,255,0.1);color:var(--accent);border:1px solid rgba(0,212,255,0.15);margin-bottom:14px}
-.news-hero h1{font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
-.news-hero p{font-size:.95rem;color:var(--text2);max-width:500px;margin:0 auto}
+.news-hero{padding:120px 0 30px;text-align:center}
+.news-hero h1{font-size:2rem;font-weight:700;background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.news-hero p{font-size:.88rem;color:var(--text2);margin-top:4px}
 
-/* Category Pills */
-.cat-pills{display:flex;justify-content:center;gap:8px;margin:28px 0;flex-wrap:wrap}
-.cat-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:20px;font-size:.82rem;font-weight:500;color:var(--text3);background:rgba(255,255,255,0.03);border:1px solid var(--border);cursor:pointer;transition:all .25s;text-decoration:none}
-.cat-pill:hover{color:var(--text);background:rgba(255,255,255,0.06)}
-.cat-pill.active{color:var(--accent);border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.08)}
+/* Subnav */
+.subnav{display:flex;align-items:center;gap:4px;padding:12px 0;border-bottom:1px solid var(--border);margin-bottom:24px;flex-wrap:wrap}
+.subnav a{padding:6px 14px;border-radius:6px;font-size:.8rem;font-weight:500;color:var(--text3);text-decoration:none;transition:all .2s}
+.subnav a:hover{color:var(--text);background:rgba(255,255,255,0.04)}
+.subnav a.active{color:var(--accent);background:rgba(0,212,255,0.06)}
+.subnav .spacer{flex:1}
+.subnav .count{font-size:.75rem;color:var(--text3)}
 
-/* Featured Article */
-.featured-card{display:grid;grid-template-columns:1.1fr 1fr;border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:32px;transition:transform .3s,border-color .3s;background:var(--card)}
-.featured-card:hover{transform:translateY(-3px);border-color:var(--border-h)}
-.featured-cover{min-height:380px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden}
-.featured-cover .cover-glow{position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(80px);opacity:.2}
-.featured-body{padding:36px;display:flex;flex-direction:column}
-.featured-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
-.featured-cat{padding:4px 12px;border-radius:6px;font-size:.72rem;font-weight:600;background:rgba(0,212,255,0.08);color:var(--accent);border:1px solid rgba(0,212,255,0.12)}
-.featured-date{font-size:.78rem;color:var(--text3)}
-.featured-body h2{font-size:1.5rem;font-weight:700;margin-bottom:10px;line-height:1.35;letter-spacing:-0.02em}
-.featured-body h2 a{color:var(--text);text-decoration:none;transition:color .2s}
-.featured-body h2 a:hover{color:var(--accent)}
-.featured-excerpt{font-size:.9rem;color:var(--text2);line-height:1.7;margin-bottom:auto}
-.featured-author{display:flex;align-items:center;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
-.author-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700}
-.author-info .name{font-size:.85rem;font-weight:600;color:var(--text)}
-.author-info .role{font-size:.72rem;color:var(--text3)}
+/* Feed - Horizontal article list */
+.feed{display:flex;flex-direction:column;gap:2px;margin-bottom:40px}
 
-/* Article Grid */
-.article-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:50px}
-@media(max-width:900px){.article-grid{grid-template-columns:1fr}}
-@media(max-width:768px){.featured-card{grid-template-columns:1fr}.featured-cover{min-height:200px;font-size:3rem}.featured-body{padding:24px}.featured-body h2{font-size:1.2rem}}
+.feed-item{display:flex;gap:16px;padding:18px 16px;border-radius:10px;transition:all .2s;cursor:pointer;align-items:flex-start}
+.feed-item:hover{background:var(--card-h)}
 
-.article-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .3s,border-color .3s;display:flex;flex-direction:column}
-.article-card:hover{transform:translateY(-3px);border-color:var(--border-h);background:var(--card-h)}
-.article-cover{width:100%;height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;flex-shrink:0;overflow:hidden}
-.article-body{padding:20px 24px 18px;display:flex;flex-direction:column;flex:1}
-.article-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-.article-cat{display:inline-block;padding:3px 10px;border-radius:5px;font-size:.68rem;font-weight:600;line-height:1.4}
-.article-cat.update{background:rgba(0,212,255,0.08);color:var(--accent);border:1px solid rgba(0,212,255,0.12)}
-.article-cat.guide{background:rgba(74,222,128,0.08);color:var(--green);border:1px solid rgba(74,222,128,0.12)}
-.article-cat.news{background:rgba(251,191,36,0.08);color:var(--yellow);border:1px solid rgba(251,191,36,0.12)}
-.article-cat.tip{background:rgba(167,139,250,0.08);color:var(--purple);border:1px solid rgba(167,139,250,0.12)}
-.article-cat.event{background:rgba(251,146,60,0.08);color:var(--orange);border:1px solid rgba(251,146,60,0.12)}
-.article-date{font-size:.75rem;color:var(--text3)}
-.article-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;line-height:1.4}
-.article-card h3 a{color:var(--text);text-decoration:none;transition:color .2s}
-.article-card h3 a:hover{color:var(--accent)}
-.article-excerpt{font-size:.83rem;color:var(--text2);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.article-card .article-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,0.04);font-size:.78rem;color:var(--text3)}
-.article-stats{display:flex;gap:14px}
-.article-stats span{display:flex;align-items:center;gap:4px;cursor:pointer;transition:color .2s}
-.article-stats span:hover{color:var(--text)}
-.article-read{color:var(--accent);text-decoration:none;font-weight:600;font-size:.78rem;transition:color .2s;display:flex;align-items:center;gap:4px}
-.article-read:hover{color:#33ddff}
+.feed-thumb{width:100px;height:70px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;overflow:hidden;flex-shrink:0}
+.feed-content{flex:1;min-width:0}
+.feed-meta{display:flex;align-items:center;gap:8px;margin-bottom:3px;flex-wrap:wrap}
+.feed-cat{font-size:.68rem;font-weight:600;padding:2px 8px;border-radius:4px}
+.feed-cat.blue{background:rgba(0,212,255,0.08);color:var(--accent)}
+.feed-cat.green{background:rgba(74,222,128,0.08);color:var(--green)}
+.feed-cat.yellow{background:rgba(251,191,36,0.08);color:var(--yellow)}
+.feed-cat.purple{background:rgba(167,139,250,0.08);color:var(--purple)}
+.feed-cat.orange{background:rgba(251,146,60,0.08);color:var(--orange)}
+.feed-title{font-size:.9rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:2px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.feed-title:hover{color:var(--accent)}
+.feed-excerpt{font-size:.78rem;color:var(--text3);line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:4px}
+.feed-footer{display:flex;align-items:center;gap:12px;font-size:.72rem;color:var(--text3)}
+.feed-footer .dot{width:3px;height:3px;border-radius:50%;background:var(--text3)}
+.feed-footer .stat{display:flex;align-items:center;gap:3px}
+.feed-footer .stat:hover{color:var(--text2)}
+.feed-divider{height:1px;background:var(--border);margin:0 16px}
 
-/* Author row in grid */
-.author-row{display:flex;align-items:center;gap:8px;margin-top:10px}
-.author-row .avatar{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700}
-.author-row .name{font-size:.75rem;color:var(--text3)}
+/* Featured sticky */
+.feed-item.featured{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:8px}
+.feed-item.featured .feed-thumb{width:140px;height:90px;font-size:2.2rem}
+.feed-item.featured .feed-title{font-size:1.05rem;-webkit-line-clamp:2}
+.feed-item.featured .feed-excerpt{-webkit-line-clamp:2;font-size:.82rem}
+
+/* Tags */
+.tags-row{display:flex;gap:4px;flex-wrap:wrap;margin:4px 0}
+.tag{font-size:.68rem;color:var(--text3);padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.03);border:1px solid var(--border)}
+.tag:hover{color:var(--text);border-color:var(--border-h)}
+
+/* Hot topics sidebar-style inline */
+.topics-inline{display:flex;align-items:center;gap:6px;padding:10px 16px;margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:10px;flex-wrap:wrap}
+.topics-inline .label{font-size:.74rem;color:var(--text3);font-weight:500}
+.topics-inline a{font-size:.74rem;color:var(--text2);padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);text-decoration:none;transition:all .2s}
+.topics-inline a:hover{color:var(--accent);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.05)}
 
 /* Pagination */
-.pagination{display:flex;justify-content:center;gap:6px;margin-bottom:50px}
-.page-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:.82rem;font-weight:500;color:var(--text2);background:rgba(255,255,255,0.03);border:1px solid var(--border);cursor:pointer;transition:all .2s;text-decoration:none}
-.page-btn:hover{color:var(--text);border-color:var(--border-h);background:rgba(255,255,255,0.06)}
-.page-btn.active{color:var(--accent);border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.08)}
-
-/* Topics / Tags Cloud */
-.topics-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 30px}
-.topic-tag{padding:4px 14px;border-radius:14px;font-size:.74rem;color:var(--text3);background:rgba(255,255,255,0.03);border:1px solid var(--border);cursor:pointer;transition:all .2s;text-decoration:none}
-.topic-tag:hover{color:var(--text);border-color:var(--border-h)}
+.pg{display:flex;justify-content:center;gap:4px;padding:20px 0 30px}
+.pg a{padding:6px 14px;border-radius:6px;font-size:.8rem;color:var(--text3);background:rgba(255,255,255,0.02);border:1px solid var(--border);text-decoration:none;transition:all .2s}
+.pg a:hover{color:var(--text);border-color:var(--border-h)}
+.pg a.active{color:var(--accent);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.06)}
 
 /* Subscribe */
-.subscribe-wrap{text-align:center;padding:50px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:0}
-.subscribe-wrap h3{font-size:1.2rem;font-weight:700;margin-bottom:6px}
-.subscribe-wrap p{color:var(--text2);font-size:.85rem;margin-bottom:16px}
-.sub-form{display:flex;justify-content:center;gap:8px;max-width:420px;margin:0 auto}
-.sub-form input{flex:1;padding:10px 16px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-size:.85rem;outline:none;transition:border-color .2s}
-.sub-form input:focus{border-color:var(--accent)}
-.sub-form input::placeholder{color:var(--text3)}
+.sub-box{text-align:center;padding:30px;border:1px solid var(--border);border-radius:12px;margin-bottom:30px;background:var(--card)}
+.sub-box h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+.sub-box p{font-size:.78rem;color:var(--text2);margin-bottom:12px}
+.sub-row{display:flex;justify-content:center;gap:6px;max-width:360px;margin:0 auto}
+.sub-row input{flex:1;padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-size:.82rem;outline:none}
+.sub-row input:focus{border-color:var(--accent)}
+.sub-row input::placeholder{color:var(--text3)}
 
 /* Footer */
-.ft{text-align:center;padding:30px 0;color:var(--text3);font-size:.78rem}
-.ft p{margin-bottom:4px}
-.ft a{color:var(--text3);text-decoration:none;transition:color .2s}
+.ft{text-align:center;padding:24px 0;color:var(--text3);font-size:.75rem;border-top:1px solid var(--border)}
+.ft p{margin-bottom:3px}
+.ft a{color:var(--text3);text-decoration:none}
 .ft a:hover{color:var(--accent)}
 
-@media(max-width:768px){
-  .nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,14,26,0.98);flex-direction:column;padding:16px;border-bottom:1px solid var(--border)}
+@media(max-width:640px){
+  .nav-links{display:none;position:fixed;top:58px;left:0;right:0;background:rgba(10,14,26,0.98);flex-direction:column;padding:12px;border-bottom:1px solid var(--border)}
   .nav-links.show{display:flex}
   .mobile-toggle{display:block}
   .nav-actions{display:none}
-  .news-hero h1{font-size:1.6rem}
-  .sub-form{flex-direction:column}
+  .feed-item.featured{flex-direction:column}
+  .feed-item.featured .feed-thumb{width:100%;height:120px}
+  .feed-thumb{width:72px;height:54px;font-size:1.2rem}
+  .feed-title{font-size:.82rem}
+  .news-hero h1{font-size:1.5rem}
 }
 </style>
 </head>
@@ -136,7 +123,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   <div class="container">
     <nav class="nav">
       <a class="nav-brand" href="/">
-        <img src="/assets/logo-192.png" alt="OpenClaw Hermes Codex 远程部署安装" width="36" height="36" style="border-radius:8px">
+        <img src="/assets/logo-192.png" alt="OpenClaw Hermes Codex 远程部署安装" width="34" height="34" style="border-radius:8px">
         <span>OpenClaw Hermes Codex 远程部署安装</span>
       </a>
       <ul class="nav-links">
@@ -158,230 +145,269 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 <section class="news-hero">
   <div class="container">
-    <div class="badge">📰 官方社区</div>
     <h1>动态资讯</h1>
-    <p>产品更新 · 使用教程 · 行业资讯 · 技术分享</p>
-    
-    <div class="cat-pills">
-      <a href="#" class="cat-pill active">🔥 全部</a>
-      <a href="#" class="cat-pill">🚀 产品更新</a>
-      <a href="#" class="cat-pill">📖 使用教程</a>
-      <a href="#" class="cat-pill">💡 技巧分享</a>
-      <a href="#" class="cat-pill">🌐 行业资讯</a>
-      <a href="#" class="cat-pill">🎉 社区活动</a>
-    </div>
+    <p>产品更新 · 使用教程 · 行业资讯 · 社区活动</p>
   </div>
 </section>
 
 <div class="container">
-  <!-- Featured -->
-  <div class="featured-card">
-    <div class="featured-cover" style="background:linear-gradient(135deg,#0d1320,#1a2645,#0d3460)">
-      <div class="cover-glow" style="background:#00d4ff"></div>
-      <span>🚀</span>
-    </div>
-    <div class="featured-body">
-      <div class="featured-meta">
-        <span class="featured-cat">🚀 产品更新</span>
-        <span class="featured-date">2026 年 5 月 29 日</span>
-        <span class="featured-date">· 5 分钟阅读</span>
-      </div>
-      <h2><a href="#">OpenClaw Hermes Codex v2.1 正式发布</a></h2>
-      <p class="featured-excerpt">经过数月精心打磨，v2.1 正式发布。全新 GUI 界面、智能任务引擎、DeepSeek v4 深度集成，性能提升 40%。本文详细介绍所有更新内容和升级指南。</p>
-      <div class="featured-author">
-        <div class="author-avatar" style="background:rgba(0,212,255,0.15);color:var(--accent)">OC</div>
-        <div class="author-info">
-          <div class="name">OpenClaw 团队</div>
-          <div class="role">产品 · 2026-05-29</div>
-        </div>
-      </div>
-    </div>
+  <!-- Subnav -->
+  <div class="subnav">
+    <a href="#" class="active">全部</a>
+    <a href="#">🚀 更新</a>
+    <a href="#">📖 教程</a>
+    <a href="#">💡 技巧</a>
+    <a href="#">🌐 行业</a>
+    <span class="spacer"></span>
+    <span class="count">共 8 篇文章</span>
   </div>
 
-  <!-- Topics -->
-  <div class="topics-bar">
-    <span style="font-size:.74rem;color:var(--text3);margin-right:4px">热门话题：</span>
-    <a href="#" class="topic-tag">#v2.1</a>
-    <a href="#" class="topic-tag">#DeepSeek</a>
-    <a href="#" class="topic-tag">#远程部署</a>
-    <a href="#" class="topic-tag">#新手入门</a>
-    <a href="#" class="topic-tag">#效率工具</a>
-    <a href="#" class="topic-tag">#隐私安全</a>
+  <!-- Hot topics -->
+  <div class="topics-inline">
+    <span class="label">🔥 热门话题</span>
+    <a href="#">#v2.1</a>
+    <a href="#">#DeepSeek</a>
+    <a href="#">#远程部署</a>
+    <a href="#">#新手入门</a>
+    <a href="#">#效率工具</a>
+    <a href="#">#隐私安全</a>
+    <a href="#">#用户故事</a>
   </div>
 
-  <!-- Article Grid -->
-  <div class="article-grid">
+  <!-- Feed -->
+  <div class="feed">
 
-    <article class="article-card">
-      <div style="background:linear-gradient(135deg,#0d1320,#1a1f3a,#2d1b69);height:180px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0">🧠</div>
-      <div class="article-body">
-        <div class="article-meta">
-          <span class="article-cat news">🌐 行业资讯</span>
-          <span class="article-date">5月27日</span>
+    <!-- Featured -->
+    <div class="feed-item featured">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#1a2645);font-size:2.2rem">🚀</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat blue">产品更新</span>
+          <span style="font-size:.72rem;color:var(--text3)">2026-05-29</span>
+          <span style="font-size:.72rem;color:var(--text3)">· OpenClaw 团队</span>
         </div>
-        <h3><a href="#">DeepSeek v4 系列即将上线：开发者迁移指南</a></h3>
-        <p class="article-excerpt">deepseek-chat 和 deepseek-reasoner 将于 7 月 24 日弃用。作为 DeepSeek 深度集成伙伴，OpenClaw 已第一时间完成 v4 适配。本文详细说明迁移步骤和注意事项。</p>
-        <div class="author-row">
-          <div class="avatar" style="background:rgba(167,139,250,0.15);color:var(--purple)">T</div>
-          <span class="name">技术团队</span>
-          <span class="name" style="color:var(--text3)">· 4 分钟阅读</span>
+        <div class="feed-title">OpenClaw Hermes Codex v2.1 正式发布 — 全新 GUI 与智能任务引擎</div>
+        <div class="feed-excerpt">经过数月精心打磨，v2.1 发布。全新 GUI 界面、智能任务规划引擎、DeepSeek v4 深度集成，性能提升 40%，启动时间缩至 3 秒以内。</div>
+        <div class="tags-row">
+          <span class="tag">#v2.1</span>
+          <span class="tag">#产品更新</span>
         </div>
-        <div class="article-footer">
-          <div class="article-stats">
-            <span>❤️ 35</span>
-            <span>💬 8</span>
-          </div>
-          <a href="#" class="article-read">阅读 →</a>
+        <div class="feed-footer">
+          <span>❤️ 28</span>
+          <span class="dot"></span>
+          <span>💬 6</span>
+          <span class="dot"></span>
+          <span>5 分钟阅读</span>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="article-card">
-      <div style="background:linear-gradient(135deg,#0d1320,#16223a,#0f3b2e);height:180px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0">📖</div>
-      <div class="article-body">
-        <div class="article-meta">
-          <span class="article-cat guide">📖 使用教程</span>
-          <span class="article-date">5月28日</span>
+    <div class="feed-divider"></div>
+
+    <!-- Article 2 -->
+    <div class="feed-item">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#2d1b69)">🧠</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat yellow">行业资讯</span>
+          <span style="font-size:.72rem;color:var(--text3)">5月27日</span>
         </div>
-        <h3><a href="#">零基础 3 分钟上手：从下载到运行第一个任务</a></h3>
-        <p class="article-excerpt">面向完全零基础用户。三步完成：下载安装包 → 配置 API Key → 运行任务。全程无需编程，跟着步骤走即可拥有专属 AI 助理。</p>
-        <div class="author-row">
-          <div class="avatar" style="background:rgba(74,222,128,0.15);color:var(--green)">U</div>
-          <span class="name">用户运营</span>
-          <span class="name" style="color:var(--text3)">· 3 分钟阅读</span>
+        <div class="feed-title">DeepSeek v4 系列即将上线：开发者迁移指南</div>
+        <div class="feed-excerpt">deepseek-chat 将于 7/24 弃用。作为 DeepSeek 深度集成伙伴，OpenClaw 已第一时间完成 v4 适配。</div>
+        <div class="tags-row">
+          <span class="tag">#DeepSeek</span>
+          <span class="tag">#迁移</span>
         </div>
-        <div class="article-footer">
-          <div class="article-stats">
-            <span>❤️ 42</span>
-            <span>💬 12</span>
-          </div>
-          <a href="#" class="article-read">阅读 →</a>
+        <div class="feed-footer">
+          <span>❤️ 35</span>
+          <span class="dot"></span>
+          <span>💬 8</span>
+          <span class="dot"></span>
+          <span>4 分钟阅读</span>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="article-card">
-      <div style="background:linear-gradient(135deg,#0d1320,#2d1b3a,#1a1a2e);height:180px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0">⚡</div>
-      <div class="article-body">
-        <div class="article-meta">
-          <span class="article-cat tip">💡 技巧分享</span>
-          <span class="article-date">5月26日</span>
+    <div class="feed-divider"></div>
+
+    <!-- Article 3 -->
+    <div class="feed-item">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#0f3b2e)">📖</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat green">使用教程</span>
+          <span style="font-size:.72rem;color:var(--text3)">5月28日</span>
         </div>
-        <h3><a href="#">效率翻倍！OpenClaw 必知的 5 个高级用法</a></h3>
-        <p class="article-excerpt">用好这 5 个技巧：批量文件智能处理、代码审查助手、智能日程管理、一键文档生成、跨设备配置同步。覆盖日常办公和开发高频场景。</p>
-        <div class="author-row">
-          <div class="avatar" style="background:rgba(251,191,36,0.15);color:var(--yellow)">P</div>
-          <span class="name">产品团队</span>
-          <span class="name" style="color:var(--text3)">· 5 分钟阅读</span>
+        <div class="feed-title">零基础 3 分钟上手：从下载到运行第一个 AI 任务</div>
+        <div class="feed-excerpt">面向零基础用户。三步完成：下载 → 配置 API Key → 运行任务。全程无需编程。</div>
+        <div class="tags-row">
+          <span class="tag">#新手入门</span>
+          <span class="tag">#教程</span>
         </div>
-        <div class="article-footer">
-          <div class="article-stats">
-            <span>❤️ 56</span>
-            <span>💬 14</span>
-          </div>
-          <a href="#" class="article-read">阅读 →</a>
+        <div class="feed-footer">
+          <span>❤️ 42</span>
+          <span class="dot"></span>
+          <span>💬 12</span>
+          <span class="dot"></span>
+          <span>3 分钟阅读</span>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="article-card">
-      <div style="background:linear-gradient(135deg,#0d1320,#16223a,#0a2e38);height:180px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0">🔐</div>
-      <div class="article-body">
-        <div class="article-meta">
-          <span class="article-cat update">🚀 产品更新</span>
-          <span class="article-date">5月25日</span>
+    <div class="feed-divider"></div>
+
+    <!-- Article 4 -->
+    <div class="feed-item">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#1a1a2e)">⚡</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat purple">技巧分享</span>
+          <span style="font-size:.72rem;color:var(--text3)">5月26日</span>
         </div>
-        <h3><a href="#">隐私优先：OpenClaw 本地数据处理架构解析</a></h3>
-        <p class="article-excerpt">本地优先架构、AES-256 加密存储、TLS 1.3 通信加密、企业级离线部署方案。深入了解 OpenClaw 如何保护你的数据安全。</p>
-        <div class="author-row">
-          <div class="avatar" style="background:rgba(0,212,255,0.15);color:var(--accent)">E</div>
-          <span class="name">工程团队</span>
-          <span class="name" style="color:var(--text3)">· 4 分钟阅读</span>
+        <div class="feed-title">效率翻倍！OpenClaw 必知的 5 个高级用法</div>
+        <div class="feed-excerpt">批量文件处理、代码审查助手、智能日程管理、一键文档生成、跨设备同步。</div>
+        <div class="tags-row">
+          <span class="tag">#效率工具</span>
+          <span class="tag">#技巧</span>
         </div>
-        <div class="article-footer">
-          <div class="article-stats">
-            <span>❤️ 19</span>
-            <span>💬 3</span>
-          </div>
-          <a href="#" class="article-read">阅读 →</a>
+        <div class="feed-footer">
+          <span>❤️ 56</span>
+          <span class="dot"></span>
+          <span>💬 14</span>
+          <span class="dot"></span>
+          <span>5 分钟阅读</span>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="article-card">
-      <div style="background:linear-gradient(135deg,#0d1320,#1a1a2e,#1e3a5f);height:180px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0">🔄</div>
-      <div class="article-body">
-        <div class="article-meta">
-          <span class="article-cat guide">📖 使用教程</span>
-          <span class="article-date">5月24日</span>
+    <div class="feed-divider"></div>
+
+    <!-- Article 5 -->
+    <div class="feed-item">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#0a2e38)">🔐</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat blue">产品更新</span>
+          <span style="font-size:.72rem;color:var(--text3)">5月25日</span>
         </div>
-        <h3><a href="#">远程部署实操：云服务器搭建 AI 自动化服务</a></h3>
-        <p class="article-excerpt">从服务器选购、SSH 登录到一键部署脚本，手把手教你搭建 7×24 小时无人值守的 AI 自动化服务。无需运维经验，15 分钟搞定。</p>
-        <div class="author-row">
-          <div class="avatar" style="background:rgba(74,222,128,0.15);color:var(--green)">U</div>
-          <span class="name">用户运营</span>
-          <span class="name" style="color:var(--text3)">· 6 分钟阅读</span>
+        <div class="feed-title">隐私优先：OpenClaw 本地数据处理架构解析</div>
+        <div class="feed-excerpt">本地优先架构、AES-256 加密、TLS 1.3、企业级离线部署方案。</div>
+        <div class="tags-row">
+          <span class="tag">#隐私安全</span>
+          <span class="tag">#架构</span>
         </div>
-        <div class="article-footer">
-          <div class="article-stats">
-            <span>❤️ 31</span>
-            <span>💬 7</span>
-          </div>
-          <a href="#" class="article-read">阅读 →</a>
+        <div class="feed-footer">
+          <span>❤️ 19</span>
+          <span class="dot"></span>
+          <span>💬 3</span>
+          <span class="dot"></span>
+          <span>4 分钟阅读</span>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="article-card">
-      <div style="background:linear-gradient(135deg,#0d1320,#2d1b2e,#1a1a2e);height:180px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0">🎉</div>
-      <div class="article-body">
-        <div class="article-meta">
-          <span class="article-cat event">🎉 社区活动</span>
-          <span class="article-date">5月22日</span>
+    <div class="feed-divider"></div>
+
+    <!-- Article 6 -->
+    <div class="feed-item">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#1e3a5f)">🔄</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat green">使用教程</span>
+          <span style="font-size:.72rem;color:var(--text3)">5月24日</span>
         </div>
-        <h3><a href="#">OpenClaw 用户故事征集：分享你的 AI 自动化体验</a></h3>
-        <p class="article-excerpt">你是如何用 OpenClaw 提升工作效率的？分享你的使用故事，优质投稿将获得精美周边礼品和官方推荐。活动长期有效。</p>
-        <div class="author-row">
-          <div class="avatar" style="background:rgba(251,146,60,0.15);color:var(--orange)">C</div>
-          <span class="name">社区团队</span>
-          <span class="name" style="color:var(--text3)">· 2 分钟阅读</span>
+        <div class="feed-title">远程部署实操：在云服务器搭建 AI 自动化服务</div>
+        <div class="feed-excerpt">从服务器选购到一键部署，15 分钟搭建 7×24 小时无人值守 AI 服务。</div>
+        <div class="tags-row">
+          <span class="tag">#远程部署</span>
+          <span class="tag">#服务器</span>
         </div>
-        <div class="article-footer">
-          <div class="article-stats">
-            <span>❤️ 23</span>
-            <span>💬 9</span>
-          </div>
-          <a href="#" class="article-read">参与 →</a>
+        <div class="feed-footer">
+          <span>❤️ 31</span>
+          <span class="dot"></span>
+          <span>💬 7</span>
+          <span class="dot"></span>
+          <span>6 分钟阅读</span>
         </div>
       </div>
-    </article>
+    </div>
+
+    <div class="feed-divider"></div>
+
+    <!-- Article 7 -->
+    <div class="feed-item">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#2d1b2e)">🎉</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat orange">社区活动</span>
+          <span style="font-size:.72rem;color:var(--text3)">5月22日</span>
+        </div>
+        <div class="feed-title">OpenClaw 用户故事征集：分享你的 AI 自动化体验</div>
+        <div class="feed-excerpt">分享你的使用故事，优质投稿将获得精美周边礼品和官方推荐。长期有效。</div>
+        <div class="tags-row">
+          <span class="tag">#用户故事</span>
+          <span class="tag">#活动</span>
+        </div>
+        <div class="feed-footer">
+          <span>❤️ 23</span>
+          <span class="dot"></span>
+          <span>💬 9</span>
+          <span class="dot"></span>
+          <span>2 分钟阅读</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feed-divider"></div>
+
+    <!-- Article 8 -->
+    <div class="feed-item">
+      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320,#1f2937)">📊</div>
+      <div class="feed-content">
+        <div class="feed-meta">
+          <span class="feed-cat yellow">行业资讯</span>
+          <span style="font-size:.72rem;color:var(--text3)">5月20日</span>
+        </div>
+        <div class="feed-title">2026 年 AI 编程工具市场趋势：自动化部署成新风口</div>
+        <div class="feed-excerpt">AI 编程工具市场年增长率超 60%，本地优先的自动化部署方案正成为企业首选。</div>
+        <div class="tags-row">
+          <span class="tag">#行业趋势</span>
+          <span class="tag">#市场</span>
+        </div>
+        <div class="feed-footer">
+          <span>❤️ 15</span>
+          <span class="dot"></span>
+          <span>💬 4</span>
+          <span class="dot"></span>
+          <span>4 分钟阅读</span>
+        </div>
+      </div>
+    </div>
 
   </div>
 
   <!-- Pagination -->
-  <div class="pagination">
-    <a href="#" class="page-btn active">1</a>
-    <a href="#" class="page-btn">2</a>
-    <a href="#" class="page-btn">3</a>
-    <a href="#" class="page-btn">→</a>
+  <div class="pg">
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">→</a>
+  </div>
+
+  <!-- Subscribe -->
+  <div class="sub-box">
+    <h3>📬 订阅社区动态</h3>
+    <p>每周精选推送 · 产品更新 + 使用技巧 + 行业资讯</p>
+    <div class="sub-row">
+      <input type="email" placeholder="输入邮箱">
+      <button class="btn btn-primary" onclick="alert('订阅功能即将上线')">订阅</button>
+    </div>
   </div>
 </div>
 
-<!-- Subscribe -->
-<section class="subscribe-wrap">
-  <div class="container">
-    <h3>📬 订阅社区动态</h3>
-    <p>第一时间获取产品更新、使用技巧和行业资讯，每周精选推送</p>
-    <div class="sub-form">
-      <input type="email" placeholder="输入邮箱地址">
-      <button class="btn btn-primary" onclick="alert('订阅功能即将上线，敬请期待！')">订阅</button>
-    </div>
-  </div>
-</section>
-
 <footer class="ft">
-  <p>© 2026 SkillAi. All rights reserved. | 客服微信 kaka12512535 | QQ群 482123078</p>
-  <p><a href="/">返回首页</a> · <a href="/tutorial/">新手教程</a> · <a href="/download/">免费下载</a> · <a href="/cooperation/">商务合作</a></p>
+  <p>© 2026 SkillAi | 客服微信 kaka12512535 | QQ群 482123078</p>
+  <p><a href="/">首页</a> · <a href="/tutorial/">教程</a> · <a href="/download/">下载</a> · <a href="/cooperation/">合作</a></p>
 </footer>
 
 <script>
