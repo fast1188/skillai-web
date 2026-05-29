@@ -3,27 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Token 代充服务 - skillai.top</title>
+<title>Token 代充中心 - skillai.top</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','PingFang SC',sans-serif;background:#0a0e1a;color:#f1f5f9;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
-.container{max-width:500px}
-h1{font-size:2rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#00d4ff,#2563eb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-p{color:#94a3b8;font-size:.95rem;line-height:1.8;margin-bottom:30px}
-.status{display:inline-block;padding:8px 20px;border-radius:20px;font-size:.85rem;background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.15);margin-bottom:20px}
-.loading{width:48px;height:48px;border:3px solid rgba(255,255,255,0.06);border-top-color:#00d4ff;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 24px}
-@keyframes spin{to{transform:rotate(360deg)}}
-a{color:#00d4ff;text-decoration:none}
-a:hover{text-decoration:underline}
+body{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','PingFang SC',sans-serif;background:#0a0e1a;color:#f1f5f9;min-height:100vh;line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+
+/* Hero */
+.hero{text-align:center;padding:60px 0 40px}
+.logo{width:64px;height:64px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.hero h1{font-size:2rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#00d4ff,#2563eb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:#94a3b8;font-size:.9rem;max-width:500px;margin:0 auto}
+.status{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;font-size:.75rem;background:rgba(74,222,128,0.1);color:#4ade80;border:1px solid rgba(74,222,128,0.15);margin-bottom:16px}
+.dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* Registration Box */
+.box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;margin-bottom:24px}
+.box h2{font-size:1.1rem;font-weight:700;margin-bottom:16px}
+.box h2 span{color:#00d4ff}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.82rem;color:#94a3b8;margin-bottom:6px}
+.form-group input{width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:#f1f5f9;font-size:.9rem;outline:none;transition:border-color .2s}
+.form-group input:focus{border-color:#00d4ff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;border-radius:10px;font-weight:600;font-size:.9rem;border:none;cursor:pointer;transition:all .2s;width:100%}
+.btn-primary{background:#00d4ff;color:#0a0e1a}
+.btn-primary:hover{background:#33ddff;transform:translateY(-1px)}
+.result{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);border-radius:10px;padding:16px;margin-top:16px;display:none;font-size:.82rem;line-height:1.8}
+.result .key{font-family:monospace;color:#00d4ff;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:6px;display:block;margin:8px 0;word-break:break-all;font-size:.9rem}
+
+/* Instructions */
+.steps{margin-bottom:24px}
+.step{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.step:last-child{border-bottom:none}
+.step .num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#2563eb);color:#0a0e1a;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.step .content h4{font-size:.85rem;font-weight:600;margin-bottom:2px}
+.step .content p{font-size:.78rem;color:#94a3b8;line-height:1.6}
+.step .content code{background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-family:monospace;font-size:.78rem;color:#00d4ff}
+
+/* Models */
+.models{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+@media(max-width:480px){.models{grid-template-columns:1fr}}
+.model-card{padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);font-size:.78rem;color:#94a3b8}
+.model-card strong{color:#f1f5f9;display:block;margin-bottom:2px}
+
+/* Pricing */
+.pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0}
+@media(max-width:600px){.pricing{grid-template-columns:1fr}}
+.price-card{padding:20px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);text-align:center}
+.price-card.popular{border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.03)}
+.price-card .name{font-size:.78rem;color:#94a3b8;margin-bottom:4px}
+.price-card .price{font-size:1.5rem;font-weight:800}
+.price-card .price .unit{font-size:.75rem;font-weight:400;color:#64748b}
+.price-card .desc{font-size:.72rem;color:#64748b;margin-top:4px}
+
+/* Footer */
+.footer{text-align:center;padding:30px 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:40px}
+.footer p{font-size:.78rem;color:#64748b;line-height:1.8}
+.footer a{color:#94a3b8;text-decoration:none}
+.footer a:hover{color:#00d4ff}
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="loading"></div>
-  <div class="status">⚡ 服务部署中</div>
-  <h1>AI Token 代充服务</h1>
-  <p>DeepSeek · 通义千问 · 豆包 · 智谱 GLM<br>一手资源 · 价格透明 · 到账迅速</p>
-  <p style="font-size:.85rem;color:#64748b">服务即将上线，敬请期待。<br>如需咨询请联系微信 <strong style="color:#f1f5f9">kaka12512535</strong></p>
+  <div class="hero">
+    <div class="logo">⚡</div>
+    <div class="status"><span class="dot"></span> 服务运行中 · 立即注册使用</div>
+    <h1>AI Token 代充中心</h1>
+    <p>DeepSeek · 通义千问 · 豆包 · 智谱 GLM — 一手资源，价格透明，到账迅速</p>
+  </div>
+
+  <div class="box" id="registerBox">
+    <h2>🎁 <span>新用户注册</span> — 免费领取 50 次使用量</h2>
+    <p style="font-size:.82rem;color:#94a3b8;margin-bottom:16px">无需付费，注册即送 50 次调用额度，支持所有模型。</p>
+    <div class="form-group">
+      <label>联系方式（微信/QQ，选填）</label>
+      <input type="text" id="contact" placeholder="方便我们联系您">
+    </div>
+    <button class="btn btn-primary" onclick="register()">🚀 立即注册 · 免费领 50 次</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <div class="box">
+    <h2>📖 <span>快速接入指南</span></h2>
+    <p style="font-size:.78rem;color:#94a3b8;margin-bottom:16px">注册后获得 API Key，在任意 OpenAI 兼容客户端中配置即可使用。</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="content"><h4>获取 API Key</h4><p>点击上方注册按钮，系统自动生成您的专属 Key</p></div></div>
+      <div class="step"><div class="num">2</div><div class="content"><h4>配置客户端</h4><p>在 OpenClaw / ChatGPT-Next-Web / LobeChat 等工具中配置：<br><code>API地址: https://token.skillai.top/v1</code><br><code>API Key: 您注册获得的 Key</code></p></div></div>
+      <div class="step"><div class="num">3</div><div class="content"><h4>开始使用</h4><p>选择模型开始对话，支持 DeepSeek / 通义千问 / 豆包 / 智谱 等主流模型</p></div></div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>🧠 <span>支持模型</span></h2>
+    <div class="models">
+      <div class="model-card"><strong>DeepSeek</strong>deepseek-chat / deepseek-reasoner / deepseek-v4</div>
+      <div class="model-card"><strong>通义千问</strong>qwen-turbo / qwen-plus / qwen-max</div>
+      <div class="model-card"><strong>豆包 Doubao</strong>doubao-pro-32k / doubao-pro-128k</div>
+      <div class="model-card"><strong>智谱 GLM</strong>glm-4-plus / glm-4-air / glm-4-flash</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>💰 <span>套餐价格</span></h2>
+    <div class="pricing">
+      <div class="price-card"><div class="name">🎯 体验包</div><div class="price">¥1</div><div class="desc">500 次 · 7天</div></div>
+      <div class="price-card popular"><div class="name">⚡ 标准包</div><div class="price">¥9.9</div><div class="desc">5000 次 · 30天</div></div>
+      <div class="price-card"><div class="name">🚀 专业包</div><div class="price">¥29</div><div class="desc">20000 次 · 30天</div></div>
+    </div>
+    <p style="font-size:.78rem;color:#94a3b8;text-align:center;margin-top:12px">购买套餐请联系微信 <strong style="color:#f1f5f9">kaka12512535</strong> · 到账迅速</p>
+  </div>
+
+  <div class="footer">
+    <p>© 2026 SkillAi | 客服微信 kaka12512535 | QQ群 482123078</p>
+    <p><a href="https://skillai.top">返回主站</a> · <a href="https://skillai.top/cooperation/">商务合作</a></p>
+  </div>
 </div>
+
+<script>
+async function register() {
+  const btn = document.querySelector('.btn-primary')
+  const result = document.getElementById('result')
+  const contact = document.getElementById('contact').value
+  
+  btn.disabled = true
+  btn.textContent = '⏳ 注册中...'
+  result.style.display = 'none'
+  
+  try {
+    // 尝试请求 Worker API（如果已部署）
+    const resp = await fetch('https://token.skillai.top/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contact })
+    })
+    
+    if (resp.ok) {
+      const data = await resp.json()
+      result.innerHTML = '✅ <strong>注册成功！</strong><br>' +
+        '您的 API Key：<span class="key" onclick="copyKey(this)">' + data.api_key + '</span>' +
+        '<span style="font-size:.72rem;color:#94a3b8">点击 Key 复制 · 赠送 ' + data.free_quota + ' 次免费额度</span>' +
+        '<br><br>📖 在客户端中配置：<br>' +
+        '<code style="display:block;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:6px;margin:4px 0;font-size:.78rem">API 地址: https://token.skillai.top/v1</code>'
+      result.style.display = 'block'
+    } else {
+      throw new Error('服务暂不可用')
+    }
+  } catch(e) {
+    // Worker 未部署时的降级方案：显示注册信息，联系客服
+    result.innerHTML = '⚠️ <strong>自动注册暂未开放</strong><br>' +
+      '请添加微信 <strong style="color:#f1f5f9">kaka12512535</strong> 或 QQ群 <strong style="color:#f1f5f9">482123078</strong><br>' +
+      '<span style="font-size:.72rem;color:#94a3b8">联系客服即可免费领取 50 次使用量，即时开通</span>'
+    result.style.display = 'block'
+  }
+  
+  btn.disabled = false
+  btn.textContent = '🚀 立即注册 · 免费领 50 次'
+}
+
+function copyKey(el) {
+  navigator.clipboard.writeText(el.textContent).then(() => {
+    el.style.background = 'rgba(74,222,128,0.2)'
+    setTimeout(() => { el.style.background = '' }, 1000)
+  })
+}
+</script>
 </body>
 </html>

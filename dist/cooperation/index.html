@@ -20,10 +20,10 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;padding:12px 0}
 .header.scrolled{background:rgba(10,14,26,0.92);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
 .nav{display:flex;align-items:center;justify-content:space-between}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.95rem}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.9rem}
 .nav-brand img{width:auto;height:40px;border-radius:6px}
 .nav-links{display:flex;gap:4px;list-style:none}
-.nav-links a{padding:8px 16px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s,background .2s}
+.nav-links a{padding:6px 14px;border-radius:6px;color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:all .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.06)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
 .btn-primary{background:var(--accent);color:#0a0e1a}
@@ -152,8 +152,8 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 /* Footer */
 .footer{border-top:1px solid var(--border);padding:30px 0;text-align:center}
-.footer p{color:var(--text3);font-size:.78rem;line-height:2}
-.footer a{color:var(--text3);text-decoration:none}
+.footer p{color:var(--text3);font-size:.78rem;line-height:1.8}
+.footer a{color:var(--text3);text-decoration:none;font-size:.78rem}
 .footer a:hover{color:var(--accent)}
 
 /* Animations */
@@ -506,6 +506,8 @@ function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
 </script>
 </body>
 </html>
+
+
 
 
 

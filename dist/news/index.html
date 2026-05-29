@@ -117,7 +117,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 /* Anim */
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .feed-item{animation:fadeUp .4s ease-out both}
-</style>
+.modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;animation:fadeIn .2s;padding:20px}.modal{background:#1a1a2e;border:1px solid var(--border);border-radius:16px;max-width:500px;width:100%;max-height:80vh;overflow-y:auto}.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}.modal-header h3{font-size:.95rem;font-weight:600}.modal-close{background:none;border:none;color:var(--text3);font-size:1.1rem;cursor:pointer;padding:4px 8px;border-radius:6px}.modal-close:hover{background:rgba(255,255,255,0.06);color:var(--text)}.modal-body{padding:20px}.comment-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}.comment-item:last-child{border-bottom:none}.comment-avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}.comment-body{flex:1}.comment-name{font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:2px}.comment-text{font-size:.82rem;color:var(--text2);line-height:1.5}.comment-time{font-size:.65rem;color:var(--text3);margin-top:4px}.comment-input-row{display:flex;gap:8px;margin-top:16px}.comment-input{flex:1;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--text);font-size:.82rem;outline:none}.comment-input:focus{border-color:var(--red)}.comment-submit{padding:10px 20px;border-radius:8px;border:none;background:var(--red);color:#fff;font-weight:600;font-size:.82rem;cursor:pointer}.comment-submit:hover{background:var(--red2)}@keyframes fadeIn{from{opacity:0}to{opacity:1}}</style>
 </head>
 <body>
 <div id="header" class="header">
@@ -162,9 +162,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 1 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">128</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -173,11 +173,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="hot-badge">🔥 HOT</span>
           <span style="font-size:.65rem;color:var(--text3)">5月28日</span>
         </div>
-        <div class="feed-title">DeepSeek-R1 引爆开源大模型：推理能力直逼闭源模型，开发者社区沸腾</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">DeepSeek-R1 引爆开源大模型：推理能力直逼闭源模型，开发者社区沸腾</div>
         <div class="feed-excerpt">DeepSeek 最新开源模型在数学推理和代码生成任务上达到闭源模型水平，引发全球开发者关注。本文深度解析其技术突破和行业影响。</div>
         <div class="tags-row"><span class="tag">#DeepSeek</span><span class="tag">#开源</span><span class="tag">#大模型</span></div>
         <div class="feed-footer">
-          <span>❤️ 89</span><span class="dot"></span><span>💬 34</span><span class="dot"></span><span>6 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 89</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 34</span><span class="dot"></span><span>6 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -191,9 +191,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 2 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">96</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -201,11 +201,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="feed-source">来源：<a href="#">36氪</a></span>
           <span style="font-size:.65rem;color:var(--text3)">5月27日</span>
         </div>
-        <div class="feed-title">AI 编程助手市场洗牌：2026 年本地部署方案成企业首选</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">AI 编程助手市场洗牌：2026 年本地部署方案成企业首选</div>
         <div class="feed-excerpt">企业 AI 编程工具采购趋势从云端转向本地部署，数据安全和定制化能力成为核心考量。</p></div>
         <div class="tags-row"><span class="tag">#AI编程</span><span class="tag">#企业</span><span class="tag">#趋势</span></div>
         <div class="feed-footer">
-          <span>❤️ 72</span><span class="dot"></span><span>💬 28</span><span class="dot"></span><span>5 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 72</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 28</span><span class="dot"></span><span>5 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -219,9 +219,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 3 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">84</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -230,11 +230,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="hot-badge">🔥 NEW</span>
           <span style="font-size:.65rem;color:var(--text3)">5月26日</span>
         </div>
-        <div class="feed-title">OpenClaw Hermes Codex v2.1 发布：全新 UI、多模型并行、定时任务升级</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">OpenClaw Hermes Codex v2.1 发布：全新 UI、多模型并行、定时任务升级</div>
         <div class="feed-excerpt">v2.1 版本带来重大更新，包括全新界面、多模型并行推理、增强的定时任务系统等。</div>
         <div class="tags-row"><span class="tag">#产品更新</span><span class="tag">#v2.1</span></div>
         <div class="feed-footer">
-          <span>❤️ 156</span><span class="dot"></span><span>💬 47</span><span class="dot"></span><span>4 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 156</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 47</span><span class="dot"></span><span>4 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -255,9 +255,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 4 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">67</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -265,11 +265,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="feed-source">来源：<a href="#">用户投稿</a></span>
           <span style="font-size:.65rem;color:var(--text3)">5月25日</span>
         </div>
-        <div class="feed-title">3 分钟搞定！用 OpenClaw 自动抓取竞品数据并生成日报</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">3 分钟搞定！用 OpenClaw 自动抓取竞品数据并生成日报</div>
         <div class="feed-excerpt">手把手教您配置 OpenClaw 定时任务，自动采集竞品价格、新闻动态，汇总成日报推送。</div>
         <div class="tags-row"><span class="tag">#教程</span><span class="tag">#自动化</span><span class="tag">#日报</span></div>
         <div class="feed-footer">
-          <span>❤️ 103</span><span class="dot"></span><span>💬 31</span><span class="dot"></span><span>3 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 103</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 31</span><span class="dot"></span><span>3 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -289,9 +289,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 5 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">55</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -299,11 +299,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="feed-source">来源：<a href="#">量子位</a></span>
           <span style="font-size:.65rem;color:var(--text3)">5月24日</span>
         </div>
-        <div class="feed-title">2026 年 AI Agent 报告：自主执行能力爆发，企业采用率翻倍</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">2026 年 AI Agent 报告：自主执行能力爆发，企业采用率翻倍</div>
         <div class="feed-excerpt">AI Agent 从概念验证进入规模化部署阶段，自主决策和执行能力成为核心竞争力。</div>
         <div class="tags-row"><span class="tag">#AI Agent</span><span class="tag">#报告</span></div>
         <div class="feed-footer">
-          <span>❤️ 61</span><span class="dot"></span><span>💬 19</span><span class="dot"></span><span>6 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 61</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 19</span><span class="dot"></span><span>6 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -317,9 +317,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 6 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">48</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -327,11 +327,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="feed-source">来源：<a href="#">官方</a></span>
           <span style="font-size:.65rem;color:var(--text3)">5月23日</span>
         </div>
-        <div class="feed-title">Token 代充服务上线：支持 DeepSeek/通义千问/豆包/智谱，注册即送 50 次</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">Token 代充服务上线：支持 DeepSeek/通义千问/豆包/智谱，注册即送 50 次</div>
         <div class="feed-excerpt">OpenClaw 推出官方 Token 代充服务，一站式解决 API Key 获取问题，新用户免费领 50 次。</div>
         <div class="tags-row"><span class="tag">#Token</span><span class="tag">#DeepSeek</span><span class="tag">#服务</span></div>
         <div class="feed-footer">
-          <span>❤️ 42</span><span class="dot"></span><span>💬 15</span><span class="dot"></span><span>3 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 42</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 15</span><span class="dot"></span><span>3 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -351,9 +351,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 7 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">39</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -361,11 +361,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="feed-source">来源：<a href="#">极客公园</a></span>
           <span style="font-size:.65rem;color:var(--text3)">5月22日</span>
         </div>
-        <div class="feed-title">本地大模型部署指南：从硬件选型到性能调优，资深工程师的 10 条建议</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">本地大模型部署指南：从硬件选型到性能调优，资深工程师的 10 条建议</div>
         <div class="feed-excerpt">本地部署大模型，硬件怎么选？显存要多大？推理速度怎么优化？一文讲透。</div>
         <div class="tags-row"><span class="tag">#本地部署</span><span class="tag">#硬件</span><span class="tag">#调优</span></div>
         <div class="feed-footer">
-          <span>❤️ 35</span><span class="dot"></span><span>💬 12</span><span class="dot"></span><span>5 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 35</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 12</span><span class="dot"></span><span>5 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -384,9 +384,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <!-- Article 8 -->
     <div class="feed-item">
       <div class="vote-col">
-        <button class="vote-up">▲</button>
+        <button class="vote-up" onclick="vote(this)">▲</button>
         <span class="vote-count">31</span>
-        <button class="vote-down">▼</button>
+        <button class="vote-down" onclick="vote(this)">▼</button>
       </div>
       <div class="feed-content">
         <div class="feed-meta">
@@ -394,11 +394,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <span class="feed-source">来源：<a href="#">用户投稿</a></span>
           <span style="font-size:.65rem;color:var(--text3)">5月21日</span>
         </div>
-        <div class="feed-title">从零到一：如何用 OpenClaw 搭建个人 AI 知识库，自动整理收藏夹和笔记</div>
+        <div class="feed-title" onclick="toggleArticle(this)" style="cursor:pointer">从零到一：如何用 OpenClaw 搭建个人 AI 知识库，自动整理收藏夹和笔记</div>
         <div class="feed-excerpt">告别手动整理！配置 OpenClaw 自动抓取网页、整理笔记、分类归档。</div>
         <div class="tags-row"><span class="tag">#知识库</span><span class="tag">#自动化</span><span class="tag">#效率</span></div>
         <div class="feed-footer">
-          <span>❤️ 28</span><span class="dot"></span><span>💬 8</span><span class="dot"></span><span>4 分钟阅读</span>
+          <span><span class="like-btn" onclick="like(this)" style="cursor:pointer">❤️ 28</span><span class="dot"></span><span><span class="comment-btn" onclick="showComment(this)" style="cursor:pointer">💬 8</span><span class="dot"></span><span>4 分钟阅读</span>
           <span style="margin-left:auto"><button class="article-read" onclick="toggleArticle(this)">阅读全文 →</button></span>
         </div>
         <div class="feed-full">
@@ -433,14 +433,62 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   <p><a href="/">首页</a> · <a href="/tutorial/">教程</a> · <a href="/download/">下载</a> · <a href="/cooperation/">合作</a></p>
 </footer>
 
-<script>
-function toggleArticle(btn) {
-  var card = btn.closest('.feed-item')
-  if (!card) return
-  var isOpen = card.classList.contains('open')
+﻿<script>
+function toggleArticle(el) {
+  var card = el.closest('.feed-item'); if (!card) return
+  var readBtn = card.querySelector('.article-read')
   card.classList.toggle('open')
-  btn.textContent = isOpen ? '阅读全文 →' : '收起 ↑'
+  var isOpen = card.classList.contains('open')
+  if (readBtn) readBtn.textContent = isOpen ? '\u6536\u8d77 \u2191' : '\u9605\u8bfb\u5168\u6587 \u2192'
 }
+function vote(el) {
+  var col = el.closest('.vote-col'); var cnt = col.querySelector('.vote-count')
+  var up = col.querySelector('.vote-up'); var down = col.querySelector('.vote-down')
+  var id = getId(el); var st = ld(); var cur = st.v[id] || 0
+  if (el === up) {
+    if (cur === 1) { st.v[id] = 0; cnt.textContent = +cnt.textContent - 1; up.style.color = '' }
+    else { if (cur === -1) cnt.textContent = +cnt.textContent + 1; st.v[id] = 1; cnt.textContent = +cnt.textContent + 1; up.style.color = '#f59e0b'; down.style.color = '' }
+  } else {
+    if (cur === -1) { st.v[id] = 0; cnt.textContent = +cnt.textContent + 1; down.style.color = '' }
+    else { if (cur === 1) cnt.textContent = +cnt.textContent - 1; st.v[id] = -1; cnt.textContent = +cnt.textContent - 1; down.style.color = '#ef4444'; up.style.color = '' }
+  }
+  sv(st)
+}
+function like(el) {
+  var id = getId(el); var st = ld(); var liked = st.l[id]
+  var n = +el.textContent.replace(/[^0-9]/g,'')
+  if (liked) { n--; el.style.color = ''; delete st.l[id] } else { n++; el.style.color = '#ef4444'; st.l[id] = true }
+  el.textContent = el.textContent.replace(/\d+/, n); sv(st)
+}
+function showComment(el) {
+  var id = getId(el); var st = ld(); var cmts = st.c[id] || []
+  var title = (el.closest('.feed-item').querySelector('.feed-title').textContent || '').slice(0, 28)
+  var h = '<div class=modal-overlay onclick=closeModal()><div class=modal onclick=event.stopPropagation()><div class=modal-header><h3>\U0001f4ac 评论</h3><button class=modal-close onclick=closeModal()>\u2715</button></div><div class=modal-body><p style=font-size:.8rem;color:var(--text3);margin-bottom:12px>\u300c' + title + '\u300d</p>'
+  if (!cmts.length) h += '<p style=text-align:center;padding:20px 0;font-size:.8rem;color:var(--text3)>\u6682\u65e0\u8bc4\u8bba</p>'
+  else for (var i=0;i<cmts.length;i++) h += '<div class=comment-item><div class=comment-avatar>\U0001f464</div><div class=comment-body><div class=comment-name>'+cmts[i].n+'</div><div class=comment-text>'+cmts[i].t+'</div><div class=comment-time>'+cmts[i].time+'</div></div></div>'
+  h += '<div class=comment-input-row><input class=comment-input id=ci placeholder=\u8bf4\u70b9\u4ec0\u4e48...><button class=comment-submit onclick=subC(\x27'+id+'\x27)>\u53d1\u9001</button></div></div></div></div>'
+  var d = document.createElement('div'); d.innerHTML = h; document.body.appendChild(d)
+}
+function subC(id) {
+  var inp = document.getElementById('ci'); if (!inp||!inp.value.trim()) return
+  var st = ld(); if (!st.c[id]) st.c[id] = []
+  st.c[id].push({n:'用户'+Math.random().toString(36).slice(2,6), t:inp.value.trim(), time:new Date().toLocaleString('zh-CN',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})})
+  sv(st); closeModal()
+  document.querySelectorAll('.feed-item').forEach(function(card,i){var b=card.querySelector('.comment-btn');if(b&&getId(b)===id)b.textContent=b.textContent.replace(/\d+/,st.c[id].length)})
+}
+function closeModal() { var o = document.querySelector('.modal-overlay'); if (o) o.remove() }
+function getId(el) { var c = el.closest('.feed-item'); if (!c) return 'a0'; var a = document.querySelectorAll('.feed-item'); for (var i=0;i<a.length;i++) { if (a[i]===c) return 'a'+i } return 'a' }
+function ld() { try { return JSON.parse(localStorage.getItem('ns'))||{v:{},l:{},c:{}} } catch(e) { return {v:{},l:{},c:{}} } }
+function sv(s) { try { localStorage.setItem('ns', JSON.stringify(s)) } catch(e) {} }
+window.addEventListener('DOMContentLoaded',function(){
+  var st = ld()
+  document.querySelectorAll('.feed-item').forEach(function(card,i){
+    var uid='a'+i
+    if (st.v[uid]) { var u=card.querySelector('.vote-up');var d=card.querySelector('.vote-down');if(st.v[uid]===1&&u)u.style.color='#f59e0b';if(st.v[uid]===-1&&d)d.style.color='#ef4444' }
+    if (st.l[uid]) { var lb=card.querySelector('.like-btn');if(lb)lb.style.color='#ef4444' }
+  })
+})
 </script>
+
 </body>
 </html>
