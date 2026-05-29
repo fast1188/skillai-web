@@ -46,22 +46,22 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .badge{font-size:.7rem;font-weight:500;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--text3)}
 
 /* OpenClaw Main Download Card */
-.main-dl{background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(37,99,235,0.04));border:1px solid rgba(0,212,255,0.15);border-radius:20px;padding:40px;margin:30px auto;max-width:900px;text-align:center}
-.main-dl h2{font-size:1.3rem;font-weight:700;margin-bottom:8px}
-.main-dl p{font-size:.82rem}
-.main-dl .version-tag{display:inline-block;padding:4px 12px;border-radius:6px;background:rgba(0,212,255,0.1);color:var(--accent);font-size:.78rem;font-weight:600;margin-bottom:8px}
+.main-dl{background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(37,99,235,0.04));border:1px solid rgba(0,212,255,0.15);border-radius:24px;padding:48px 40px;margin:30px auto;max-width:960px;text-align:center}
+.main-dl h2{font-size:1.6rem;font-weight:700;margin-bottom:10px}
+.main-dl p{font-size:.92rem}
+.main-dl .version-tag{display:inline-block;padding:6px 16px;border-radius:8px;background:rgba(0,212,255,0.1);color:var(--accent);font-size:.85rem;font-weight:600;margin-bottom:12px}
 .platform-dl{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.platform-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:18px 28px;border-radius:14px;text-decoration:none;transition:all .25s;min-width:140px}
+.platform-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:22px 36px;border-radius:16px;text-decoration:none;transition:all .25s;min-width:170px}
 .platform-btn.win{background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:var(--text)}
 .platform-btn.win:hover{background:rgba(0,212,255,0.18);transform:translateY(-2px)}
 .platform-btn.mac{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);color:var(--text)}
 .platform-btn.mac:hover{background:rgba(167,139,250,0.18);transform:translateY(-2px)}
 .platform-btn.linux{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2);color:var(--text)}
 .platform-btn.linux:hover{background:rgba(251,191,36,0.18);transform:translateY(-2px)}
-.platform-btn .icon{font-size:1.6rem}
-.platform-btn .label{font-size:.82rem;font-weight:600}
-.platform-btn .sub{font-size:.7rem;color:var(--text3)}
-.dl-details{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-size:.8rem;color:var(--text3)}
+.platform-btn .icon{font-size:2rem}
+.platform-btn .label{font-size:.95rem;font-weight:600}
+.platform-btn .sub{font-size:.78rem;color:var(--text3)}
+.dl-details{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-size:.85rem;color:var(--text3)}
 .dl-details span{display:flex;align-items:center;gap:6px}
 
 /* Grid */
@@ -91,8 +91,8 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .code .copy{position:absolute;top:6px;right:6px;background:rgba(255,255,255,0.06);border:none;border-radius:6px;color:var(--text3);width:28px;height:28px;font-size:.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .2s,background .2s}
 .code .copy:hover{color:var(--text);background:rgba(255,255,255,0.1)}
 .code .copy.ok{color:var(--green)}
-.dl-link{font-size:.78rem;font-weight:600;transition:background .2s;margin-top:auto}
-.dl-link:hover{background:rgba(0,212,255,0.18)}
+.dl-link{font-size:.78rem;font-weight:600;color:var(--text2);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:10px 16px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s;margin-top:auto}
+.dl-link:hover{background:rgba(255,255,255,0.08);border-color:var(--border-h);color:var(--text)}
 .dl-link svg{width:16px;height:16px}
 
 /* Footer */
@@ -285,6 +285,9 @@ function copyCmd(b){var p=b.parentElement.querySelector('pre code');if(!p)return
 </script>
 </body>
 </html>
+
+
+
 
 
 
