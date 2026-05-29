@@ -21,7 +21,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .header.scrolled{background:rgba(10,14,26,0.92);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
 .nav{display:flex;align-items:center;justify-content:space-between}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.95rem}
-.nav-brand img{width:36px;height:36px;border-radius:8px}
+.nav-brand img{width:auto;height:40px;border-radius:6px}
 .nav-links{display:flex;gap:4px;list-style:none}
 .nav-links a{padding:8px 16px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s,background .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.06)}
@@ -106,6 +106,18 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 /* FAQ */
 .faq-section{padding:60px 0}
+.faq-grid{max-width:800px;margin:0 auto}
+.faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden;transition:border-color .3s}
+.faq-item:hover{border-color:var(--border-h)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--card);border:none;color:var(--text);font-size:.85rem;font-weight:500;cursor:pointer;text-align:left;transition:background .2s;gap:8px}
+.faq-q:hover{background:var(--card-h)}
+.faq-q .arrow{transition:transform .3s;font-size:.7rem;color:var(--text3);flex-shrink:0}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{padding:0 18px;max-height:0;overflow:hidden;transition:all .4s ease;color:var(--text2);font-size:.8rem;line-height:1.8}
+.faq-item.open .faq-a{max-height:2000px;padding:0 18px 18px}
+.faq-a p{margin-bottom:8px}
+.faq-a ul{list-style:none;margin:8px 0}
+.faq-a ul li{padding:4px 0;font-size:.78rem;color:var(--text2)}
 .faq-list{max-width:720px;margin:0 auto}
 .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
 .faq-item:hover{border-color:var(--border-h)}
@@ -152,7 +164,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 <div id="header" class="header">
   <nav class="nav container">
     <a href="/" class="nav-brand">
-      <img src="/assets/logo-192.png" alt="OpenClaw" loading="lazy">
+      <img src="/assets/logo-192.png" alt="OpenClaw" style="width:auto;height:40px;border-radius:6px" loading="lazy">
       OpenClaw Hermes Codex
     </a>
     <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
@@ -289,26 +301,151 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <h2><span>常见问题</span></h2>
       <p>关于 Token 代充服务，您可能想了解这些</p>
     </div>
-    <div class="faq-list">
+    <div class="faq-grid">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">新用户注册真的免费送 50 次吗？<span class="arrow">▼</span></button>
-        <div class="faq-a">是的！新用户注册后自动赠送 50 次使用量，覆盖 DeepSeek / 通义千问等主流模型。无需付费，立即体验。用完后再决定是否充值。</div>
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>🎁 新用户注册真的免费送 50 次吗？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>是的，完全免费！</strong></p>
+          <p>新用户在 <a href="https://token.skillai.top" target="_blank" style="color:var(--accent)">token.skillai.top</a> 完成注册后，系统自动赠送 <strong>50 次使用量</strong>。</p>
+          <ul>
+            <li>✅ 覆盖 DeepSeek / 通义千问 / 豆包 / 智谱 等主流模型</li>
+            <li>✅ 无需绑定支付方式，零门槛体验</li>
+            <li>✅ 用完后再决定是否充值，无任何强制消费</li>
+          </ul>
+          <p>👉 <a href="https://token.skillai.top" target="_blank" style="color:var(--accent)">立即注册免费领取 →</a></p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">支持哪些 AI 模型的 Token 代充？<span class="arrow">▼</span></button>
-        <div class="faq-a">目前支持 DeepSeek（deepseek-chat、deepseek-reasoner、deepseek-v4）、通义千问（qwen系列）、豆包（doubao系列）、智谱 AI（glm系列）等主流大模型。其他模型可联系客服咨询。</div>
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>🧠 支持哪些 AI 模型的 Token 代充？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>目前支持以下主流大模型，持续新增中：</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:10px 14px">
+              <strong style="color:var(--text)">🧠 DeepSeek</strong>
+              <p style="font-size:.75rem;margin-top:4px">deepseek-chat / deepseek-reasoner / deepseek-v4-flash / deepseek-v4-pro</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:10px 14px">
+              <strong style="color:var(--text)">🌐 通义千问</strong>
+              <p style="font-size:.75rem;margin-top:4px">qwen-turbo / qwen-plus / qwen-max / qwen2.5 系列</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:10px 14px">
+              <strong style="color:var(--text)">🔵 豆包 Doubao</strong>
+              <p style="font-size:.75rem;margin-top:4px">doubao-pro-32k / doubao-pro-128k / doubao-lite</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:10px 14px">
+              <strong style="color:var(--text)">🟣 智谱 GLM</strong>
+              <p style="font-size:.75rem;margin-top:4px">glm-4-plus / glm-4-air / glm-4-flash / glm-4v</p>
+            </div>
+          </div>
+          <p style="margin-top:10px">📞 其他模型需求请联系客服咨询是否支持。</p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">充值后多久到账？<span class="arrow">▼</span></button>
-        <div class="faq-a">标准充值订单一般在 5-30 分钟内到账。如遇特殊情况延迟，客服会主动联系您并及时处理。大额充值可加急处理，最快 5 分钟到账。</div>
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>⚡ 充值后多久到账？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>标准订单：5-30 分钟内到账</strong></p>
+          <ul>
+            <li>✅ 支付宝/微信支付完成后，系统自动处理，一般 5 分钟内到账</li>
+            <li>✅ 大额充值（¥100+）可联系客服加急，最快 5 分钟到账</li>
+            <li>✅ 如遇网络延迟或系统维护，客服会主动联系并跟进处理</li>
+          </ul>
+          <p>⏰ 到账后可通过 <a href="https://token.skillai.top" target="_blank" style="color:var(--accent)">个人中心</a> 查看余额和使用记录。</p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">企业用户有优惠吗？<span class="arrow">▼</span></button>
-        <div class="faq-a">企业用户可根据月调用量享受专属折扣，量大从优。详情请联系商务团队洽谈，支持对公转账和发票。</div>
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>💰 支持哪些充值方式？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>目前支持：</strong></p>
+          <ul>
+            <li>💳 <strong>微信支付</strong> — 扫码支付，实时到账</li>
+            <li>💳 <strong>支付宝</strong> — 扫码或转账</li>
+            <li>🏦 <strong>对公转账</strong> — 企业用户可对公转账，支持开具发票</li>
+          </ul>
+          <p style="margin-top:8px">企业用户月消费超 ¥200 可申请发票，详情联系商务团队。</p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">是否支持退款？<span class="arrow">▼</span></button>
-        <div class="faq-a">已充值的 Token 不支持退款，请在充值前确认所需模型和用量。如有充值错误请及时联系客服协调处理。赠送的 50 次体验量用完为止。</div>
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>🏢 企业用户有优惠吗？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>有的！企业用户专属折扣：</strong></p>
+          <ul>
+            <li>📊 月调用量超过 10 万次，享受 <strong>9 折</strong> 优惠</li>
+            <li>📊 月调用量超过 50 万次，享受 <strong>8 折</strong> 优惠</li>
+            <li>📊 月调用量超过 100 万次，享受 <strong>7 折</strong> 优惠</li>
+            <li>📊 量大可议价，长期合作更优惠</li>
+          </ul>
+          <p style="margin-top:8px">企业客户还享有：7×12 小时专属客服、技术支持群、优先处理通道。</p>
+          <p>📞 商务联系微信：<strong style="color:var(--text)">kaka12512535</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>🔄 包月套餐没用完可以退款吗？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>套餐说明：</strong></p>
+          <ul>
+            <li>✅ 包月套餐在有效期内可自由使用，到期未用完的额度自动作废</li>
+            <li>❌ 已购买的套餐不支持退款，请在购买前确认用量</li>
+            <li>✅ 按量充值的 Token 长期有效，用完为止</li>
+            <li>✅ 如遇充值错误，请及时联系客服协调处理</li>
+          </ul>
+          <p>💡 建议新用户先使用 <strong>免费 50 次体验</strong>，满意后再选择适合的套餐。</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>🔒 我的 API Key 安全吗？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>非常安全。</strong></p>
+          <ul>
+            <li>🔐 所有 API Key 采用 AES-256 加密存储</li>
+            <li>🔐 系统不会以任何形式向第三方泄露您的密钥</li>
+            <li>🔐 建议不要在非官方渠道分享您的 API Key</li>
+            <li>🔐 如怀疑 Key 泄露，可在控制台随时吊销重建</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>📞 遇到问题如何联系客服？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>多种方式联系：</strong></p>
+          <ul>
+            <li>💬 <strong>微信</strong>：kaka12512535（工作日 9:00-22:00 在线）</li>
+            <li>👥 <strong>QQ 群</strong>：482123078（SkillAI 一站式 Token 官方服务群）</li>
+            <li>💬 <strong>个人 QQ</strong>：164223412</li>
+            <li>📧 <strong>邮箱</strong>：kaka12512535@qq.com</li>
+          </ul>
+          <p style="margin-top:8px">工作日 9:00-22:00 在线，节假日也在线，随时联系。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -368,4 +505,7 @@ function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
 </script>
 </body>
 </html>
+
+
+
 

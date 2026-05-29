@@ -23,7 +23,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .header.scrolled{background:rgba(10,14,26,0.92);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
 .nav{display:flex;align-items:center;justify-content:space-between}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.88rem}
-.nav-brand img{width:32px;height:32px;border-radius:6px}
+.nav-brand img{width:auto;height:40px;border-radius:6px}
 .nav-links{display:flex;gap:2px;list-style:none}
 .nav-links a{padding:6px 14px;border-radius:6px;color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s,background .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.06)}
@@ -122,7 +122,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 <div id="header" class="header">
   <nav class="nav container">
     <a href="/" class="nav-brand">
-      <img src="/assets/logo-192.png" alt="OpenClaw Hermes Codex" loading="lazy">
+      <img src="/assets/logo-192.png" alt="OpenClaw Hermes Codex" style="width:auto;height:40px;border-radius:6px" loading="lazy">
       OpenClaw Hermes Codex
     </a>
     <ul class="nav-links">
@@ -288,7 +288,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3><img src="/assets/logo-192.png" width="24" height="24" alt="" style="border-radius:4px"> OpenClaw Hermes Codex</h3>
+        <h3><img src="/assets/logo-192.png" style="width:auto;height:20px;border-radius:4px" alt=""> OpenClaw Hermes Codex</h3>
         <p>您的全能 AI 私人助理部署工具，一键自动化部署、智能配置、数据隐私保护，让每个人都能轻松拥有本地 AI 助手。</p>
       </div>
       <div class="footer-col">
@@ -324,5 +324,7 @@ function copyText(btn){var code=btn.parentElement;var text=code.textContent.repl
 </script>
 </body>
 </html>
+
+
 
 
