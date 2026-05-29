@@ -76,6 +76,20 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 @media(max-width:768px){.process-arrow{display:none}}
 
 /* FAQ */
+.qr-grid-section{padding:60px 0;background:#0d1320;text-align:center}
+.qr-grid-section h2{font-size:1.6rem;font-weight:700;margin-bottom:8px}
+.qr-grid-section>p{color:var(--text2);margin-bottom:30px}
+.contact-qr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1000px;margin:30px auto 0}
+@media(max-width:768px){.contact-qr-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.contact-qr-grid{grid-template-columns:1fr}}
+.qr-card{padding:24px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);text-align:center;transition:transform .3s,border-color .3s}
+.qr-card:hover{transform:translateY(-3px);border-color:var(--border-h);background:var(--card-h)}
+.qr-img-wrap{width:100%;margin-bottom:14px;border-radius:12px;overflow:hidden}
+.qr-img{width:100%;max-width:200px;height:auto;display:block;margin:0 auto;border-radius:10px}
+.qr-card h4{font-size:.95rem;font-weight:600;margin-bottom:6px;color:var(--text)}
+.qr-id{font-size:.88rem;color:var(--accent);font-weight:600;margin-bottom:4px}
+.qr-note{font-size:.75rem;color:var(--text3);line-height:1.4}
+
 .faq-section{padding:60px 0}
 .faq-list{max-width:800px;margin:0 auto}
 .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
@@ -299,24 +313,58 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   <div class="container">
     <h2>📞 联系我们</h2>
     <p>准备好合作了吗？立即联系我们的商务团队</p>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="icon">💬</div>
-        <h4>客服微信</h4>
-        <p>kaka12512535</p>
-        <p style="font-size:.75rem;color:var(--text3)">工作日 9:00-22:00 在线</p>
+    
+    <div class="contact-qr-grid">
+      <!-- 微信二维码 -->
+      <div class="qr-card">
+        <div class="qr-img-wrap has-qr">
+          <img src="/assets/qrcode-our.png" alt="微信二维码" class="qr-img" loading="lazy">
+        </div>
+        <div class="qr-body">
+          <div class="qr-badge wechat">💬 微信</div>
+          <p class="qr-id">kaka12512535</p>
+          <p class="qr-note">扫码添加 · 工作日 9:00-22:00 在线</p>
+        </div>
       </div>
-      <div class="contact-card">
-        <div class="icon">👥</div>
-        <h4>QQ 交流群</h4>
-        <p>482123078</p>
-        <p style="font-size:.75rem;color:var(--text3)">SkillAI 一站式 Token 官方服务群</p>
+      
+      <!-- QQ群二维码 -->
+      <div class="qr-card">
+        <div class="qr-img-wrap has-qr">
+          <img src="/assets/qq-group-qr.jpg" alt="QQ群二维码" class="qr-img" loading="lazy">
+        </div>
+        <div class="qr-body">
+          <div class="qr-badge qq">👥 QQ 群</div>
+          <p class="qr-id">482123078</p>
+          <p class="qr-note">SkillAI 官方服务群 · 扫码加入</p>
+        </div>
       </div>
-      <div class="contact-card">
-        <div class="icon">📧</div>
-        <h4>商务邮箱</h4>
-        <p>kaka12512535@qq.com</p>
-        <p style="font-size:.75rem;color:var(--text3)">24 小时内回复</p>
+      
+      <!-- 个人微信账号 -->
+      <div class="qr-card">
+        <div class="qr-img-wrap">
+          <div class="qr-icon-bg">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        </div>
+        <div class="qr-body">
+          <div class="qr-badge wechat">📱 个人微信</div>
+          <p class="qr-id">kaka12512535</p>
+          <p class="qr-note">搜索微信号添加 · 备注"商务合作"</p>
+        </div>
+      </div>
+      
+      <!-- 个人 QQ -->
+      <div class="qr-card">
+        <div class="qr-img-wrap">
+          <div class="qr-icon-bg">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+        </div>
+        <div class="qr-body">
+          <div class="qr-badge qq">💬 个人 QQ</div>
+          <p class="qr-id">482123078</p>
+          <p class="qr-note">直接添加好友 · 24小时内回复</p>
+        </div>
       </div>
     </div>
   </div>
@@ -333,3 +381,5 @@ function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
 </script>
 </body>
 </html>
+
+
