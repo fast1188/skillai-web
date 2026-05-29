@@ -20,28 +20,28 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s;border-bottom:1px solid transparent;padding:10px 0}
 .header.scrolled{background:rgba(10,14,26,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
 .nav{display:flex;align-items:center;justify-content:space-between}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.92rem}
+.nav-brand{font-size:.82rem}
 .nav-brand img{width:34px;height:34px;border-radius:8px}
 .nav-links{display:flex;gap:2px;list-style:none}
-.nav-links a{padding:7px 14px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;transition:all .2s}
+.nav-links a{font-size:.78rem;font-weight:500;transition:all .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.05)}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+.btn{font-size:.78rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
 .btn-primary{background:var(--accent);color:#0a0e1a}
 .btn-primary:hover{background:#33ddff;transform:translateY(-1px)}
-.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:4px}
+.mobile-toggle{font-size:1.2rem;cursor:pointer;padding:4px}
 
 /* Hero */
 .news-hero{padding:120px 0 30px;text-align:center}
-.news-hero h1{font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.news-hero p{font-size:.82rem;color:var(--text2);margin-top:4px}
+.news-hero h1{font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.news-hero p{font-size:.72rem;color:var(--text2);margin-top:4px}
 
 /* Subnav */
 .subnav{display:flex;align-items:center;gap:4px;padding:12px 0;border-bottom:1px solid var(--border);margin-bottom:24px;flex-wrap:wrap}
-.subnav a{font-size:.78rem;font-weight:500;color:var(--text3);text-decoration:none;transition:all .2s}
+.subnav a{font-size:.7rem;font-weight:500;color:var(--text3);text-decoration:none;transition:all .2s}
 .subnav a:hover{color:var(--text);background:rgba(255,255,255,0.04)}
 .subnav a.active{color:var(--accent);background:rgba(0,212,255,0.06)}
 .subnav .spacer{flex:1}
-.subnav .count{font-size:.72rem;color:var(--text3)}
+.subnav .count{font-size:.65rem;color:var(--text3)}
 
 /* Feed - Horizontal article list */
 .feed{display:flex;flex-direction:column;gap:2px;margin-bottom:40px}
@@ -52,16 +52,16 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .feed-thumb{width:100px;height:70px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;overflow:hidden;flex-shrink:0}
 .feed-content{flex:1;min-width:0}
 .feed-meta{display:flex;align-items:center;gap:8px;margin-bottom:3px;flex-wrap:wrap}
-.feed-cat{font-size:.66rem;font-weight:600;padding:2px 8px;border-radius:4px}
+.feed-cat{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:4px}
 .feed-cat.blue{background:rgba(0,212,255,0.08);color:var(--accent)}
 .feed-cat.green{background:rgba(74,222,128,0.08);color:var(--green)}
 .feed-cat.yellow{background:rgba(251,191,36,0.08);color:var(--yellow)}
 .feed-cat.purple{background:rgba(167,139,250,0.08);color:var(--purple)}
 .feed-cat.orange{background:rgba(251,146,60,0.08);color:var(--orange)}
-.feed-title{font-size:.82rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:2px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.feed-title{font-size:.75rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:2px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .feed-title:hover{color:var(--accent)}
-.feed-excerpt{font-size:.75rem;color:var(--text3);line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:4px}
-.feed-footer{font-size:.7rem;color:var(--text3)}
+.feed-excerpt{font-size:.68rem;color:var(--text3);line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:4px}
+.feed-footer{font-size:.65rem;color:var(--text3)}
 .feed-footer .dot{width:3px;height:3px;border-radius:50%;background:var(--text3)}
 .feed-footer .stat{display:flex;align-items:center;gap:3px}
 .feed-footer .stat:hover{color:var(--text2)}
@@ -70,37 +70,37 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 /* Featured sticky */
 .feed-item.featured{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:8px}
 .feed-item.featured .feed-thumb{width:140px;height:90px;font-size:2.2rem}
-.feed-item.featured .feed-title{font-size:.9rem;font-weight:700}
+.feed-item.featured .feed-title{font-size:.82rem;font-weight:700}
 .feed-item.featured .feed-excerpt{-webkit-line-clamp:2;font-size:.82rem}
 
 /* Tags */
 .tags-row{display:flex;gap:4px;flex-wrap:wrap;margin:4px 0}
-.tag{font-size:.66rem;color:var(--text3);padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.03);border:1px solid var(--border)}
+.tag{font-size:.6rem;color:var(--text3);padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.03);border:1px solid var(--border)}
 .tag:hover{color:var(--text);border-color:var(--border-h)}
 
 /* Hot topics sidebar-style inline */
 .topics-inline{display:flex;align-items:center;gap:6px;padding:10px 16px;margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:10px;flex-wrap:wrap}
-.topics-inline .label{font-size:.7rem;color:var(--text3);font-weight:500}
-.topics-inline a{font-size:.7rem;color:var(--text2);padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);text-decoration:none;transition:all .2s}
+.topics-inline .label{font-size:.65rem;color:var(--text3);font-weight:500}
+.topics-inline a{font-size:.65rem;color:var(--text2);padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);text-decoration:none;transition:all .2s}
 .topics-inline a:hover{color:var(--accent);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.05)}
 
 /* Pagination */
 .pg{display:flex;justify-content:center;gap:4px;padding:20px 0 30px}
-.pg a{font-size:.78rem;color:var(--text3);background:rgba(255,255,255,0.02);border:1px solid var(--border);text-decoration:none;transition:all .2s}
+.pg a{font-size:.7rem;color:var(--text3);background:rgba(255,255,255,0.02);border:1px solid var(--border);text-decoration:none;transition:all .2s}
 .pg a:hover{color:var(--text);border-color:var(--border-h)}
 .pg a.active{color:var(--accent);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.06)}
 
 /* Subscribe */
 .sub-box{text-align:center;padding:30px;border:1px solid var(--border);border-radius:12px;margin-bottom:30px;background:var(--card)}
-.sub-box h3{font-size:.9rem;font-weight:700;margin-bottom:4px}
-.sub-box p{font-size:.75rem;color:var(--text2);margin-bottom:12px}
+.sub-box h3{font-size:.8rem;font-weight:700;margin-bottom:4px}
+.sub-box p{font-size:.68rem;color:var(--text2);margin-bottom:12px}
 .sub-row{display:flex;justify-content:center;gap:6px;max-width:360px;margin:0 auto}
-.sub-row input{font-size:.78rem;outline:none}
+.sub-row input{font-size:.72rem;outline:none}
 .sub-row input:focus{border-color:var(--accent)}
 .sub-row input::placeholder{color:var(--text3)}
 
 /* Footer */
-.ft{text-align:center;padding:24px 0;color:var(--text3);font-size:.75rem;border-top:1px solid var(--border)}
+.ft{font-size:.68rem;border-top:1px solid var(--border)}
 .ft p{margin-bottom:3px}
 .ft a{color:var(--text3);text-decoration:none}
 .ft a:hover{color:var(--accent)}
@@ -113,7 +113,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   .feed-item.featured{flex-direction:column}
   .feed-item.featured .feed-thumb{width:100%;height:120px}
   .feed-thumb{width:72px;height:54px;font-size:1.2rem}
-  .feed-title{font-size:.82rem}
+  .feed-title{font-size:.75rem}
   .news-hero h1{font-size:1.5rem}
 }
 </style>
@@ -201,8 +201,8 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat blue">产品更新</span>
-          <span style="font-size:.72rem;color:var(--text3)">2026-05-29</span>
-          <span style="font-size:.72rem;color:var(--text3)">· OpenClaw 团队</span>
+          <span style="font-size:.65rem;color:var(--text3)">2026-05-29</span>
+          <span style="font-size:.65rem;color:var(--text3)">· OpenClaw 团队</span>
         </div>
         <div class="feed-title">OpenClaw Hermes Codex v2.1 正式发布 — 全新 GUI 与智能任务引擎</div>
         <div class="feed-excerpt">经过数月精心打磨，v2.1 发布。全新 GUI 界面、智能任务规划引擎、DeepSeek v4 深度集成，性能提升 40%，启动时间缩至 3 秒以内。</div>
@@ -228,7 +228,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat yellow">行业资讯</span>
-          <span style="font-size:.72rem;color:var(--text3)">5月27日</span>
+          <span style="font-size:.65rem;color:var(--text3)">5月27日</span>
         </div>
         <div class="feed-title">DeepSeek v4 系列即将上线：开发者迁移指南</div>
         <div class="feed-excerpt">deepseek-chat 将于 7/24 弃用。作为 DeepSeek 深度集成伙伴，OpenClaw 已第一时间完成 v4 适配。</div>
@@ -254,7 +254,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat green">使用教程</span>
-          <span style="font-size:.72rem;color:var(--text3)">5月28日</span>
+          <span style="font-size:.65rem;color:var(--text3)">5月28日</span>
         </div>
         <div class="feed-title">零基础 3 分钟上手：从下载到运行第一个 AI 任务</div>
         <div class="feed-excerpt">面向零基础用户。三步完成：下载 → 配置 API Key → 运行任务。全程无需编程。</div>
@@ -280,7 +280,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat purple">技巧分享</span>
-          <span style="font-size:.72rem;color:var(--text3)">5月26日</span>
+          <span style="font-size:.65rem;color:var(--text3)">5月26日</span>
         </div>
         <div class="feed-title">效率翻倍！OpenClaw 必知的 5 个高级用法</div>
         <div class="feed-excerpt">批量文件处理、代码审查助手、智能日程管理、一键文档生成、跨设备同步。</div>
@@ -306,7 +306,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat blue">产品更新</span>
-          <span style="font-size:.72rem;color:var(--text3)">5月25日</span>
+          <span style="font-size:.65rem;color:var(--text3)">5月25日</span>
         </div>
         <div class="feed-title">隐私优先：OpenClaw 本地数据处理架构解析</div>
         <div class="feed-excerpt">本地优先架构、AES-256 加密、TLS 1.3、企业级离线部署方案。</div>
@@ -332,7 +332,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat green">使用教程</span>
-          <span style="font-size:.72rem;color:var(--text3)">5月24日</span>
+          <span style="font-size:.65rem;color:var(--text3)">5月24日</span>
         </div>
         <div class="feed-title">远程部署实操：在云服务器搭建 AI 自动化服务</div>
         <div class="feed-excerpt">从服务器选购到一键部署，15 分钟搭建 7×24 小时无人值守 AI 服务。</div>
@@ -358,7 +358,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat orange">社区活动</span>
-          <span style="font-size:.72rem;color:var(--text3)">5月22日</span>
+          <span style="font-size:.65rem;color:var(--text3)">5月22日</span>
         </div>
         <div class="feed-title">OpenClaw 用户故事征集：分享你的 AI 自动化体验</div>
         <div class="feed-excerpt">分享你的使用故事，优质投稿将获得精美周边礼品和官方推荐。长期有效。</div>
@@ -384,7 +384,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="feed-content">
         <div class="feed-meta">
           <span class="feed-cat yellow">行业资讯</span>
-          <span style="font-size:.72rem;color:var(--text3)">5月20日</span>
+          <span style="font-size:.65rem;color:var(--text3)">5月20日</span>
         </div>
         <div class="feed-title">2026 年 AI 编程工具市场趋势：自动化部署成新风口</div>
         <div class="feed-excerpt">AI 编程工具市场年增长率超 60%，本地优先的自动化部署方案正成为企业首选。</div>
@@ -447,6 +447,7 @@ window.addEventListener('scroll',function(){document.getElementById('header').cl
 </script>
 </body>
 </html>
+
 
 
 
