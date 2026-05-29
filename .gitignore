@@ -1,0 +1,12 @@
+﻿# 开发/采集脚本 - 与网站无关
+*.py
+browse*.js
+check_login.js
+xianyu_*
+gen_*.py
+run_*.py
+# 系统文件
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
