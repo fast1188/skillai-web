@@ -174,238 +174,118 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   <!-- Feed -->
   <div class="feed">
 
-    <!-- Featured -->
+    <!-- Article 1: Featured -->
     <div class="feed-item featured">
-      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320">
-  <svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0">
-    <defs>
-      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity=".15"/><stop offset="100%" stop-color="#2563eb" stop-opacity=".05"/></linearGradient>
-      <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".08"/></linearGradient>
-    </defs>
-    <rect width="200" height="140" fill="url(#g1)"/>
-    <rect y="80" width="200" height="60" fill="url(#g2)"/>
-    <!-- Circuit traces -->
-    <path d="M20 20 L40 20 L40 40 L60 40 M80 20 L100 20 L100 50 L120 50 M140 20 L160 20 L160 35 L180 35" stroke="#00d4ff" stroke-width=".8" fill="none" opacity=".3"/>
-    <path d="M30 90 L50 90 L50 110 L70 110 M100 95 L120 95 L120 115 L140 115 M160 90 L180 90" stroke="#00d4ff" stroke-width=".6" fill="none" opacity=".25"/>
-    <!-- Dots -->
-    <circle cx="40" cy="40" r="2" fill="#00d4ff" opacity=".4"/>
-    <circle cx="120" cy="50" r="2" fill="#00d4ff" opacity=".4"/>
-    <circle cx="160" cy="35" r="2" fill="#00d4ff" opacity=".4"/>
-    <circle cx="70" cy="110" r="2" fill="#2563eb" opacity=".3"/>
-    <circle cx="140" cy="115" r="2" fill="#2563eb" opacity=".3"/>
-    <!-- Abstract shapes -->
-    <rect x="150" y="10" width="35" height="25" rx="3" fill="rgba(0,212,255,.06)" stroke="rgba(0,212,255,.15)" stroke-width=".5"/>
-    <rect x="15" y="60" width="25" height="18" rx="2" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.12)" stroke-width=".5"/>
-  </svg>
-</div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g1a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity=".15"/><stop offset="100%" stop-color="#2563eb" stop-opacity=".05"/></linearGradient></defs><rect width="200" height="140" fill="url(#g1a)"/><path d="M20 20 L40 20 L40 40 L60 40 M80 20 L100 20 L100 50 L120 50" stroke="#00d4ff" stroke-width=".8" fill="none" opacity=".3"/><circle cx="40" cy="40" r="2" fill="#00d4ff" opacity=".4"/><circle cx="120" cy="50" r="2" fill="#00d4ff" opacity=".4"/><rect x="150" y="10" width="35" height="25" rx="3" fill="rgba(0,212,255,.06)" stroke="rgba(0,212,255,.15)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat blue">产品更新</span>
-          <span style="font-size:.65rem;color:var(--text3)">2026-05-29</span>
-          <span style="font-size:.65rem;color:var(--text3)">· OpenClaw 团队</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat blue">产品更新</span><span style="font-size:.65rem;color:var(--text3)">2026-05-29 · OpenClaw 团队</span></div>
         <div class="feed-title">OpenClaw Hermes Codex v2.1 正式发布 — 全新 GUI 与智能任务引擎</div>
         <div class="feed-excerpt">经过数月精心打磨，v2.1 发布。全新 GUI 界面、智能任务规划引擎、DeepSeek v4 深度集成，性能提升 40%，启动时间缩至 3 秒以内。</div>
-        <div class="tags-row">
-          <span class="tag">#v2.1</span>
-          <span class="tag">#产品更新</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 28</span>
-          <span class="dot"></span>
-          <span>💬 6</span>
-          <span class="dot"></span>
-          <span>5 分钟阅读</span>
-        </div>
+        <div class="tags-row"><span class="tag">#v2.1</span><span class="tag">#产品更新</span></div>
+        <div class="feed-footer"><span>❤️ 28</span><span class="dot"></span><span>💬 6</span><span class="dot"></span><span>5 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p><strong>v2.1 更新亮点：</strong></p><ul><li><strong>全新 GUI 界面</strong> — 重新设计的图形化操作界面，支持深浅色主题自动切换</li><li><strong>智能任务引擎</strong> — AI 自动将复杂需求拆解为可执行的子步骤</li><li><strong>DeepSeek v4 适配</strong> — 默认集成 DeepSeek 最新模型，开箱即用</li><li><strong>性能飞跃</strong> — 启动速度提升 60%，内存占用降低 30%</li><li><strong>多语言支持</strong> — 新增英文界面选项</li></ul><p>升级方式：运行 <code>openclaw update</code> 自动升级。</p></div>
       </div>
-    </div><div class="feed-full"><p><strong>v2.1 更新亮点：</strong></p><ul><li><strong>全新 GUI 界面</strong> — 重新设计的图形化操作界面，直观易用，支持深浅色主题自动切换</li><li><strong>智能任务引擎</strong> — AI 自动将复杂需求拆解为可执行的子步骤，每一步都有清晰的执行状态反馈</li><li><strong>DeepSeek v4 适配</strong> — 默认集成 DeepSeek 最新模型，开箱即用。同时保留 MiniMax 作为备选通道</li><li><strong>性能飞跃</strong> — 启动速度提升 60%，内存占用降低 30%。即使在低配硬件上也能流畅运行</li><li><strong>多语言支持</strong> — 新增英文界面选项，方便海外用户使用</li></ul><p>升级方式：运行 <code>openclaw update</code> 命令自动升级，或重新下载安装包覆盖安装，配置不会丢失。</p></div>
-
+    </div>
     <div class="feed-divider"></div>
 
     <!-- Article 2 -->
     <div class="feed-item">
-      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="ap" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a78bfa" stop-opacity=".12"/><stop offset="100%" stop-color="#2563eb" stop-opacity=".04"/></linearGradient></defs><rect width="200" height="140" fill="url(#ap)"/><path d="M40 20 L60 20 L60 40 L80 40 M110 20 L130 20 L130 50 L150 50 M30 70 L50 70 L50 90 L70 90 M120 80 L140 80 L140 100 L160 100" stroke="#a78bfa" stroke-width=".7" fill="none" opacity=".25"/><circle cx="60" cy="20" r="2" fill="#a78bfa" opacity=".35"/><circle cx="130" cy="20" r="2" fill="#a78bfa" opacity=".35"/><circle cx="50" cy="70" r="2" fill="#a78bfa" opacity=".35"/><circle cx="140" cy="80" r="2" fill="#a78bfa" opacity=".35"/><rect x="140" y="8" width="40" height="28" rx="4" fill="rgba(167,139,250,.05)" stroke="rgba(167,139,250,.12)" stroke-width=".5"/><rect x="20" y="55" width="30" height="20" rx="3" fill="rgba(37,99,235,.05)" stroke="rgba(37,99,235,.1)" stroke-width=".5"/><path d="M10 120 L50 115 L80 118 L120 112 L160 116 L190 120" stroke="rgba(167,139,250,.08)" stroke-width=".8" fill="none"/></svg></div><div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320 0%,#1a1f3a 40%,#2d1b69 100%);position:relative;overflow:hidden"><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 40% 30%,rgba(167,139,250,0.12),transparent 60%)"></div><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 60% 70%,rgba(37,99,235,0.08),transparent 50%)"></div></div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g2a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a78bfa" stop-opacity=".12"/><stop offset="100%" stop-color="#2563eb" stop-opacity=".04"/></linearGradient></defs><rect width="200" height="140" fill="url(#g2a)"/><path d="M40 20 L60 20 L60 40 L80 40 M110 20 L130 20 L130 50 L150 50" stroke="#a78bfa" stroke-width=".7" fill="none" opacity=".25"/><circle cx="60" cy="20" r="2" fill="#a78bfa" opacity=".35"/><circle cx="130" cy="20" r="2" fill="#a78bfa" opacity=".35"/><rect x="140" y="8" width="40" height="28" rx="4" fill="rgba(167,139,250,.05)" stroke="rgba(167,139,250,.12)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat yellow">行业资讯</span>
-          <span style="font-size:.65rem;color:var(--text3)">5月27日</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat yellow">行业资讯</span><span style="font-size:.65rem;color:var(--text3)">5月27日</span></div>
         <div class="feed-title">DeepSeek v4 系列即将上线：开发者迁移指南</div>
-        <div class="feed-excerpt">deepseek-chat 将于 7/24 弃用。作为 DeepSeek 深度集成伙伴，OpenClaw 已第一时间完成 v4 适配。</div>
-        <div class="tags-row">
-          <span class="tag">#DeepSeek</span>
-          <span class="tag">#迁移</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 35</span>
-          <span class="dot"></span>
-          <span>💬 8</span>
-          <span class="dot"></span>
-          <span>4 分钟阅读</span>
-        </div>
+        <div class="feed-excerpt">deepseek-chat 将于 7/24 弃用。OpenClaw 已第一时间完成 v4 适配。</div>
+        <div class="tags-row"><span class="tag">#DeepSeek</span><span class="tag">#迁移</span></div>
+        <div class="feed-footer"><span>❤️ 35</span><span class="dot"></span><span>💬 8</span><span class="dot"></span><span>4 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p>DeepSeek 宣布 <strong>deepseek-chat</strong> 和 <strong>deepseek-reasoner</strong> 将于 <strong>2026/07/24</strong> 弃用，替代方案为 v4-flash 和 v4-pro 系列。</p><p>作为 DeepSeek 深度集成伙伴，OpenClaw 已第一时间完成 v4 适配。推理速度提升 3 倍、上下文窗口扩展至 128K、中文能力增强，同时 API 价格保持不变。</p><p>OpenClaw v2.1 已默认集成 v4 通道，自动升级即可使用。</p></div>
       </div>
-    </div><div class="feed-full"><p>DeepSeek 官方宣布，<strong>deepseek-chat</strong> 和 <strong>deepseek-reasoner</strong> 将于 <strong>2026 年 7 月 24 日</strong> 正式弃用，替代方案为全新的 <strong>deepseek-v4-flash</strong> 和 <strong>deepseek-v4-pro</strong> 系列。</p><p>作为 DeepSeek 的深度集成合作伙伴，OpenClaw 团队已第一时间完成 v4 系列的适配工作。本次升级带来了显著的性能提升：推理速度提升 3 倍、上下文窗口扩展至 128K、中文理解能力进一步增强，同时 API 调用价格保持不变。</p><p>OpenClaw 用户无需任何手动操作。v2.1 版本已默认集成 v4 模型通道，自动升级后即可使用最新模型。</p></div>
-
+    </div>
     <div class="feed-divider"></div>
 
     <!-- Article 3 -->
     <div class="feed-item">
-      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="gp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4ade80" stop-opacity=".1"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".04"/></linearGradient></defs><rect width="200" height="140" fill="url(#gp)"/><path d="M20 30 L45 30 L45 50 L70 50 M100 20 L125 20 L125 40 L150 40 M30 80 L55 80 L55 100 L80 100 M110 70 L135 70 L135 90 L160 90" stroke="#4ade80" stroke-width=".7" fill="none" opacity=".25"/><circle cx="45" cy="30" r="2" fill="#4ade80" opacity=".35"/><circle cx="125" cy="20" r="2" fill="#4ade80" opacity=".35"/><circle cx="55" cy="80" r="2" fill="#4ade80" opacity=".35"/><rect x="15" y="8" width="50" height="14" rx="4" fill="rgba(74,222,128,.05)" stroke="rgba(74,222,128,.1)" stroke-width=".5"/><rect x="130" y="55" width="55" height="12" rx="3" fill="rgba(0,212,255,.04)" stroke="rgba(0,212,255,.08)" stroke-width=".5"/><path d="M10 125 L60 120 L100 122 L140 118 L190 125" stroke="rgba(74,222,128,.06)" stroke-width=".6" fill="none"/></svg></div><div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320 0%,#16223a 40%,#0f3b2e 100%);position:relative;overflow:hidden"><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 30% 50%,rgba(74,222,128,0.1),transparent 60%)"></div><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 70% 40%,rgba(0,212,255,0.06),transparent 50%)"></div></div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g3a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4ade80" stop-opacity=".1"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".04"/></linearGradient></defs><rect width="200" height="140" fill="url(#g3a)"/><path d="M20 30 L45 30 L45 50 L70 50 M100 20 L125 20 L125 40 L150 40" stroke="#4ade80" stroke-width=".7" fill="none" opacity=".25"/><circle cx="45" cy="30" r="2" fill="#4ade80" opacity=".35"/><circle cx="125" cy="20" r="2" fill="#4ade80" opacity=".35"/><rect x="15" y="8" width="50" height="14" rx="4" fill="rgba(74,222,128,.05)" stroke="rgba(74,222,128,.1)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat green">使用教程</span>
-          <span style="font-size:.65rem;color:var(--text3)">5月28日</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat green">使用教程</span><span style="font-size:.65rem;color:var(--text3)">5月28日</span></div>
         <div class="feed-title">零基础 3 分钟上手：从下载到运行第一个 AI 任务</div>
         <div class="feed-excerpt">面向零基础用户。三步完成：下载 → 配置 API Key → 运行任务。全程无需编程。</div>
-        <div class="tags-row">
-          <span class="tag">#新手入门</span>
-          <span class="tag">#教程</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 42</span>
-          <span class="dot"></span>
-          <span>💬 12</span>
-          <span class="dot"></span>
-          <span>3 分钟阅读</span>
-        </div>
+        <div class="tags-row"><span class="tag">#新手入门</span><span class="tag">#教程</span></div>
+        <div class="feed-footer"><span>❤️ 42</span><span class="dot"></span><span>💬 12</span><span class="dot"></span><span>3 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p><strong>第一步：下载安装</strong> — 访问免费下载页，下载 Windows 版安装包。双击按提示完成安装。</p><p><strong>第二步：配置 API Key</strong> — 在 DeepSeek 官网注册并创建 API Key（免费额度够用），粘贴到配置框保存。</p><p><strong>第三步：运行任务</strong> — 用自然语言描述需求，OpenClaw 自动理解并执行。</p><p>不熟悉配置可联系客服微信 <strong>kaka12512535</strong> 获取免费远程协助。</p></div>
       </div>
-    </div><div class="feed-full"><p>本教程面向完全零基础的用户，全程无需编写任何代码。</p><p><strong>第一步：下载安装</strong> — 访问免费下载页面，点击下载 Windows 版安装包。双击 <code>openclaw-x-setup.exe</code>，按安装向导提示完成安装，全程不到 1 分钟。</p><p><strong>第二步：配置 API Key</strong> — 在 DeepSeek 官网注册账号并创建 API Key（免费额度即可满足日常使用），将 API Key 粘贴到配置框中保存。</p><p><strong>第三步：运行任务</strong> — 用自然语言描述需求，例如"帮我将桌面上的所有 .txt 文件合并成一个文件"，OpenClaw 会自动理解并执行。</p><p>如果不熟悉配置过程，可联系客服微信 <strong>kaka12512535</strong> 获取免费远程协助。</p></div>
-
+    </div>
     <div class="feed-divider"></div>
 
     <!-- Article 4 -->
     <div class="feed-item">
-      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="pp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c084fc" stop-opacity=".1"/><stop offset="100%" stop-color="#a78bfa" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#pp)"/><path d="M30 20 L55 20 L55 40 L80 40 M100 30 L125 30 L125 50 L150 50 M20 80 L45 80 L45 100 L70 100 M110 90 L135 90 L135 110 L160 110" stroke="#c084fc" stroke-width=".6" fill="none" opacity=".2"/><circle cx="55" cy="20" r="2" fill="#c084fc" opacity=".3"/><circle cx="125" cy="30" r="2" fill="#c084fc" opacity=".3"/><circle cx="45" cy="80" r="2" fill="#c084fc" opacity=".3"/><rect x="150" y="10" width="35" height="20" rx="3" fill="rgba(192,132,252,.04)" stroke="rgba(192,132,252,.1)" stroke-width=".5"/><rect x="10" y="55" width="50" height="15" rx="2" fill="rgba(167,139,250,.04)" stroke="rgba(167,139,250,.08)" stroke-width=".5"/></svg></div><div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="op" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fb923c" stop-opacity=".1"/><stop offset="100%" stop-color="#f97316" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#op)"/><path d="M35 20 L60 20 L60 40 L85 40 M105 30 L130 30 L130 50 L155 50 M25 80 L50 80 L50 100 L75 100 M115 90 L140 90 L140 110 L165 110" stroke="#fb923c" stroke-width=".6" fill="none" opacity=".2"/><circle cx="60" cy="20" r="2" fill="#fb923c" opacity=".3"/><circle cx="130" cy="30" r="2" fill="#fb923c" opacity=".3"/><circle cx="50" cy="80" r="2" fill="#fb923c" opacity=".3"/><rect x="155" y="12" width="30" height="18" rx="3" fill="rgba(251,146,60,.04)" stroke="rgba(251,146,60,.1)" stroke-width=".5"/><rect x="10" y="55" width="20" height="14" rx="2" fill="rgba(249,115,22,.04)" stroke="rgba(249,115,22,.08)" stroke-width=".5"/></svg></div><div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320 0%,#2d1b3a 40%,#1a1a2e 100%);position:relative;overflow:hidden"><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 50% 30%,rgba(168,85,247,0.1),transparent 60%)"></div><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 30% 70%,rgba(0,212,255,0.06),transparent 50%)"></div></div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g4a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c084fc" stop-opacity=".1"/><stop offset="100%" stop-color="#a78bfa" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#g4a)"/><path d="M30 20 L55 20 L55 40 L80 40 M100 30 L125 30 L125 50 L150 50" stroke="#c084fc" stroke-width=".6" fill="none" opacity=".2"/><circle cx="55" cy="20" r="2" fill="#c084fc" opacity=".3"/><circle cx="125" cy="30" r="2" fill="#c084fc" opacity=".3"/><rect x="150" y="10" width="35" height="20" rx="3" fill="rgba(192,132,252,.04)" stroke="rgba(192,132,252,.1)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat purple">技巧分享</span>
-          <span style="font-size:.65rem;color:var(--text3)">5月26日</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat purple">技巧分享</span><span style="font-size:.65rem;color:var(--text3)">5月26日</span></div>
         <div class="feed-title">效率翻倍！OpenClaw 必知的 5 个高级用法</div>
         <div class="feed-excerpt">批量文件处理、代码审查助手、智能日程管理、一键文档生成、跨设备同步。</div>
-        <div class="tags-row">
-          <span class="tag">#效率工具</span>
-          <span class="tag">#技巧</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 56</span>
-          <span class="dot"></span>
-          <span>💬 14</span>
-          <span class="dot"></span>
-          <span>5 分钟阅读</span>
-        </div>
+        <div class="tags-row"><span class="tag">#效率工具</span><span class="tag">#技巧</span></div>
+        <div class="feed-footer"><span>❤️ 56</span><span class="dot"></span><span>💬 14</span><span class="dot"></span><span>5 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p><strong>📁 技巧一：批量文件智能处理</strong> — 输入"将 Downloads 中所有 .pdf 按创建日期重命名"，AI 自动完成。</p><p><strong>🔍 技巧二：代码审查助手</strong> — 输入"审查当前项目代码质量"，AI 自动扫描输出审查报告。</p><p><strong>📅 技巧三：智能日程管理</strong> — "安排明天上午团队会议"，AI 自动创建并发送邀请。</p><p><strong>📄 技巧四：一键文档生成</strong> — 输入原始数据，AI 自动生成 Markdown/Excel/PPT。</p><p><strong>🔄 技巧五：跨设备同步</strong> — 多台设备配置自动同步，无缝切换工作环境。</p></div>
       </div>
-    </div><div class="feed-full"><p><strong>📁 技巧一：批量文件智能处理</strong> — 输入"将 Downloads 文件夹中所有 .pdf 按创建日期重命名"，AI 自动完成文件扫描、排序和批量重命名。</p><p><strong>🔍 技巧二：代码审查助手</strong> — 在项目目录输入"审查当前项目的代码质量"，AI 自动扫描分析代码逻辑，输出详细审查报告。</p><p><strong>📅 技巧三：智能日程管理</strong> — "帮我安排明天上午的团队会议，邀请所有项目成员"，AI 自动创建会议、发送邀请、生成报告。</p><p><strong>📄 技巧四：一键文档生成</strong> — 输入原始数据，AI 自动生成格式化的 Markdown 文档、Excel 报表或 PPT 大纲。</p><p><strong>🔄 技巧五：跨设备同步</strong> — 配合远程部署功能，多台设备配置自动同步，无缝切换工作环境。</p></div>
-
+    </div>
     <div class="feed-divider"></div>
 
     <!-- Article 5 -->
     <div class="feed-item">
-      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="cp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity=".1"/><stop offset="100%" stop-color="#2563eb" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#cp)"/><path d="M40 15 L65 15 L65 35 L90 35 M110 25 L135 25 L135 45 L160 45 M25 75 L50 75 L50 95 L75 95 M105 85 L130 85 L130 105 L155 105" stroke="#00d4ff" stroke-width=".7" fill="none" opacity=".22"/><circle cx="65" cy="15" r="2" fill="#00d4ff" opacity=".3"/><circle cx="135" cy="25" r="2" fill="#00d4ff" opacity=".3"/><circle cx="50" cy="75" r="2" fill="#00d4ff" opacity=".3"/><rect x="10" y="10" width="20" height="20" rx="4" fill="rgba(0,212,255,.04)" stroke="rgba(0,212,255,.1)" stroke-width=".5"/><rect x="155" y="60" width="30" height="18" rx="3" fill="rgba(37,99,235,.04)" stroke="rgba(37,99,235,.08)" stroke-width=".5"/></svg></div><div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320 0%,#16223a 40%,#0a2e38 100%);position:relative;overflow:hidden"><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 40% 40%,rgba(0,212,255,0.08),transparent 60%)"></div><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 60% 60%,rgba(37,99,235,0.06),transparent 50%)"></div></div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g5a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity=".1"/><stop offset="100%" stop-color="#2563eb" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#g5a)"/><path d="M40 15 L65 15 L65 35 L90 35 M110 25 L135 25 L135 45 L160 45" stroke="#00d4ff" stroke-width=".7" fill="none" opacity=".22"/><circle cx="65" cy="15" r="2" fill="#00d4ff" opacity=".3"/><circle cx="135" cy="25" r="2" fill="#00d4ff" opacity=".3"/><rect x="10" y="10" width="20" height="20" rx="4" fill="rgba(0,212,255,.04)" stroke="rgba(0,212,255,.1)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat blue">产品更新</span>
-          <span style="font-size:.65rem;color:var(--text3)">5月25日</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat blue">产品更新</span><span style="font-size:.65rem;color:var(--text3)">5月25日</span></div>
         <div class="feed-title">隐私优先：OpenClaw 本地数据处理架构解析</div>
         <div class="feed-excerpt">本地优先架构、AES-256 加密、TLS 1.3、企业级离线部署方案。</div>
-        <div class="tags-row">
-          <span class="tag">#隐私安全</span>
-          <span class="tag">#架构</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 19</span>
-          <span class="dot"></span>
-          <span>💬 3</span>
-          <span class="dot"></span>
-          <span>4 分钟阅读</span>
-        </div>
+        <div class="tags-row"><span class="tag">#隐私安全</span><span class="tag">#架构</span></div>
+        <div class="feed-footer"><span>❤️ 19</span><span class="dot"></span><span>💬 3</span><span class="dot"></span><span>4 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p>OpenClaw 采用 <strong>本地优先（Local-First）</strong> 架构。所有 AI 任务在本地执行，文件内容不上传云端。</p><p>配置文件采用 AES-256 加密存储，API 通信使用 TLS 1.3。支持完全离线部署，内网环境无需外部网络，满足企业合规要求。</p></div>
       </div>
-    </div><div class="feed-full"><p>OpenClaw 从设计之初就确立了 <strong>本地优先（Local-First）</strong> 的架构原则，确保你的数据安全可控。</p><p><strong>🏠 本地优先架构</strong> — 所有 AI 任务都在本地执行。指令文本发送到 API 处理，但文件内容、文档、代码等敏感数据不会上传到云端。</p><p><strong>🔒 数据加密</strong> — 配置文件采用 AES-256 加密存储，API 通信全程使用 TLS 1.3 加密，防止中间人攻击。</p><p><strong>🏢 企业级部署</strong> — 支持完全离线部署，内网环境无需外部网络，支持 AD/LDAP 用户认证和操作审计日志。</p></div>
-
+    </div>
     <div class="feed-divider"></div>
 
     <!-- Article 6 -->
     <div class="feed-item">
-      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="bp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2563eb" stop-opacity=".1"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#bp)"/><path d="M20 25 L50 25 L50 45 L80 45 M100 15 L130 15 L130 35 L160 35 M30 75 L60 75 L60 95 L90 95 M110 65 L140 65 L140 85 L170 85" stroke="#2563eb" stroke-width=".7" fill="none" opacity=".22"/><circle cx="50" cy="25" r="2" fill="#2563eb" opacity=".3"/><circle cx="130" cy="15" r="2" fill="#2563eb" opacity=".3"/><circle cx="60" cy="75" r="2" fill="#2563eb" opacity=".3"/><rect x="10" y="55" width="18" height="14" rx="2" fill="rgba(0,212,255,.04)" stroke="rgba(0,212,255,.08)" stroke-width=".5"/><rect x="145" y="8" width="40" height="22" rx="3" fill="rgba(37,99,235,.04)" stroke="rgba(37,99,235,.1)" stroke-width=".5"/></svg></div><div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320 0%,#1a1a2e 40%,#1e3a5f 100%);position:relative;overflow:hidden"><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 30% 50%,rgba(37,99,235,0.12),transparent 60%)"></div><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 70% 50%,rgba(0,212,255,0.06),transparent 50%)"></div></div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g6a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2563eb" stop-opacity=".1"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#g6a)"/><path d="M20 25 L50 25 L50 45 L80 45 M100 15 L130 15 L130 35 L160 35" stroke="#2563eb" stroke-width=".7" fill="none" opacity=".22"/><circle cx="50" cy="25" r="2" fill="#2563eb" opacity=".3"/><circle cx="130" cy="15" r="2" fill="#2563eb" opacity=".3"/><rect x="145" y="8" width="40" height="22" rx="3" fill="rgba(37,99,235,.04)" stroke="rgba(37,99,235,.1)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat green">使用教程</span>
-          <span style="font-size:.65rem;color:var(--text3)">5月24日</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat green">使用教程</span><span style="font-size:.65rem;color:var(--text3)">5月24日</span></div>
         <div class="feed-title">远程部署实操：在云服务器搭建 AI 自动化服务</div>
         <div class="feed-excerpt">从服务器选购到一键部署，15 分钟搭建 7×24 小时无人值守 AI 服务。</div>
-        <div class="tags-row">
-          <span class="tag">#远程部署</span>
-          <span class="tag">#服务器</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 31</span>
-          <span class="dot"></span>
-          <span>💬 7</span>
-          <span class="dot"></span>
-          <span>6 分钟阅读</span>
-        </div>
+        <div class="tags-row"><span class="tag">#远程部署</span><span class="tag">#服务器</span></div>
+        <div class="feed-footer"><span>❤️ 31</span><span class="dot"></span><span>💬 7</span><span class="dot"></span><span>6 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p><strong>1. 服务器准备</strong> — 推荐 2 核 4G 40GB SSD，系统 Ubuntu 22.04。</p><p><strong>2. 一键部署</strong> — SSH 登录后执行 <code>curl -fsSL https://openclaw.ai/install.sh | bash</code>，约 2-3 分钟。</p><p><strong>3. 配置访问</strong> — 配置 API Key 后自动启动 API 服务，支持 HTTP/WebSocket 远程调用。</p><p>不熟悉服务器操作？联系 <strong>kaka12512535</strong>，提供专业远程部署服务。</p></div>
       </div>
-    </div><div class="feed-full"><p>将 OpenClaw 部署到云服务器后，可实现 <strong>7×24 小时无人值守</strong> 的 AI 自动化服务。</p><p><strong>1. 服务器准备</strong> — 推荐 2 核 4G 40GB SSD 配置，系统推荐 Ubuntu 22.04 LTS。</p><p><strong>2. 一键部署</strong> — SSH 登录后执行 <code>curl -fsSL https://openclaw.ai/install.sh | bash</code>，安装脚本自动完成配置，约 2-3 分钟。</p><p><strong>3. 配置远程访问</strong> — 配置 API Key 和访问权限后，OpenClaw 自动启动本地 API 服务，支持 HTTP 和 WebSocket 远程调用。</p><p>不熟悉服务器操作？联系客服微信 <strong>kaka12512535</strong>，提供专业远程部署安装服务，3 分钟完成部署。</p></div>
-
+    </div>
     <div class="feed-divider"></div>
 
     <!-- Article 7 -->
     <div class="feed-item">
-      <div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320 0%,#2d1b3a 40%,#1a1a2e 100%);position:relative;overflow:hidden"><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 50% 40%,rgba(251,146,60,0.1),transparent 60%)"></div><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 30% 60%,rgba(167,139,250,0.06),transparent 50%)"></div></div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g7a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fb923c" stop-opacity=".1"/><stop offset="100%" stop-color="#f97316" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#g7a)"/><path d="M35 20 L60 20 L60 40 L85 40 M105 30 L130 30 L130 50 L155 50" stroke="#fb923c" stroke-width=".6" fill="none" opacity=".2"/><circle cx="60" cy="20" r="2" fill="#fb923c" opacity=".3"/><circle cx="130" cy="30" r="2" fill="#fb923c" opacity=".3"/><rect x="155" y="12" width="30" height="18" rx="3" fill="rgba(251,146,60,.04)" stroke="rgba(251,146,60,.1)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat orange">社区活动</span>
-          <span style="font-size:.65rem;color:var(--text3)">5月22日</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat orange">社区活动</span><span style="font-size:.65rem;color:var(--text3)">5月22日</span></div>
         <div class="feed-title">OpenClaw 用户故事征集：分享你的 AI 自动化体验</div>
-        <div class="feed-excerpt">分享你的使用故事，优质投稿将获得精美周边礼品和官方推荐。长期有效。</div>
-        <div class="tags-row">
-          <span class="tag">#用户故事</span>
-          <span class="tag">#活动</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 23</span>
-          <span class="dot"></span>
-          <span>💬 9</span>
-          <span class="dot"></span>
-          <span>2 分钟阅读</span>
-        </div>
+        <div class="feed-excerpt">分享使用故事，优质投稿将获得精美周边礼品和官方推荐。长期有效。</div>
+        <div class="tags-row"><span class="tag">#用户故事</span><span class="tag">#活动</span></div>
+        <div class="feed-footer"><span>❤️ 23</span><span class="dot"></span><span>💬 9</span><span class="dot"></span><span>2 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p>你是如何用 OpenClaw 提升工作效率的？欢迎分享！</p><p><strong>投稿要求：</strong> 字数不限，图文并茂更佳，分享真实使用场景。</p><p><strong>福利：</strong> 优质投稿将获得 OpenClaw 精美周边礼品，并在官方社区推荐展示。</p><p>投稿联系 <strong>kaka12512535</strong>。长期有效。</p></div>
       </div>
-    </div><div class="feed-full"><p>你是如何用 OpenClaw 提升工作效率的？欢迎分享你的使用故事！</p><p><strong>投稿要求：</strong></p><ul><li>字数不限，图文并茂更佳</li><li>分享真实使用场景和效果</li><li>可包含具体操作步骤和技巧</li></ul><p><strong>投稿福利：</strong> 优质投稿将获得 OpenClaw 精美周边礼品，并在官方社区和公众号推荐展示。</p><p>投稿方式：联系客服微信 <strong>kaka12512535</strong> 发送你的故事。活动长期有效。</p></div>
-
+    </div>
     <div class="feed-divider"></div>
 
     <!-- Article 8 -->
     <div class="feed-item">
-      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="yp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fbbf24" stop-opacity=".1"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#yp)"/><path d="M25 30 L55 30 L55 50 L85 50 M105 15 L135 15 L135 35 L165 35 M35 85 L65 85 L65 105 L95 105 M115 75 L145 75 L145 95 L175 95" stroke="#fbbf24" stroke-width=".6" fill="none" opacity=".2"/><circle cx="55" cy="30" r="2" fill="#fbbf24" opacity=".3"/><circle cx="135" cy="15" r="2" fill="#fbbf24" opacity=".3"/><circle cx="65" cy="85" r="2" fill="#fbbf24" opacity=".3"/><rect x="10" y="8" width="35" height="12" rx="2" fill="rgba(251,191,36,.04)" stroke="rgba(251,191,36,.1)" stroke-width=".5"/><rect x="150" y="60" width="35" height="20" rx="4" fill="rgba(245,158,11,.04)" stroke="rgba(245,158,11,.08)" stroke-width=".5"/></svg></div><div class="feed-thumb" style="background:linear-gradient(135deg,#0d1320 0%,#1f2937 50%,#2d3748 100%);position:relative;overflow:hidden"><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 40% 30%,rgba(251,191,36,0.08),transparent 60%)"></div><div style="position:absolute;inset:-20px;background:radial-gradient(circle at 60% 70%,rgba(0,212,255,0.06),transparent 50%)"></div></div>
+      <div class="feed-thumb" style="position:relative;overflow:hidden;background:#0d1320"><svg viewBox="0 0 200 140" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0"><defs><linearGradient id="g8a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fbbf24" stop-opacity=".1"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".03"/></linearGradient></defs><rect width="200" height="140" fill="url(#g8a)"/><path d="M25 30 L55 30 L55 50 L85 50 M105 15 L135 15 L135 35 L165 35" stroke="#fbbf24" stroke-width=".6" fill="none" opacity=".2"/><circle cx="55" cy="30" r="2" fill="#fbbf24" opacity=".3"/><circle cx="135" cy="15" r="2" fill="#fbbf24" opacity=".3"/><rect x="10" y="8" width="35" height="12" rx="2" fill="rgba(251,191,36,.04)" stroke="rgba(251,191,36,.1)" stroke-width=".5"/></svg></div>
       <div class="feed-content">
-        <div class="feed-meta">
-          <span class="feed-cat yellow">行业资讯</span>
-          <span style="font-size:.65rem;color:var(--text3)">5月20日</span>
-        </div>
+        <div class="feed-meta"><span class="feed-cat yellow">行业资讯</span><span style="font-size:.65rem;color:var(--text3)">5月20日</span></div>
         <div class="feed-title">2026 年 AI 编程工具市场趋势：自动化部署成新风口</div>
-        <div class="feed-excerpt">AI 编程工具市场年增长率超 60%，本地优先的自动化部署方案正成为企业首选。</div>
-        <div class="tags-row">
-          <span class="tag">#行业趋势</span>
-          <span class="tag">#市场</span>
-        </div>
-        <div class="feed-footer">
-          <span>❤️ 15</span>
-          <span class="dot"></span>
-          <span>💬 4</span>
-          <span class="dot"></span>
-          <span>4 分钟阅读</span>
-        </div>
+        <div class="feed-excerpt">AI 编程工具市场年增长率超 60%，本地优先方案成企业首选。</div>
+        <div class="tags-row"><span class="tag">#行业趋势</span><span class="tag">#市场</span></div>
+        <div class="feed-footer"><span>❤️ 15</span><span class="dot"></span><span>💬 4</span><span class="dot"></span><span>4 分钟阅读</span><span style="margin-left:auto"><span class="article-read" onclick="toggleArticle(this)">阅读 →</span></span></div>
+        <div class="feed-full"><p>2026 年 AI 编程工具市场年增长率超 <strong>60%</strong>。本地优先、支持私有化部署的 AI 自动化方案正成为企业首选。</p><p>OpenClaw 凭借本地优先架构和远程部署能力，过去三个月用户数翻倍增长。到 2027 年，超 40% 企业将部署 AI 编程辅助工具。</p></div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Pagination -->
-  <div class="pg">
+  </div><div class="pg">
     <a href="#" class="active">1</a>
     <a href="#">2</a>
     <a href="#">3</a>
@@ -429,7 +309,6 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 </footer>
 
 <script>
-<script>
 window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
 function toggleArticle(el){
   var card = el.closest('.feed-item')
@@ -437,16 +316,16 @@ function toggleArticle(el){
   if(!full) return
   var isOpen = card.classList.contains('open')
   card.classList.toggle('open')
-  el.textContent = isOpen ? '<span class="article-read" onclick="toggleArticle(this)">阅读 →</span>' : '收起 ↑'
-  if(!isOpen && full.innerHTML.indexOf('...') > -1){
-    // already has content from inline
-  }
+  if(isOpen){el.textContent='' + '阅' + '读' + ' ' + '\u2192'}else{el.textContent='' + '\u6536' + '\u8d77' + ' ' + '\u2191'}
 }
 </script>
 window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
 </script>
 </body>
 </html>
+
+
+
 
 
 
