@@ -13,402 +13,261 @@
 <link rel="canonical" href="https://skillai.top/tutorial/">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0e1a;--bg2:#0d1320;--card:rgba(255,255,255,0.03);--card-h:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.06);--border-h:rgba(255,255,255,0.12);--text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;--accent:#00d4ff;--accent2:#2563eb;--green:#4ade80;--yellow:#fbbf24;--radius:16px;--font:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif;--mono:'SF Mono','Fira Code',Consolas,monospace}
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.7;-webkit-font-smoothing:antialiased}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
+:root{--bg:#0a0e1a;--bg2:#0d1320;--card:rgba(255,255,255,0.03);--card-h:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.06);--border-h:rgba(255,255,255,0.12);--text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;--accent:#00d4ff;--accent2:#2563eb;--green:#4ade80;--yellow:#fbbf24;--radius:12px;--font:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;--mono:'SF Mono','Fira Code',Consolas,monospace}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
 
-/* Header/Nav */
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;padding:12px 0}
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;padding:10px 0}
 .header.scrolled{background:rgba(10,14,26,0.92);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
 .nav{display:flex;align-items:center;justify-content:space-between}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.95rem}
-.nav-brand img{width:36px;height:36px;border-radius:8px}
-.nav-links{display:flex;gap:4px;list-style:none}
-.nav-links a{padding:8px 16px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s,background .2s}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.88rem}
+.nav-brand img{width:32px;height:32px;border-radius:6px}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{padding:6px 14px;border-radius:6px;color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s,background .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.06)}
-.nav-actions{display:flex;gap:8px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-weight:600;font-size:.82rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
 .btn-primary{background:var(--accent);color:#0a0e1a}
 .btn-primary:hover{background:#33ddff;transform:translateY(-1px)}
 .btn-outline{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--border)}
 .btn-outline:hover{background:rgba(255,255,255,0.1)}
-.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:4px}
 
 /* Hero */
-.tutorial-hero{background:#0a0e1a;padding:140px 0 80px;text-align:center;position:relative;overflow:hidden}
+.tutorial-hero{background:#0a0e1a;padding:100px 0 40px;text-align:center;position:relative;overflow:hidden}
 .tutorial-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,0.08),transparent 70%);pointer-events:none}
-.tutorial-hero h1{font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px;background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.tutorial-hero p{font-size:.85rem;color:var(--text2);max-width:600px;margin:0 auto 24px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:500;background:rgba(0,212,255,0.1);color:var(--accent);border:1px solid rgba(0,212,255,0.15);margin-bottom:20px}
-.hero-steps-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:32px}
-.hero-step-chip{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);font-size:.85rem;color:var(--text2)}
-.hero-step-chip .num{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#0a0e1a;font-size:.75rem;font-weight:700}
+.tutorial-hero h1{font-size:1.6rem;font-weight:800;margin-bottom:10px;background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:1}
+.tutorial-hero p{font-size:.82rem;color:var(--text2);max-width:600px;margin:0 auto 16px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;font-size:.75rem;font-weight:500;background:rgba(0,212,255,0.1);color:var(--accent);border:1px solid rgba(0,212,255,0.15);margin-bottom:14px;position:relative;z-index:1}
+.hero-steps-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:20px;position:relative;z-index:1}
+.hero-step-chip{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid var(--border);font-size:.78rem;color:var(--text2)}
+.hero-step-chip .num{display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#0a0e1a;font-size:.7rem;font-weight:700}
 
 /* Section */
-.section{padding:80px 0}
-.section-title{font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:50px;letter-spacing:-0.02em}
+.section{padding:50px 0}
+.section:not(:last-child){border-bottom:1px solid var(--border)}
+.section-title{font-size:1.2rem;font-weight:700;text-align:center;margin-bottom:30px}
 .section-title span{background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{text-align:center;color:var(--text2);font-size:.8rem;margin:-20px 0 30px}
 
-/* Step Cards */
-.steps-grid{display:grid;gap:24px;grid-template-columns:1fr 1fr}
+/* Step Cards Compact */
+.steps-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
 @media(max-width:768px){.steps-grid{grid-template-columns:1fr}}
-.step-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:transform .3s,border-color .3s;position:relative}
-.step-card:hover{transform:translateY(-3px);border-color:var(--border-h);background:var(--card-h)}
-.step-num{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(0,212,255,0.1);color:var(--accent);font-size:1.2rem;font-weight:800;margin-bottom:16px}
-.step-card h3{font-size:.9rem;font-weight:700;margin-bottom:10px;color:var(--text)}
-.step-card p{font-size:.82rem;color:var(--text2);line-height:1.7;margin-bottom:12px}
-.step-card .code-block{background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:12px 14px;font-family:var(--mono);font-size:.78rem;color:#e2e8f0;line-height:1.6;overflow-x:auto;position:relative}
-.step-card .code-block .copy-btn{position:absolute;top:8px;right:8px;background:rgba(255,255,255,0.06);border:none;border-radius:6px;color:var(--text3);padding:4px 8px;font-size:.7rem;cursor:pointer;transition:color .2s,background .2s}
-.step-card .code-block .copy-btn:hover{color:var(--text);background:rgba(255,255,255,0.1)}
-.step-note{font-size:.78rem;line-height:1.5}
-.step-note.info{background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.12);color:var(--accent)}
-.step-note.warning{background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.12);color:var(--yellow)}
-.step-note.success{background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);color:var(--green)}
-.step-note .icon{flex-shrink:0;font-size:1.1rem}
+.step-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:all .3s;position:relative}
+.step-card:hover{border-color:var(--border-h);transform:translateY(-2px);background:var(--card-h)}
+.step-card .step-num{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.step-card .step-num .badge{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0e1a;font-size:.8rem;font-weight:700;flex-shrink:0}
+.step-card .step-num h3{font-size:.9rem;font-weight:600;color:var(--text)}
+.step-card .step-desc{font-size:.78rem;color:var(--text2);line-height:1.6;margin-bottom:10px}
+.step-card .step-note{padding:8px 12px;border-radius:8px;font-size:.75rem;line-height:1.5;margin-top:8px;display:flex;align-items:flex-start;gap:6px}
+.step-card .step-note.info{background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.1);color:var(--text2)}
+.step-card .step-note.warning{background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.1);color:var(--text2)}
+.step-card .step-note .icon{flex-shrink:0}
+.step-card .step-code{background:#0d1320;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-top:8px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.step-card .step-code code{font-family:var(--mono);font-size:.78rem;color:var(--accent);word-break:break-all;flex:1}
+.step-card .step-code .copy-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:1rem;padding:4px;border-radius:4px;transition:all .2s;flex-shrink:0}
+.step-card .step-code .copy-btn:hover{background:rgba(255,255,255,0.06);color:var(--accent)}
 
-/* Feature comparison table */
-.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
-table{width:100%;border-collapse:collapse;font-size:.88rem}
-thead{background:rgba(255,255,255,0.03)}
-th{padding:14px 18px;text-align:left;font-weight:600;color:var(--text);border-bottom:1px solid var(--border)}
-td{padding:12px 18px;color:var(--text2);border-bottom:1px solid rgba(255,255,255,0.04)}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:rgba(255,255,255,0.02)}
-td .check{color:var(--green);font-weight:700}
-td .cross{color:var(--text3)}
+/* Platform section */
+.platform-section{padding:50px 0}
+.platform-tabs{display:flex;gap:4px;margin-bottom:24px;justify-content:center}
+.platform-tab{padding:8px 20px;border-radius:8px;font-size:.82rem;font-weight:500;color:var(--text2);cursor:pointer;transition:all .2s;background:var(--card);border:1px solid var(--border)}
+.platform-tab:hover{border-color:var(--border-h);color:var(--text)}
+.platform-tab.active{background:var(--accent);color:#0a0e1a;border-color:var(--accent)}
+.platform-content{display:none;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.platform-content{grid-template-columns:1fr}}
+.platform-content.active{display:grid}
 
 /* FAQ */
-.faq-list{max-width:800px;margin:0 auto}
-.faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
-.faq-item:hover,.faq-item.open{border-color:var(--border-h)}
-.faq-q{font-size:.85rem;color:var(--text);background:none;border:none;width:100%;text-align:left;transition:color .2s}
-.faq-q:hover{color:var(--accent)}
-.faq-q .arrow{font-size:.8rem;transition:transform .3s;color:var(--text3)}
+.faq-section{padding:50px 0}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:6px;overflow:hidden;transition:border-color .3s}
+.faq-item:hover{border-color:var(--border-h)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--card);border:none;color:var(--text);font-size:.82rem;font-weight:500;cursor:pointer;text-align:left;transition:background .2s}
+.faq-q:hover{background:var(--card-h)}
+.faq-q .arrow{transition:transform .3s;font-size:.7rem;color:var(--text3)}
 .faq-item.open .faq-q .arrow{transform:rotate(180deg)}
-.faq-a{padding:0 22px 18px;font-size:.88rem;color:var(--text2);line-height:1.7;display:none}
-.faq-item.open .faq-a{display:block}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;color:var(--text2);font-size:.78rem;line-height:1.6}
+.faq-item.open .faq-a{max-height:300px;padding:0 16px 14px}
 
-/* CTA Section */
-.cta-section{text-align:center;padding:80px 0;background:#0d1320}
-.cta-section h2{font-size:1.3rem;font-weight:700;margin-bottom:12px}
-.cta-section p{color:var(--text2);margin-bottom:24px;font-size:1rem}
-.cta-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+/* CTA */
+.cta-section{padding:50px 0;text-align:center;background:rgba(0,212,255,0.02);border-top:1px solid var(--border)}
+.cta-section h2{font-size:1.3rem;font-weight:700;margin-bottom:6px}
+.cta-section p{color:var(--text2);font-size:.85rem;margin-bottom:24px}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
 /* Footer */
-.footer{background:#0d1320;border-top:1px solid var(--border);padding:40px 0 20px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:30px}
+.footer{border-top:1px solid var(--border);padding:40px 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:30px}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px}}
-.footer-brand h3{font-size:.9rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.footer-brand p{font-size:.8rem;color:var(--text3);line-height:1.6;max-width:280px}
-.footer-col h4{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}
-.footer-col a{display:block;font-size:.82rem;color:var(--text3);text-decoration:none;padding:4px 0;transition:color .2s}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand h3{font-size:.88rem;font-weight:700;margin-bottom:8px;color:var(--text);display:flex;align-items:center;gap:8px}
+.footer-brand p{font-size:.75rem;color:var(--text3);line-height:1.6}
+.footer-col{}
+.footer-col h4{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:10px}
+.footer-col a{display:block;font-size:.75rem;color:var(--text3);text-decoration:none;margin-bottom:6px;transition:color .2s}
 .footer-col a:hover{color:var(--accent)}
-.footer-bottom{border-top:1px solid var(--border);padding-top:16px;text-align:center;font-size:.78rem;color:var(--text3)}
+.footer-bottom{text-align:center;padding-top:20px;border-top:1px solid var(--border)}
+.footer-bottom p{font-size:.72rem;color:var(--text3)}
 
-/* Responsive */
-@media(max-width:768px){
-  .nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,14,26,0.98);flex-direction:column;padding:16px;border-bottom:1px solid var(--border)}
-  .nav-links.show{display:flex}
-  .mobile-toggle{display:block}
-  .nav-actions{display:none}
-  .tutorial-hero h1{font-size:2rem}
-  .section-title{font-size:1.5rem}
-  .steps-grid{grid-template-columns:1fr}
-}
-
-/* Smooth scroll */
-html{scroll-behavior:smooth}
-
-/* Neo-brutalist extra effects */
-.platform-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
-.platform-tab{padding:8px 16px;border-radius:8px;font-size:.82rem;font-weight:500;color:var(--text2);background:rgba(255,255,255,0.03);border:1px solid var(--border);cursor:pointer;transition:all .2s}
-.platform-tab:hover,.platform-tab.active{color:var(--accent);border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.06)}
+/* Anim */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.step-card,.faq-item,.hero-step-chip{animation:fadeUp .5s ease-out both}
+.step-card:nth-child(2){animation-delay:.08s}
+.step-card:nth-child(3){animation-delay:.16s}
+.step-card:nth-child(4){animation-delay:.24s}
 </style>
 </head>
 <body>
-
-<header class="header scrolled" id="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-brand" href="/">
-  <img src="/assets/logo-192.png" alt="OpenClaw Hermes Codex 远程部署安装" width="36" height="36" style="border-radius:8px">
-  <span>OpenClaw Hermes Codex 远程部署安装</span>
-</a>
-      <ul class="nav-links">
-        <li><a href="/">首页</a></li>
-        <li><a href="/#usecases">AI超能力</a></li>
-        <li><a href="/#features">远程部署</a></li>
-        <li><a href="/tutorial/" class="active">新手教程</a></li>
-        <li><a href="/download/">免费下载</a></li>
-        <li><a href="/news/">动态资讯</a></li>
-        <li><a href="/cooperation/">商务合作</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="/downloads/openclaw-x-setup.exe" class="btn btn-primary">免费下载</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
-    </nav>
-  </div>
-</header>
+<div id="header" class="header">
+  <nav class="nav container">
+    <a href="/" class="nav-brand">
+      <img src="/assets/logo-192.png" alt="OpenClaw Hermes Codex" loading="lazy">
+      OpenClaw Hermes Codex
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">首页</a></li>
+      <li><a href="/#usecases">AI超能力</a></li>
+      <li><a href="/#features">远程部署</a></li>
+      <li><a href="/tutorial/" class="active">新手教程</a></li>
+      <li><a href="/download/">免费下载</a></li>
+      <li><a href="/news/">动态资讯</a></li>
+      <li><a href="/cooperation/">商务合作</a></li>
+    </ul>
+  </nav>
+</div>
 
 <section class="tutorial-hero">
   <div class="container">
-    <div class="hero-badge">📖 3分钟快速上手</div>
-    <h1>新手教程</h1>
-    <p>从零开始，手把手教你安装、配置和使用 OpenClaw Hermes Codex。<br>无需任何编程基础，跟着步骤走就能拥有专属 AI 助理。</p>
+    <div class="hero-badge">📖 快速上手指南</div>
+    <h1>3 分钟拥有你的 AI 私人助理</h1>
+    <p>从下载安装到连接 AI 模型，手把手教你完成部署。无需任何技术背景。</p>
     <div class="hero-steps-row">
       <div class="hero-step-chip"><span class="num">1</span> 下载安装</div>
-      <div class="hero-step-chip"><span class="num">2</span> 环境配置</div>
-      <div class="hero-step-chip"><span class="num">3</span> 连接模型</div>
+      <div class="hero-step-chip"><span class="num">2</span> 获取 API Key</div>
+      <div class="hero-step-chip"><span class="num">3</span> 配置连接</div>
       <div class="hero-step-chip"><span class="num">4</span> 开始使用</div>
-      <div class="hero-step-chip"><span class="num">5</span> 技巧提升</div>
     </div>
   </div>
 </section>
 
-<section class="section" id="step1">
+<section class="section">
   <div class="container">
-    <h2 class="section-title"><span>第一步：下载与安装</span></h2>
-    <p style="text-align:center;color:var(--text2);margin-bottom:40px;font-size:.95rem">选择你的操作系统，按对应指引安装 OpenClaw</p>
-    
-    <div class="platform-tabs">
-      <div class="platform-tab active" onclick="switchPlatform(this,'win')">🪟 Windows</div>
-      <div class="platform-tab" onclick="switchPlatform(this,'mac')">🍎 macOS</div>
-      <div class="platform-tab" onclick="switchPlatform(this,'linux')">🐧 Linux</div>
-    </div>
-
-    <div class="steps-grid" id="win-content">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>下载安装包</h3>
-        <p>点击下方按钮下载 OpenClaw Hermes Codex Windows 安装包，约 7MB。下载完成后双击运行安装程序。</p>
-        <div style="margin-top:12px">
-          <a href="/downloads/openclaw-x-setup.exe" class="btn btn-primary" style="padding:12px 28px">
-            ⬇️ 下载 Windows 版 (7MB)
-          </a>
-        </div>
-        <div class="step-note info">
-          <span class="icon">💡</span>
-          <span>系统要求：Windows 10 及以上版本，支持 64 位系统。建议预留 2GB 磁盘空间。</span>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>运行安装向导</h3>
-        <p>双击 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px;font-size:.8rem">openclaw-x-setup.exe</code>，按照安装向导提示点击"下一步"。默认安装路径为 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px;font-size:.8rem">C:\\Program Files\\OpenClaw</code>。</p>
-        <div class="step-note success">
-          <span class="icon">✅</span>
-          <span>安装完成后，桌面会自动生成 OpenClaw 快捷方式，双击即可启动。</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="steps-grid" id="mac-content" style="display:none">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>使用 Homebrew 安装（推荐）</h3>
-        <p>打开终端（Terminal），执行以下命令一键安装：</p>
-        <div class="code-block">
-          brew install openclaw
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-        <div class="step-note info">
-          <span class="icon">💡</span>
-          <span>如果没有安装 Homebrew，可先执行：<code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></span>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>验证安装</h3>
-        <p>安装完成后，在终端输入以下命令验证是否安装成功：</p>
-        <div class="code-block">
-          openclaw --version
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-        <p style="font-size:.85rem;color:var(--text2);margin-top:8px">如果显示版本号（如 v2.1.0），说明安装成功。</p>
-      </div>
-    </div>
-
-    <div class="steps-grid" id="linux-content" style="display:none">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>一键安装脚本</h3>
-        <p>Linux 用户可以使用以下命令快速安装：</p>
-        <div class="code-block">
-          curl -fsSL https://openclaw.ai/install.sh | bash
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-        <div class="step-note info">
-          <span class="icon">💡</span>
-          <span>支持 Ubuntu 20.04+、Debian 11+、CentOS 8+ 等主流发行版。</span>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>npm 通用安装</h3>
-        <p>如果已安装 Node.js，也可以使用 npm 全局安装：</p>
-        <div class="code-block">
-          npm install -g openclaw@latest
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-        <div class="step-note success">
-          <span class="icon">✅</span>
-          <span>安装后运行 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">openclaw --help</code> 查看所有可用命令。</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:#0d1320" id="step2">
-  <div class="container">
-    <h2 class="section-title"><span>第二步：环境配置</span></h2>
-    <p style="text-align:center;color:var(--text2);margin-bottom:40px;font-size:.95rem">配置 AI 模型连接，选择你喜欢的模型服务商</p>
+    <h2 class="section-title"><span>📥 第一步：下载安装</span></h2>
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>获取 API Key</h3>
-        <p>OpenClaw 默认支持 DeepSeek 模型。前往 <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color:var(--accent)">DeepSeek 官网</a> 注册账号，在控制台创建一个 API Key 并复制保存。</p>
-        <div class="step-note warning">
-          <span class="icon">⚠️</span>
-          <span>请妥善保管 API Key，不要分享给他人。如 Key 泄露可随时在 DeepSeek 控制台吊销重建。</span>
-        </div>
+        <div class="step-num"><span class="badge">1</span><h3>下载安装包</h3></div>
+        <div class="step-desc">访问<a href="/download/" style="color:var(--accent)">免费下载页</a>，选择对应平台的版本下载。</div>
+        <div class="step-note info"><span class="icon">💡</span> Windows 用户建议下载 exe 安装包，macOS/Linux 用户可使用一键脚本安装。</div>
       </div>
       <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>配置到 OpenClaw</h3>
-        <p>首次启动 OpenClaw 会弹出配置引导，输入你的 DeepSeek API Key 即可。或者手动创建配置文件：</p>
-        <div class="code-block">
-# 创建配置文件
-openclaw config set api_key "sk-你的API密钥"
-
-# 查看当前配置
-openclaw config list
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>选择模型（可选）</h3>
-        <p>除 DeepSeek 外，OpenClaw 还支持 MiniMax 等其他模型。你可以随时切换：</p>
-        <div class="code-block">
-# 使用 DeepSeek（默认）
-openclaw config set model "deepseek-chat"
-
-# 使用 MiniMax
-openclaw config set model "minimax-abab6.5"
-
-# 自定义 API 端点
-openclaw config set api_base "你的端点URL"
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-        <div class="step-note info">
-          <span class="icon">💡</span>
-          <span>推荐使用 DeepSeek 作为主力模型，性价比高，中文理解能力强。</span>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">4</div>
-        <h3>测试连接</h3>
-        <p>配置完成后，运行测试命令确认连接正常：</p>
-        <div class="code-block">
-openclaw test
-
-# 预期输出示例:
-# ✅ 模型连接成功
-# 模型: deepseek-chat
-# 延迟: 320ms
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-        <div class="step-note success">
-          <span class="icon">✅</span>
-          <span>连接成功！现在你可以开始使用 OpenClaw 了。</span>
-        </div>
+        <div class="step-num"><span class="badge">2</span><h3>运行安装程序</h3></div>
+        <div class="step-desc">Windows 双击安装包按提示完成安装，macOS/Linux 在终端执行安装命令。</div>
+        <div class="step-code"><code>curl -fsSL https://openclaw.ai/install.sh | bash</code><button class="copy-btn" onclick="copyText(this)">📋</button></div>
+        <div class="step-note info"><span class="icon">💡</span> 安装过程自动完成环境检测，一般 1-2 分钟即可完成。</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="step3">
+<section class="section">
   <div class="container">
-    <h2 class="section-title"><span>第三步：快速上手</span></h2>
-    <p style="text-align:center;color:var(--text2);margin-bottom:40px;font-size:.95rem">掌握核心操作，10 分钟内完成你的第一个 AI 任务</p>
+    <h2 class="section-title"><span>🔑 第二步：获取 API Key</span></h2>
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-num" style="background:rgba(74,222,128,0.1);color:var(--green)">1</div>
-        <h3>启动 OpenClaw</h3>
-        <p>Windows 用户双击桌面快捷方式启动；macOS/Linux 用户在终端输入 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">openclaw</code> 启动命令行交互模式。</p>
-        <div class="step-note success">
-          <span class="icon">🚀</span>
-          <span>首次启动会显示欢迎界面和快速入门指南。</span>
-        </div>
+        <div class="step-num"><span class="badge">1</span><h3>选择 AI 模型服务商</h3></div>
+        <div class="step-desc">OpenClaw 支持 DeepSeek、通义千问、智谱 GLM、豆包等主流模型。推荐使用 DeepSeek（免费额度充足）。</div>
+        <div class="step-note info"><span class="icon">💡</span> 注册并创建 API Key，首次注册通常赠送免费额度，足够日常使用。</div>
       </div>
       <div class="step-card">
-        <div class="step-num" style="background:rgba(74,222,128,0.1);color:var(--green)">2</div>
-        <h3>运行第一个任务</h3>
-        <p>在交互界面输入你的需求，OpenClaw 会自动规划并执行任务：</p>
-        <div class="code-block" style="min-height:80px">
-&gt; 帮我创建一个 Python 脚本，批量重命名当前文件夹下所有 .jpg 文件
-
-[分析] 用户需要批量重命名 .jpg 文件
-[规划] 1. 扫描当前目录 → 2. 筛选 .jpg → 3. 按序号重命名
-[执行] ✓ 已重命名 12 个文件
-          <button class="copy-btn" onclick="copyText(this)">📋</button>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num" style="background:rgba(74,222,128,0.1);color:var(--green)">3</div>
-        <h3>常用命令速查</h3>
-        <table style="font-size:.82rem">
-          <tr><td style="padding:6px 0"><code style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px">openclaw --help</code></td><td style="color:var(--text2)">查看所有命令</td></tr>
-          <tr><td style="padding:6px 0"><code style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px">openclaw run "任务描述"</code></td><td style="color:var(--text2)">直接运行任务</td></tr>
-          <tr><td style="padding:6px 0"><code style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px">openclaw config list</code></td><td style="color:var(--text2)">查看当前配置</td></tr>
-          <tr><td style="padding:6px 0"><code style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px">openclaw update</code></td><td style="color:var(--text2)">检查并更新版本</td></tr>
-        </table>
-      </div>
-      <div class="step-card">
-        <div class="step-num" style="background:rgba(74,222,128,0.1);color:var(--green)">4</div>
-        <h3>远程部署（进阶）</h3>
-        <p>需要将 OpenClaw 部署到远程服务器？我们提供专业的远程部署安装服务，全程一对一指导，确保 3 分钟内完成部署。</p>
-        <div style="margin-top:12px">
-          <a href="/#features" class="btn btn-outline">了解远程部署 →</a>
-        </div>
+        <div class="step-num"><span class="badge">2</span><h3>复制保存 API Key</h3></div>
+        <div class="step-desc">在控制台创建 API Key 后，点击复制并保存到安全位置。接下来配置时会用到。</div>
+        <div class="step-note warning"><span class="icon">⚠️</span> 请妥善保管 API Key，不要分享给他人。如 Key 泄露可随时在控制台吊销重建。</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="background:#0d1320" id="faq">
+<section class="section">
   <div class="container">
-    <h2 class="section-title"><span>常见问题</span></h2>
+    <h2 class="section-title"><span>⚙️ 第三步：配置并连接</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num"><span class="badge">1</span><h3>启动 OpenClaw</h3></div>
+        <div class="step-desc">安装完成后，在终端输入以下命令启动 OpenClaw：</div>
+        <div class="step-code"><code>openclaw start</code><button class="copy-btn" onclick="copyText(this)">📋</button></div>
+        <div class="step-note info"><span class="icon">💡</span> 首次启动会自动创建配置目录。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num"><span class="badge">2</span><h3>配置 API Key</h3></div>
+        <div class="step-desc">将上一步获取的 API Key 填入配置，或通过配置文件设置：</div>
+        <div class="step-code"><code>openclaw config set api_key=your_key_here</code><button class="copy-btn" onclick="copyText(this)">📋</button></div>
+        <div class="step-note info"><span class="icon">💡</span> 也可通过图形界面直接粘贴配置，点击"验证连接"确保正确。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num"><span class="badge">3</span><h3>验证连接</h3></div>
+        <div class="step-desc">配置完成后，执行以下命令测试连接是否正常：</div>
+        <div class="step-code"><code>openclaw test</code><button class="copy-btn" onclick="copyText(this)">📋</button></div>
+        <div class="step-note info"><span class="icon">💡</span> 显示 "Connection OK" 表示配置成功。如遇问题请检查 API Key 是否正确。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num"><span class="badge">4</span><h3>选择工作模式</h3></div>
+        <div class="step-desc">OpenClaw 提供多种模式——对话模式、自动化任务模式、代码辅助模式。选择适合你的方式。</div>
+        <div class="step-code"><code>openclaw mode chat</code><button class="copy-btn" onclick="copyText(this)">📋</button></div>
+        <div class="step-note info"><span class="icon">💡</span> 使用 <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">openclaw --help</code> 查看全部命令。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title"><span>🚀 第四步：开始使用</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num"><span class="badge">1</span><h3>对话式交互</h3></div>
+        <div class="step-desc">就像跟朋友聊天一样，用自然语言告诉 AI 你想做什么。OpenClaw 会自动理解并执行。</div>
+        <div class="step-code"><code>openclaw chat "帮我整理桌面文件"</code><button class="copy-btn" onclick="copyText(this)">📋</button></div>
+      </div>
+      <div class="step-card">
+        <div class="step-num"><span class="badge">2</span><h3>自动化任务</h3></div>
+        <div class="step-desc">设置定时任务，让 AI 在你睡觉时自动完成数据采集、文件整理、报告生成等工作。</div>
+        <div class="step-code"><code>openclaw schedule "每天8点收集行业新闻"</code><button class="copy-btn" onclick="copyText(this)">📋</button></div>
+        <div class="step-note info"><span class="icon">💡</span> 任务支持定时、周期和条件触发三种模式，灵活配置。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num"><span class="badge">3</span><h3>高级功能探索</h3></div>
+        <div class="step-desc">熟悉基础操作后，可以尝试更多高级功能，如多模型切换、自定义指令、批量处理等。</div>
+        <div class="step-note info"><span class="icon">💡</span> 不熟悉配置可联系客服微信 <strong style="color:var(--text)">kaka12512535</strong> 获取免费远程协助。远程部署安装服务为付费增值服务。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num"><span class="badge">4</span><h3>加入社区交流</h3></div>
+        <div class="step-desc">加入我们的 QQ 交流群，与其他用户交流经验、获取最新动态和技术支持。</div>
+        <div class="step-note info"><span class="icon">💬</span> QQ 群：<strong style="color:var(--text)">482123078</strong>（SkillAI 一站式 Token 官方服务群），工作日 9:00-22:00 在线。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title"><span>❓ 常见问题</span></h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">安装后无法启动怎么办？<span class="arrow">▼</span></button>
-        <div class="faq-a">请检查：① 是否以管理员权限运行（Windows 右键→以管理员身份运行）；② 系统版本是否为 Windows 10 及以上；③ 磁盘空间是否充足。如仍然无法启动，请在交流群中联系我们。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">如何更换 AI 模型？<span class="arrow">▼</span></button>
-        <div class="faq-a">运行 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">openclaw config set model "模型名称"</code> 即可切换。目前支持 DeepSeek（默认）和 MiniMax。需在对应平台获取 API Key。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">OpenClaw 完全免费吗？<span class="arrow">▼</span></button>
-        <div class="faq-a">是的，OpenClaw 本体完全免费开源。您只需要自行承担 AI 模型 API 调用的费用（DeepSeek 非常便宜，千次调用仅需几毛钱）。远程部署安装服务为付费增值服务。</div>
+        <button class="faq-q" onclick="toggleFaq(this)">需要编程基础才能使用吗？<span class="arrow">▼</span></button>
+        <div class="faq-a">完全不需要！用自然语言描述需求，OpenClaw 会自动理解并执行。当然有编程基础可以更充分发挥高级功能。</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">如何更新到最新版本？<span class="arrow">▼</span></button>
-        <div class="faq-a">运行 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">openclaw update</code> 命令自动检查并更新。也可以重新下载安装包覆盖安装，配置不会丢失。</div>
+        <div class="faq-a">运行 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">openclaw update</code> 命令自动更新。也可重新下载安装包覆盖安装，配置不会丢失。</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">macOS/Linux 与 Windows 功能有差异吗？<span class="arrow">▼</span></button>
-        <div class="faq-a">核心功能完全一致。Windows 版额外提供图形界面安装向导，macOS/Linux 版通过命令行安装。所有平台的功能更新同步发布。</div>
+        <div class="faq-a">核心功能完全一致。Windows 额外提供图形安装向导，macOS/Linux 通过命令行安装。功能同步更新。</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">遇到问题如何寻求帮助？<span class="arrow">▼</span></button>
-        <div class="faq-a">加入我们的 QQ 交流群：<strong style="color:var(--text)">482123078</strong>（SkillAI 一站式 Token 官方服务群），工作日 9:00-22:00 在线解答。也欢迎在群内与其他用户交流经验。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">需要编程基础才能使用吗？<span class="arrow">▼</span></button>
-        <div class="faq-a">完全不需要！OpenClaw 的设计理念就是"零门槛使用 AI"。您只需要用自然语言描述需求，OpenClaw 会自动理解并执行。当然，如果您有编程基础，可以更充分地发挥高级功能。</div>
+        <div class="faq-a">加入 QQ 交流群：<strong style="color:var(--text)">482123078</strong>，工作日 9:00-22:00 在线解答。也欢迎在群内与其他用户交流经验。</div>
       </div>
     </div>
   </div>
@@ -419,8 +278,8 @@ openclaw test
     <h2>准备好了吗？</h2>
     <p>立即下载 OpenClaw Hermes Codex，开启你的 AI 自动化之旅。</p>
     <div class="cta-buttons">
-      <a href="/downloads/openclaw-x-setup.exe" class="btn btn-primary" style="padding:14px 36px;font-size:1rem">⬇️ 免费下载 Windows 版</a>
-      <a href="/download/" class="btn btn-outline" style="padding:14px 36px;font-size:1rem">查看所有平台下载方式</a>
+      <a href="/downloads/openclaw-x-setup.exe" class="btn btn-primary" style="padding:12px 32px;font-size:.9rem">⬇️ 免费下载 Windows 版</a>
+      <a href="/download/" class="btn btn-outline" style="padding:12px 32px;font-size:.9rem">查看所有平台 →</a>
     </div>
   </div>
 </section>
@@ -429,7 +288,7 @@ openclaw test
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3><svg width="20" height="20" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="url(#lg2)"/><path d="M10 18l6 6 10-12" stroke="#00d4ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="lg2" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0066cc"/></linearGradient></defs></svg> OpenClaw Hermes Codex</h3>
+        <h3><img src="/assets/logo-192.png" width="24" height="24" alt="" style="border-radius:4px"> OpenClaw Hermes Codex</h3>
         <p>您的全能 AI 私人助理部署工具，一键自动化部署、智能配置、数据隐私保护，让每个人都能轻松拥有本地 AI 助手。</p>
       </div>
       <div class="footer-col">
@@ -447,49 +306,21 @@ openclaw test
       </div>
       <div class="footer-col">
         <h4>关于</h4>
-        <a href="/#footer">会员服务协议</a>
-        <a href="/#footer">隐私政策</a>
         <a href="/cooperation/">联系我们</a>
+        <a href="/#footer">隐私政策</a>
+        <a href="/#footer">会员协议</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 SkillAi. All rights reserved. | 远程部署安装 | 客服微信 kaka12512535 | QQ群 482123078</p>
+      <p>© 2026 SkillAi. All rights reserved. | 客服微信 kaka12512535 | QQ群 482123078</p>
     </div>
   </div>
 </footer>
 
 <script>
-// Header scroll effect
-window.addEventListener('scroll', function() {
-  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20)
-})
-
-// FAQ toggle
-function toggleFaq(btn) {
-  var item = btn.parentElement
-  item.classList.toggle('open')
-}
-
-// Platform tabs
-function switchPlatform(tab, platform) {
-  document.querySelectorAll('.platform-tab').forEach(function(t){t.classList.remove('active')})
-  tab.classList.add('active')
-  document.getElementById('win-content').style.display = platform === 'win' ? 'grid' : 'none'
-  document.getElementById('mac-content').style.display = platform === 'mac' ? 'grid' : 'none'
-  document.getElementById('linux-content').style.display = platform === 'linux' ? 'grid' : 'none'
-}
-
-// Copy button
-function copyText(btn) {
-  var code = btn.parentElement
-  var text = code.textContent.replace('📋', '').trim()
-  navigator.clipboard.writeText(text).then(function() {
-    btn.textContent = '✓'
-    setTimeout(function(){btn.textContent = '📋'}, 1500)
-  })
-}
+window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
+function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+function copyText(btn){var code=btn.parentElement;var text=code.textContent.replace('📋','').trim();navigator.clipboard.writeText(text).then(function(){btn.textContent='✓';setTimeout(function(){btn.textContent='📋'},1500)})}
 </script>
 </body>
 </html>
-
-
