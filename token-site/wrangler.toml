@@ -1,0 +1,19 @@
+﻿name = "token-site"
+main = "worker/proxy.js"
+compatibility_date = "2025-05-30"
+
+[site]
+bucket = "./"
+
+[env.production]
+routes = [
+  { pattern = "token.skillai.top", custom_domain = true }
+]
+
+[placement]
+mode = "smart"
+
+[[kv_namespaces]]
+binding = "TOKEN_KV"
+id = ""
+preview_id = ""
