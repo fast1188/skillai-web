@@ -1714,3 +1714,6 @@ img {
   0%, 100% { opacity: 0.3; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1.2); }
 }
+
+/* FORCEDARKBG */
+.navbar,.nav-container,body,html,body>*{background:#0a0e1a!important;background-color:#0a0e1a!important;}*>*>*{background:#0a0e1a!important;background-color:#0a0e1a!important;}
