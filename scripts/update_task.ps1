@@ -1,0 +1,2 @@
+schtasks /delete /tn "SkillAI_SiteInspect" /f 2>
+schtasks /create /tn "SkillAI_SiteInspect" /tr "cmd /c "C:\Users\Administrator\Documents\Codex\网站管家\scripts\run_inspect.bat"" /sc hourly /mo 1 /ru "Administrator" /rl HIGHEST /f

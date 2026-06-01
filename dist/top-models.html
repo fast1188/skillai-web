@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html style="background:#0a0e1a" lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>TOP模型 - OpenClaw支持的主流AI模型排行</title>
+<link rel="canonical" href="https://skillai.top/top-models.html">
+<meta name="description" content="OpenClaw 支持的主流AI模型排行，DeepSeek、GLM、通义千问等性能对比，帮你选择最适合的AI模型。">
+<meta name="keywords" content="AI模型排行, DeepSeek, GLM, Claude, GPT-4o, 通义千问, Kimi, AI性能对比">
+<meta property="og:title" content="TOP模型 - OpenClaw支持的主流AI模型排行">
+<meta property="og:description" content="OpenClaw 支持的主流AI模型排行，DeepSeek、GLM、通义千问等性能对比">
+<meta property="og:url" content="https://skillai.top/top-models.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SkillAI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TOP模型 - OpenClaw支持的主流AI模型排行">
+<meta name="twitter:description" content="OpenClaw 支持的主流AI模型排行，DeepSeek、GLM、通义千问等性能对比">
+<meta name="theme-color" content="#0a0e17">
+<style> * { margin:0; padding:0; box-sizing:border-box; } body { background:#0a0e17; color:#e8edf5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; min-height:100vh; }  /* Stars BG */ .stars-bg { position:fixed; inset:0; background:radial-gradient(ellipse at 20% 50%, #0d1520 0%, #0a0e17 70%); z-index:-2; } .stars-glow { position:fixed; inset:0; background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,212,255,0.03) 0%, transparent 60%); z-index:-1; }  /* Nav */ .navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(10,14,23,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.04); } .nav-container { max-width:1200px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; } .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; } .nav-links { display:flex; gap:6px; } .nav-link { padding:6px 14px; border-radius:8px; color:#8899aa; font-size:0.85rem; text-decoration:none; transition:all 0.2s; } .nav-link:hover { background:rgba(0,212,255,0.08); color:#00d4ff; } .nav-link.active { background:rgba(0,212,255,0.1); color:#00d4ff; } .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:8px; } .mobile-menu { display:none; } @media(max-width:768px){   .nav-links { display:none; }   .nav-toggle { display:block; }   .mobile-menu.open { display:flex; flex-direction:column; gap:4px; padding:12px 20px 20px; background:#0f1623; border-bottom:1px solid rgba(255,255,255,0.06); }   .mobile-link { padding:10px 14px; border-radius:8px; color:#8899aa; font-size:0.9rem; text-decoration:none; } }  /* Hero */ .top-hero { padding:100px 16px 48px; text-align:center; position:relative; overflow:hidden; } .top-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,212,255,0.1) 0%, transparent 70%),radial-gradient(ellipse 40% 30% at 80% 100%, rgba(176,96,255,0.08) 0%, transparent 50%); pointer-events:none; } .top-hero-content { position:relative; z-index:1; } .top-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.25); border-radius:50px; padding:6px 16px; font-size:0.8rem; color:#00d4ff; margin-bottom:16px; } .top-hero h1 { font-size:clamp(1.6rem,4vw,2.4rem); color:#fff; margin-bottom:12px; font-weight:800; } .top-hero h1 .highlight { background:linear-gradient(135deg,#00d4ff,#b060ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; } .top-hero p { color:#8899aa; font-size:0.95rem; line-height:1.6; margin-bottom:24px; } .top-stats { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; } .top-stat-num { display:block; font-size:1.8rem; font-weight:800; background:linear-gradient(135deg,#00d4ff,#b060ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; } .top-stat-label { font-size:0.78rem; color:#667788; margin-top:4px; }  /* Card Grid */ .top-list { max-width:1100px; margin:0 auto; padding:0 16px 60px; } .top-container { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:20px; } .top-card { background:#0f1623; border:1px solid rgba(255,255,255,0.06); border-radius:20px; padding:28px 24px; position:relative; overflow:hidden; cursor:pointer; transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1); } .top-card:hover { transform:translateY(-8px) scale(1.02); border-color:var(--card-color,#00d4ff); box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px var(--card-color,#00d4ff)22; } .top-card-glow { position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity 0.4s; border-radius:20px; } .top-card:hover .top-card-glow { opacity:1; } .top-card-rank { font-size:3rem; font-weight:900; background:linear-gradient(135deg,var(--card-color,#00d4ff)33,transparent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; position:absolute; top:8px; right:16px; opacity:0.4; } .top-card-icon { font-size:3rem; margin-bottom:12px; } .top-card-header { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px; } .top-card-header h3 { font-size:1.2rem; color:#fff; margin:0; } .top-card-maker { font-size:0.75rem; color:#667788; } .model-badge-hot { font-size:0.65rem; background:rgba(255,71,87,0.15); border:1px solid rgba(255,71,87,0.3); color:#ff4757; padding:1px 8px; border-radius:50px; } .top-card-trend { margin-left:auto; font-size:1rem; } .top-card-cat { font-size:0.78rem; color:var(--card-color,#00d4ff); margin-bottom:16px; } .top-card-scores { display:flex; flex-direction:column; gap:6px; } .score-item { display:flex; align-items:center; gap:8px; } .score-label { font-size:0.72rem; color:#667788; width:28px; flex-shrink:0; } .score-bar { flex:1; height:6px; background:rgba(255,255,255,0.05); border-radius:3px; overflow:hidden; } .score-fill { height:100%; border-radius:3px; transition:width 1s ease; } .score-val { font-size:0.72rem; font-weight:700; color:#8899aa; width:24px; text-align:right; } .top-card-detail { margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); } .top-card-desc { font-size:0.85rem; color:#8899aa; line-height:1.6; margin-bottom:12px; } .top-card-meta { display:flex; flex-direction:column; gap:4px; font-size:0.78rem; color:#667788; } .top-card-expand { text-align:center; margin-top:16px; font-size:0.78rem; color:#00d4ff; opacity:0.6; }  /* Footer */ .footer { border-top:1px solid rgba(255,255,255,0.04); padding:40px 20px 24px; margin-top:40px; } .footer-container { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; } .footer-brand p { color:#667788; font-size:0.82rem; line-height:1.6; margin-top:8px; } .footer-col h4 { color:#fff; font-size:0.85rem; margin-bottom:12px; } .footer-col a { display:block; color:#667788; font-size:0.8rem; text-decoration:none; margin-bottom:8px; transition:color 0.2s; } .footer-col a:hover { color:#00d4ff; } .footer-bottom { grid-column:1/-1; text-align:center; padding-top:20px; border-top:1px solid rgba(255,255,255,0.04); color:#445566; font-size:0.78rem; margin-top:20px; } .footer-logo { display:flex; align-items:center; text-decoration:none; color:#e8edf5; } @media(max-width:768px){ .footer-container { grid-template-columns:1fr 1fr; gap:24px; } } @media(max-width:480px){ .footer-container { grid-template-columns:1fr; } } @keyframes fadeSlideIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} } .top-card { transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1); } .top-card:hover { transform:translateY(-8px) scale(1.02); } .top-card .score-fill { transition:width 1.5s cubic-bezier(0.34,1.56,0.64,1); }</style>
+</head>
+<body style="background:#0a0e1a">
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" style="gap:12px;">
+      <img src="assets/images/openclaw-logo-nav-new.svg" alt="OpenClaw" height="80" style="height:80px;width:auto;flex-shrink:0;">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="skills.html" class="nav-link">Skill技能</a>
+      <a href="download.html" class="nav-link">远程安装</a>
+      <a href="community.html" class="nav-link">AI社区</a>
+      <a href="top-models.html" class="nav-link active">TOP模型</a>
+      <a href="top-agents.html" class="nav-link">TOP智能体</a>
+      <a href="about.html" class="nav-link">关于</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<section class="top-hero"><div class="top-hero-bg"></div><div class="top-hero-content">
+  <div class="top-badge">📊 数据实时更新</div>
+  <h1>TOP模型 <span class="highlight">排行榜</span></h1>
+  <p>基于性能评测、使用热度、性价比综合排名，帮你选择最适合的AI 模型</p>
+  <div class="top-stats">
+    <div><span class="top-stat-num">8</span><span class="top-stat-label">热门模型</span></div>
+    <div><span class="top-stat-num">5维</span><span class="top-stat-label">评分体系</span></div>
+    <div><span class="top-stat-num">实时</span><span class="top-stat-label">数据更新</span></div>
+  </div>
+</div></section>
+
+<section class="top-list"><div class="top-container" id="topContainer"></div></section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <img src="assets/images/openclaw-logo-nav-new.svg" alt="OpenClaw" height="28" style="height:28px;width:auto;flex-shrink:0;">
+        <span style="font-weight:700;font-size:1rem;color:#e8edf5;">Open</span><span style="font-weight:700;font-size:1rem;color:#667788;">Claw</span>
+      </div>
+      <p style="color:#667788;font-size:0.82rem;line-height:1.6;margin-bottom:20px;">你的全能AI私人助理，让 AI 替你工作24小时不间断。</p>
+      <div class="footer-nav" style="display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:20px;">
+        <a href="index.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">首页</a>
+        <a href="skills.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">Skill技能</a>
+        <a href="download.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">远程安装</a>
+        <a href="community.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">AI社区</a>
+        <a href="top-models.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP模型</a>
+        <a href="top-agents.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP智能体</a>
+        <a href="about.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">关于</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom" style="text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.04);color:#445566;font-size:0.78rem;">
+    <p>&copy; 2024-2026 SkillAI.top All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+const MODELS = [
+  {rank:1,name:'DeepSeek V4',maker:'深度求索',emoji:'🤖',cat:'推理',color:'#00d4ff',scores:{reasoning:98,coding:95,creativity:88,speed:92,cost:90},price:'输入 ¥0.14/输出 ¥0.28',ctx:'100万',hot:true,trend:'up',desc:'国产开源模型标杆，推理能力媲美GPT-4o，性价比极高。'},
+  {rank:2,name:'DeepSeek V4 Pro',maker:'深度求索',emoji:'🏆',cat:'推理',color:'#0088ff',scores:{reasoning:99,coding:97,creativity:92,speed:95,cost:75},price:'输入 ¥0.74/输出 ¥1.48',ctx:'100万',hot:true,trend:'up',desc:'旗舰级推理模型，专业场景首选。'},
+  {rank:3,name:'Claude Sonnet 4.6',maker:'Anthropic',emoji:'🤖',cat:'对话',color:'#b060ff',scores:{reasoning:95,coding:93,creativity:96,speed:88,cost:72},price:'输入 $3/输出 $15',ctx:'20万',hot:true,trend:'stable',desc:'对话体验最自然，长上下文理解能力出色。'},
+  {rank:4,name:'GLM-5',maker:'智谱AI',emoji:'🤖',cat:'推理',color:'#ff6b9d',scores:{reasoning:91,coding:88,creativity:85,speed:94,cost:92},price:'输入 ¥0.08/输出 ¥0.12',ctx:'128K',hot:false,trend:'up',desc:'国产大模型新秀，推理速度快，价格亲民。'},
+  {rank:5,name:'Kimi K2.6',maker:'月之暗面',emoji:'📖',cat:'长文',color:'#ffd93d',scores:{reasoning:88,coding:82,creativity:90,speed:85,cost:88},price:'输入 ¥0.06/输出 ¥0.12',ctx:'200万',hot:false,trend:'up',desc:'超长上下文处理能力领先，适合文档分析。'},
+  {rank:6,name:'Qwen 3',maker:'阿里云',emoji:'🤖',cat:'通用',color:'#ff8c42',scores:{reasoning:89,coding:90,creativity:87,speed:91,cost:93},price:'输入 ¥0.04/输出 ¥0.12',ctx:'128K',hot:false,trend:'stable',desc:'阿里云出品，多模态能力强，生态完善。'},
+  {rank:7,name:'Doubao Pro',maker:'字节跳动',emoji:'🎨',cat:'创意',color:'#ff4757',scores:{reasoning:85,coding:80,creativity:94,speed:93,cost:95},price:'输入 ¥0.03/输出 ¥0.09',ctx:'128K',hot:false,trend:'up',desc:'字节跳动出品，创意生成能力突出，价格最低。'},
+  {rank:8,name:'GPT-4o',maker:'OpenAI',emoji:'🤖',cat:'通用',color:'#00d4ff',scores:{reasoning:94,coding:92,creativity:91,speed:90,cost:65},price:'输入 $2.5/输出 $10',ctx:'128K',hot:false,trend:'stable',desc:'OpenAI多模态旗舰，综合能力强劲。'}
+];
+
+const LABELS = {reasoning:'推理',coding:'编程',creativity:'创意',speed:'速度',cost:'成本'};
+
+function renderModels() {
+  const el = document.getElementById('topContainer');
+  if(!el) return;
+  el.innerHTML = MODELS.map((m,i) => {
+    const scoresHtml = Object.entries(m.scores).map(([k,v]) =>
+      '<div class="score-item"><span class="score-label">'+(LABELS[k]||k)+'</span><div class="score-bar"><div class="score-fill" id="fill-'+i+'-'+k+'" style="width:0%;background:linear-gradient(90deg,'+m.color+','+m.color+'cc)"></div></div><span class="score-val" id="val-'+i+'-'+k+'">0</span></div>'
+    ).join('');
+    const trendIcon = m.trend === 'up' ? '📈' : '➡️';
+    return '<div class="top-card" style="--card-color:'+m.color+';opacity:0;transform:translateY(40px)" id="card-'+i+'" onclick="toggleDetail(this)">'
+      +'<div class="top-card-glow" style="background:radial-gradient(ellipse at 50% 0%,'+m.color+'15 0%,transparent 70%)"></div>'
+      +'<div class="top-card-rank">#'+m.rank+'</div>'
+      +'<div class="top-card-icon">'+m.emoji+'</div>'
+      +'<div class="top-card-header"><h3>'+m.name+'</h3><span class="top-card-maker">'+m.maker+'</span>'
+      +(m.hot?'<span class="model-badge-hot">🔥热门</span>':'')
+      +'<span class="top-card-trend">'+trendIcon+'</span></div>'
+      +'<div class="top-card-cat">'+m.cat+'</div>'
+      +'<div class="top-card-scores">'+scoresHtml+'</div>'
+      +'<div class="top-card-detail" style="display:none">'
+      +'<p class="top-card-desc">'+m.desc+'</p>'
+      +'<div class="top-card-meta"><span>📏 上下文 '+m.ctx+'</span><span>💰'+m.price+' /1M tokens</span></div>'
+      +'</div>'
+      +'<div class="top-card-expand">点击查看详情 ▾</div>'
+      +'</div>';
+  }).join('');
+
+  MODELS.forEach(function(_,i) {
+    setTimeout(function() {
+      var card = document.getElementById('card-'+i);
+      if(card) {
+        card.style.transition = 'all 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }
+      setTimeout(function() { animateScores(i); }, 200);
+    }, i * 150);
+  });
+}
+
+function animateScores(idx) {
+  var m = MODELS[idx];
+  Object.entries(m.scores).forEach(function(pair) {
+    var k = pair[0], target = pair[1];
+    var fill = document.getElementById('fill-'+idx+'-'+k);
+    var val = document.getElementById('val-'+idx+'-'+k);
+    if (!fill || !val) return;
+    var current = 0;
+    var step = target / 20;
+    var timer = setInterval(function() {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      fill.style.width = current + '%';
+      val.textContent = Math.round(current);
+    }, 30);
+  });
+}
+
+function toggleDetail(card) {
+  var d = card.querySelector('.top-card-detail');
+  var e = card.querySelector('.top-card-expand');
+  if (!d) return;
+  var show = d.style.display !== 'block';
+  d.style.display = show ? 'block' : 'none';
+  d.style.animation = show ? 'fadeSlideIn 0.35s ease' : 'none';
+  e.textContent = show ? '收起详情 ▴' : '点击查看详情 ▾';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderModels();
+  // Nav toggle
+  var toggle = document.getElementById('navToggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var links = document.querySelector('.nav-links');
+      if (links) links.classList.toggle('open');
+    });
+  }
+});
+</script>
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.type = 'text/javascript';
+  bp.async = true;
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>`n</body>`n</html>

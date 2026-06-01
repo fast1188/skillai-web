@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html style="background:#0a0e1a" lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TOP智能体 - AI Agent应用排行榜 | OpenClaw</title>
+<link rel="canonical" href="https://skillai.top/top-agents.html">
+<meta name="description" content="AI智能体TOP50排行榜，ChatGPT、Claude、DeepSeek、OpenClaw等主流AI应用排名，动态展示各类AI智能体。">
+<meta name="keywords" content="AI智能体排行, AI Agent排名, 智能体推荐, ChatGPT, Claude, DeepSeek, OpenClaw">
+<meta property="og:title" content="TOP智能体 - AI Agent应用排行榜">
+<meta property="og:description" content="AI智能体TOP50排行榜，ChatGPT、Claude、DeepSeek等主流AI应用排名">
+<meta property="og:url" content="https://skillai.top/top-agents.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SkillAI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TOP智能体 - AI Agent应用排行榜">
+<meta name="twitter:description" content="AI智能体TOP50排行榜，ChatGPT、Claude、DeepSeek等主流AI应用排名">
+<meta name="theme-color" content="#0a0e17">
+<style> *{margin:0;padding:0;box-sizing:border-box} body{background:#0a0e17;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;min-height:100vh} .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,14,23,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.04)} .nav-container{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between} .nav-links{display:flex;gap:6px}.nav-link{padding:6px 14px;border-radius:8px;color:#8899aa;font-size:0.85rem;text-decoration:none;transition:all 0.2s} .nav-link:hover,.nav-link.active{background:rgba(0,212,255,0.1);color:#00d4ff} .hero{padding:100px 16px 32px;text-align:center;position:relative;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(0,212,255,0.08) 0%,transparent 70%)} .hero h1{font-size:clamp(1.5rem,4vw,2rem);color:#fff;font-weight:800;margin-bottom:8px} .hero h1 .hl{background:linear-gradient(135deg,#00d4ff,#b060ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent} .hero p{color:#8899aa;font-size:0.88rem;margin-bottom:16px} .filter-bar{max-width:1100px;margin:0 auto 16px;padding:0 16px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center} .fb{padding:6px 16px;border-radius:50px;background:#0f1623;border:1px solid rgba(255,255,255,0.08);color:#667788;font-size:0.8rem;cursor:pointer;transition:all 0.2s;text-decoration:none} .fb:hover,.fb.on{background:rgba(0,212,255,0.1);border-color:#00d4ff;color:#00d4ff} .list{max-width:1100px;margin:0 auto;padding:0 16px 60px} .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:10px} .card{display:flex;align-items:center;gap:14px;background:#0f1623;border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:12px 16px;cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden;flex-wrap:wrap;opacity:0;transform:translateY(20px)} .card:hover{transform:translateY(-3px);border-color:var(--c,#00d4ff);box-shadow:0 8px 30px rgba(0,0,0,0.3)} .rank{font-size:1.1rem;font-weight:900;width:32px;text-align:center;flex-shrink:0}.rank.top3{font-size:1.4rem} .icon{font-size:1.8rem;width:38px;text-align:center;flex-shrink:0} .info{flex:1;min-width:0}.name{font-size:0.9rem;font-weight:700;color:#e8edf5;margin-bottom:2px} .name .tag{display:inline-block;font-size:0.58rem;font-weight:600;padding:1px 6px;border-radius:50px;margin-left:6px;vertical-align:middle} .meta{font-size:0.7rem;color:#556677;display:flex;gap:8px;flex-wrap:wrap} .arrow{font-size:0.7rem;color:#445566;flex-shrink:0;transition:transform 0.3s;align-self:flex-start;margin-top:4px} .detail{display:none;width:100%;margin-top:8px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);animation:fadeIn 0.3s ease} .card.open .detail{display:block}.card.open .arrow{transform:rotate(180deg)} .detail-inner{display:grid;grid-template-columns:1fr 1fr;gap:14px} .ds h4{font-size:0.78rem;color:#e8edf5;margin-bottom:6px;font-weight:600} .ds p{font-size:0.75rem;color:#667788;line-height:1.6} .ds .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px} .ds .tags span{font-size:0.68rem;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:50px;color:#667788} @keyframes fadeIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}} @media(max-width:700px){.filter-bar{display:flex;gap:6px;padding:0 16px 20px;flex-wrap:wrap;justify-content:center;max-width:1000px;margin:0 auto}.fb{padding:7px 18px;border-radius:50px;background:#0f1623;border:1px solid rgba(255,255,255,0.08);color:#667788;font-size:0.82rem;cursor:pointer;transition:0.2s}.fb:hover,.fb.on{background:rgba(0,212,255,0.1);border-color:#00d4ff;color:#00d4ff}.top3-section,.list-section{max-width:1000px;margin:0 auto 32px}.top3-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 16px}.top-card{background:#0f1623;border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:24px;text-align:center;position:relative;transition:0.3s}.top-card:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 12px 40px rgba(0,0,0,0.4)}.top-rank{font-size:2.2rem;font-weight:900;margin-bottom:4px}.top-rank-1{background:linear-gradient(135deg,#ffd93d,#ff8c42);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.top-rank-2{background:linear-gradient(135deg,#c0c0c0,#8899aa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.top-rank-3{background:linear-gradient(135deg,#cd7f32,#b87333);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.top-emoji{font-size:3rem;margin-bottom:8px}.top-name{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:2px}.top-maker{font-size:0.78rem;color:#667788;margin-bottom:10px}.top-desc{font-size:0.82rem;color:#8899aa;line-height:1.5;margin-bottom:12px}.top-tag{display:inline-block;font-size:0.72rem;padding:2px 12px;border-radius:50px;margin-bottom:6px}.top-users{font-size:0.78rem;color:#556677}.l-row{display:flex;align-items:center;gap:12px;padding:12px 16px;margin:0 16px;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:0.2s;flex-wrap:wrap}.l-row:hover{background:rgba(255,255,255,0.02)}.l-rank{font-size:1rem;font-weight:900;width:36px;flex-shrink:0}.l-emoji{font-size:1.5rem;width:36px;text-align:center;flex-shrink:0}.l-info{flex:1;min-width:0}.l-name{font-size:0.9rem;font-weight:700;color:#e8edf5}.l-maker{font-size:0.72rem;color:#556677}.l-tags{display:flex;gap:8px;align-items:center}.l-tag{font-size:0.68rem;padding:2px 10px;border-radius:50px}.l-users{font-size:0.72rem;color:#556677}.l-arrow{font-size:0.7rem;color:#445566;transition:0.3s}.l-row.open .l-arrow{transform:rotate(180deg)}.l-detail{display:none;width:100%;padding:12px;background:#0a0e17;border-radius:10px;margin-top:4px}.l-row.open .l-detail{display:block}.l-detail p{font-size:0.82rem;color:#8899aa;line-height:1.6}@media(max-width:700px){.top3-row{grid-template-columns:1fr}}.ac{background:#0f1623;border:1px solid rgba(255,255,255,0.05);border-radius:20px;padding:28px 20px;text-align:center;cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden}.ac:hover{transform:translateY(-6px);border-color:var(--c,#00d4ff);box-shadow:0 16px 48px rgba(0,0,0,0.4),0 0 30px var(--c,#00d4ff)15}.ac .ad{font-size:0.85rem;color:#8899aa;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:all 0.3s}.ac.op .ad{-webkit-line-clamp:unset}.ac.op{border-color:var(--c,#00d4ff);box-shadow:0 0 40px var(--c,#00d4ff)15}.detail-inner{grid-template-columns:1fr}} .footer{border-top:1px solid rgba(255,255,255,0.04);padding:40px 20px 24px;margin-top:32px} .footer-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px} @media(max-width:768px){.footer-container{grid-template-columns:1fr 1fr}} .footer-brand p{color:#667788;font-size:0.8rem;line-height:1.6;margin-top:8px} .footer-col h4{color:#fff;font-size:0.82rem;margin-bottom:10px} .footer-col a{display:block;color:#667788;font-size:0.78rem;text-decoration:none;margin-bottom:6px} .footer-col a:hover{color:#00d4ff} .footer-bottom{grid-column:1/-1;text-align:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.04);color:#445566;font-size:0.75rem;margin-top:16px} .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto 40px;padding:0 16px}.pc{background:#0f1623;border:1px solid rgba(255,255,255,0.05);border-radius:24px;padding:36px 24px;text-align:center;transition:.4s}.pc:hover{transform:translateY(-8px);border-color:var(--c);box-shadow:0 20px 60px rgba(0,0,0,0.5)}.pm{font-size:2.8rem;margin-bottom:4px}.pr{font-size:2.2rem;font-weight:900;margin-bottom:8px}.pi{font-size:4.5rem;margin-bottom:12px}.pn{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:4px}.pk{font-size:0.85rem;color:#667788;margin-bottom:14px}.pd{font-size:0.9rem;color:#8899aa;line-height:1.6;margin-bottom:12px}.pu{font-size:0.85rem;color:#667788}.rs{max-width:800px;margin:0 auto 60px}.rl{display:grid;gap:4px;padding:0 16px}.rr{display:flex;align-items:center;gap:14px;padding:16px 20px;background:#0f1623;border:1px solid rgba(255,255,255,0.03);border-radius:14px;cursor:pointer;transition:.3s;flex-wrap:wrap}.rr:hover{transform:translateX(4px);border-color:var(--c,#00d4ff);box-shadow:0 4px 16px rgba(0,0,0,0.2)}.rn{font-size:1.1rem;font-weight:900;width:30px;text-align:center;color:var(--c)}.ri{font-size:1.8rem;width:36px;text-align:center}.rnn{flex:1;font-size:0.95rem;font-weight:700;color:#e8edf5}.ru{font-size:0.78rem;color:#556677}.ra{font-size:0.8rem;color:#445566;transition:.3s}.rr.op .ra{transform:rotate(180deg)}.rd{display:none;width:100%;padding:12px;background:#0a0e17;border-radius:10px;margin-top:4px}.rr.op .rd{display:block}.rd p{font-size:0.85rem;color:#8899aa;line-height:1.6;margin-bottom:6px}.rd .rm{font-size:0.75rem;color:#556677}@media(max-width:700px){.pg{grid-template-columns:1fr}}</style>
+</head>
+<body style="background:#0a0e1a">
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" style="gap:12px;">
+      <img src="assets/images/openclaw-logo-nav-new.svg" alt="OpenClaw" height="80" style="height:80px;width:auto;flex-shrink:0;">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="skills.html" class="nav-link">Skill技能</a>
+      <a href="download.html" class="nav-link">远程安装</a>
+      <a href="community.html" class="nav-link">AI社区</a>
+      <a href="top-models.html" class="nav-link">TOP模型</a>
+      <a href="top-agents.html" class="nav-link active">TOP智能体</a>
+      <a href="about.html" class="nav-link">关于</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<section class="hero"><h1>TOP<span class="hl">智能体</span>排行榜</h1><p>AI 应用与智能体综合排名 · 基于使用热度、社区活跃度</p></section>
+
+<div class="ps"><div class="pg">
+<div class="pc" style="--c:#00d4ff"><div class="pm">🤖</div><div class="pr" style="color:#00d4ff">#1</div><div class="pi">🥇</div><div class="pn">ChatGPT</div><div class="pk">OpenAI</div><div class="pd">全球最强AI对话平台</div><div class="pu">🔥 4亿+</div></div>
+<div class="pc" style="--c:#b060ff"><div class="pm">🤖</div><div class="pr" style="color:#b060ff">#2</div><div class="pi">🥈</div><div class="pn">Claude</div><div class="pk">Anthropic</div><div class="pd">对话最自然的AI助手</div><div class="pu">🔥 数千万</div></div>
+<div class="pc" style="--c:#0088ff"><div class="pm">🤖</div><div class="pr" style="color:#0088ff">#3</div><div class="pi">🥉</div><div class="pn">DeepSeek</div><div class="pk">深度求索</div><div class="pd">国产最强开源模型</div><div class="pu">🔥 3000万</div></div>
+</div></div>
+
+<section class="section">
+<div class="fb-wrap">
+<button class="fb on" onclick="filter('all')">全部</button>
+<button class="fb" onclick="filter('chat')">对话</button>
+<button class="fb" onclick="filter('agent')">Agent</button>
+<button class="fb" onclick="filter('code')">编程</button>
+<button class="fb" onclick="filter('search')">搜索</button>
+<button class="fb" onclick="filter('image')">图像</button>
+<button class="fb" onclick="filter('video')">视频</button>
+<button class="fb" onclick="filter('productivity')">效率</button>
+<button class="fb" onclick="filter('browser')">浏览器</button>
+</div>
+<div class="cards" id="cardsContainer"></div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">SkillAI</a>
+      <p style="color:#667788;font-size:0.82rem;line-height:1.6;margin-bottom:20px;">你的全能AI私人助理，让 AI 替你工作24小时不间断。</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="download.html">远程安装</a>
+        <a href="skills.html">Skill技能</a>
+        <a href="top-models.html">TOP模型</a>
+        <a href="top-agents.html">TOP智能体</a>
+      </div>
+      <div class="footer-col">
+        <h4>资源</h4>
+        <a href="community.html">AI社区</a>
+        <a href="tutorial/">新手教程</a>
+        <a href="guide/">使用教程</a>
+        <a href="news/">动态资讯</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于</h4>
+        <a href="about.html">关于我们</a>
+        <a href="cooperation/">商务合作</a>
+        <a href="contact/">联系咨询</a>
+        <a href="agreement/">用户协议</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024-2026 SkillAI.top All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>function toggle(c){c.classList.toggle('open')}
+function filter(cat){
+  document.querySelectorAll('.fb').forEach(function(b){
+    b.classList.toggle('on',b.innerHTML.includes(cat)||(cat==='all'&&b.innerHTML.includes('全部')))
+  });
+  var cards=document.querySelectorAll('.card');
+  cards.forEach(function(c){
+    var info=c.querySelector('.info');
+    if(!info)return;
+    c.style.display=cat==='all'||info.innerHTML.includes(AGENTS_DATA[Array.from(cards).indexOf(c)].cat)?'':'none'
+  })
+}
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(function(){
+    document.querySelectorAll('.card').forEach(function(c,i){
+      setTimeout(function(){
+        c.style.transition='all 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+        c.style.opacity='1';
+        c.style.transform='translateY(0)';
+        setTimeout(function(){
+          c.querySelectorAll('[data-target]').forEach(function(el){
+            el.style.width=el.getAttribute('data-target')+'%';
+            el.nextElementSibling.textContent=el.getAttribute('data-target')
+          })
+        },400)
+      },i*40)
+    })
+  },100)
+})const AGENTS_DATA=[
+{"r":1,"n":"ChatGPT","m":"OpenAI","e":"🤖","c":"chat","cl":"#00d4ff","t":"旗舰","u":"4亿+/月","rate":4.7,"up":true,"hot":true,"d":"全球最强AI对话平台，多模式全能选手","p":"免费 / Plus $20/月"},
+{"r":2,"n":"Claude","m":"Anthropic","e":"🤖","c":"chat","cl":"#b060ff","t":"安全","u":"数千万","rate":4.8,"up":true,"hot":true,"d":"对话体验最自然，安全性极高的AI助手","p":"免费 / Pro $20/月"},
+{"r":3,"n":"DeepSeek Chat","m":"深度求索","e":"🤖","c":"chat","cl":"#0088ff","t":"国产开源","u":"3000万","rate":4.6,"up":true,"hot":true,"d":"国产最强开源模型，推理能力顶尖","p":"免费 / API ¥0.14"},
+{"r":4,"n":"Gemini","m":"Google","e":"🤖","c":"chat","cl":"#ff8c42","t":"多模态","u":"数亿","rate":4.5,"up":false,"hot":false,"d":"Google最强AI，原生多模态第一","p":"免费 / Advanced $19.99"},
+{"r":5,"n":"Grok","m":"xAI","e":"🤖","c":"chat","cl":"#00d4ff","t":"实时","u":"数百万","rate":4.4,"up":true,"hot":false,"d":"xAI出品，实时X数据集成","p":"X Premium+ $16/月"},
+{"r":6,"n":"Kimi","m":"月之暗面","e":"🤖","c":"chat","cl":"#ffd93d","t":"长文","u":"2000万","rate":4.3,"up":true,"hot":false,"d":"200万tokens超长上下文","p":"免费"},
+{"r":7,"n":"豆包","m":"字节跳动","e":"🤖","c":"chat","cl":"#ff4757","t":"创意","u":"5000万","rate":4.2,"up":true,"hot":false,"d":"字节跳动出品，创意生成强","p":"免费"},
+{"r":8,"n":"通义千问","m":"阿里云","e":"🤖","c":"chat","cl":"#ff6b9d","t":"生态","u":"3000万","rate":4.2,"up":false,"hot":false,"d":"阿里云出品，生态完善","p":"免费 / API ¥0.04"},
+{"r":9,"n":"GLM","m":"智谱AI","e":"🤖","c":"chat","cl":"#b060ff","t":"推理","u":"2000万","rate":4.1,"up":true,"hot":false,"d":"推理速度快，GLM-5表现亮眼","p":"免费 / API ¥0.08"},
+{"r":10,"n":"文心一言","m":"百度","e":"🤖","c":"chat","cl":"#0088ff","t":"中文","u":"1亿","rate":4,"up":false,"hot":false,"d":"百度出品，中文理解优秀","p":"免费 / Pro ¥39.9"},
+{"r":11,"n":"Copilot","m":"Microsoft","e":"🤖","c":"chat","cl":"#00d4ff","t":"办公","u":"数亿","rate":4.3,"up":false,"hot":false,"d":"微软AI，深度集成Office","p":"免费 / Pro $20/月"},
+{"r":12,"n":"OpenClaw","m":"OpenClaw团队","e":"🤖","c":"agent","cl":"#00d4ff","t":"自动化","u":"10万","rate":4.8,"up":true,"hot":true,"d":"开源AI自动化助手，100+技能","p":"免费 / 安装 ¥68起"},
+{"r":13,"n":"AutoGPT","m":"Significant","e":"🤖","c":"agent","cl":"#b060ff","t":"自主","u":"数百万","rate":4.5,"up":false,"hot":false,"d":"最早的自主AI Agent框架","p":"免费开源"},
+{"r":14,"n":"Claude Code","m":"Anthropic","e":"🤖","c":"agent","cl":"#b060ff","t":"编程","u":"50万","rate":4.7,"up":true,"hot":true,"d":"终端内AI编程Agent","p":"免费开源"},
+{"r":15,"n":"CrewAI","m":"CrewAI","e":"🤖","c":"agent","cl":"#ff8c42","t":"多Agent","u":"30万","rate":4.4,"up":true,"hot":false,"d":"多Agent协作框架","p":"免费开源"},
+{"r":16,"n":"Dify","m":"Dify","e":"🤖","c":"agent","cl":"#0088ff","t":"低代码","u":"20万","rate":4.5,"up":true,"hot":false,"d":"低代码AI应用开发平台","p":"免费 / 云版$59"},
+{"r":17,"n":"Hermes Agent","m":"Hermes","e":"🤖","c":"agent","cl":"#ffd93d","t":"持久记忆","u":"5万","rate":4.6,"up":true,"hot":true,"d":"持久记忆+自进化AI Agent","p":"免费开源"},
+{"r":18,"n":"Coze","m":"字节跳动","e":"🤖","c":"agent","cl":"#ff4757","t":"搭建","u":"100万","rate":4.3,"up":true,"hot":false,"d":"零代码AI Bot搭建平台","p":"免费"},
+{"r":19,"n":"扣子","m":"字节跳动","e":"🤖","c":"agent","cl":"#ff4757","t":"国内","u":"100万","rate":4.2,"up":true,"hot":false,"d":"Coze国内版，抖音集成","p":"免费"},
+{"r":20,"n":"LangChain","m":"LangChain","e":"🤖","c":"agent","cl":"#b060ff","t":"框架","u":"100万","rate":4.4,"up":true,"hot":false,"d":"最流行的AI应用开发框架","p":"免费开源"},
+{"r":21,"n":"OpenAI Agents","m":"OpenAI","e":"🤖","c":"agent","cl":"#00d4ff","t":"官方","u":"10万","rate":4.3,"up":true,"hot":false,"d":"OpenAI官方Agent SDK","p":"免费开源"},
+{"r":22,"n":"Cursor","m":"Anysphere","e":"💻","c":"code","cl":"#00d4ff","t":"AI IDE","u":"数百万","rate":4.7,"up":true,"hot":true,"d":"AI原生代码编辑器","p":"免费 / Pro $20"},
+{"r":23,"n":"GitHub Copilot","m":"GitHub/微软","e":"💻","c":"code","cl":"#b060ff","t":"补全","u":"200万","rate":4.5,"up":true,"hot":false,"d":"最流行的AI编程助手","p":"免费 / Pro $10"},
+{"r":24,"n":"Windsurf","m":"Codeium","e":"💻","c":"code","cl":"#ff8c42","t":"免费","u":"50万","rate":4.4,"up":true,"hot":false,"d":"免费AI代码编辑器","p":"免费 / Pro $15"},
+{"r":25,"n":"CodeGPT","m":"CodeGPT","e":"💻","c":"code","cl":"#0088ff","t":"多模型","u":"30万","rate":4.2,"up":false,"hot":false,"d":"多模型AI编程助手","p":"免费 / $9.99"},
+{"r":26,"n":"Replit Agent","m":"Replit","e":"💻","c":"code","cl":"#ff4757","t":"在线IDE","u":"100万","rate":4.3,"up":true,"hot":false,"d":"在线IDE内置AI Agent","p":"免费 / Pro $25"},
+{"r":27,"n":"Perplexity","m":"Perplexity","e":"🔍","c":"search","cl":"#00d4ff","t":"AI搜索","u":"数千万","rate":4.6,"up":true,"hot":true,"d":"AI搜索引擎革命者","p":"免费 / Pro $20"},
+{"r":28,"n":"秘塔AI","m":"秘塔科技","e":"🔍","c":"search","cl":"#b060ff","t":"中文搜索","u":"1000万","rate":4.5,"up":true,"hot":false,"d":"最好的中文AI搜索引擎","p":"免费 / Pro ¥39"},
+{"r":29,"n":"天工AI","m":"昆仑万维","e":"🔍","c":"search","cl":"#ff8c42","t":"综合","u":"500万","rate":4.2,"up":false,"hot":false,"d":"综合AI搜索+对话平台","p":"免费"},
+{"r":30,"n":"360AI搜索","m":"360","e":"🔍","c":"search","cl":"#ff8c42","t":"安全","u":"500万","rate":4.1,"up":false,"hot":false,"d":"360安全AI搜索引擎","p":"免费"},
+{"r":31,"n":"Midjourney","m":"Midjourney","e":"🎨","c":"image","cl":"#00d4ff","t":"最强画图","u":"数千万","rate":4.8,"up":false,"hot":false,"d":"AI图像生成王者","p":"$10-120/月"},
+{"r":32,"n":"DALL-E 3","m":"OpenAI","e":"🎨","c":"image","cl":"#b060ff","t":"ChatGPT","u":"数亿","rate":4.5,"up":false,"hot":false,"d":"OpenAI文生图模型","p":"ChatGPT Plus $20"},
+{"r":33,"n":"Stable Diffusion","m":"Stability AI","e":"🎨","c":"image","cl":"#ff8c42","t":"开源","u":"数千万","rate":4.4,"up":false,"hot":false,"d":"最流行的开源文生图","p":"免费开源"},
+{"r":34,"n":"可灵AI","m":"快手","e":"🎬","c":"image","cl":"#ff4757","t":"视频","u":"数百万","rate":4.3,"up":true,"hot":false,"d":"快手出品，文生视频突出","p":"免费 / Pro ¥39"},
+{"r":35,"n":"Sora","m":"OpenAI","e":"🎬","c":"video","cl":"#00d4ff","t":"文生视频","u":"有限测试","rate":4.6,"up":true,"hot":false,"d":"OpenAI文生视频模型","p":"ChatGPT Pro $200"},
+{"r":36,"n":"Runway Gen-3","m":"Runway","e":"🎬","c":"video","cl":"#b060ff","t":"专业","u":"数百万","rate":4.4,"up":false,"hot":false,"d":"专业AI视频创作平台","p":"免费 / Pro $15"},
+{"r":37,"n":"Pika","m":"Pika Labs","e":"🎬","c":"video","cl":"#ff8c42","t":"创意","u":"数百万","rate":4.2,"up":true,"hot":false,"d":"创意AI视频工具","p":"免费 / Pro $10"},
+{"r":38,"n":"Notion AI","m":"Notion","e":"📝","c":"productivity","cl":"#00d4ff","t":"写作","u":"数千万","rate":4.5,"up":false,"hot":false,"d":"AI笔记与协作平台","p":"$10/月"},
+{"r":39,"n":"Gamma","m":"Gamma Tech","e":"📊","c":"productivity","cl":"#b060ff","t":"演示","u":"数千万","rate":4.6,"up":true,"hot":true,"d":"AI PPT/文档生成工具","p":"免费 / Pro $10"},
+{"r":40,"n":"Otter.ai","m":"Otter","e":"🎙️","c":"productivity","cl":"#ff8c42","t":"会议","u":"数百万","rate":4.3,"up":false,"hot":false,"d":"AI会议助手","p":"免费 / Pro $16.99"},
+{"r":41,"n":"Motion","m":"Motion","e":"📅","c":"productivity","cl":"#ff4757","t":"日程","u":"50万","rate":4.4,"up":true,"hot":false,"d":"AI日程与项目规划","p":"$19/月"},
+{"r":42,"n":"OpenClaw Browser","m":"OpenClaw","e":"🌐","c":"browser","cl":"#00d4ff","t":"自动化","u":"10万","rate":4.7,"up":true,"hot":true,"d":"内置浏览器自动化","p":"免费开源"},
+{"r":43,"n":"Browser Use","m":"Browser-Use","e":"🌐","c":"browser","cl":"#b060ff","t":"AI操控","u":"5万","rate":4.5,"up":true,"hot":false,"d":"AI操控浏览器的开源工具","p":"免费开源"},
+{"r":44,"n":"Playwright","m":"Microsoft","e":"🌐","c":"browser","cl":"#0088ff","t":"测试","u":"数百万","rate":4.6,"up":false,"hot":false,"d":"微软浏览器自动化","p":"免费开源"},
+{"r":45,"n":"Puppeteer","m":"Google","e":"🌐","c":"browser","cl":"#ff8c42","t":"Chrome","u":"数百万","rate":4.5,"up":false,"hot":false,"d":"Chrome自动化库","p":"免费开源"},
+{"r":46,"n":"BrowserStack","m":"BrowserStack","e":"🌐","c":"browser","cl":"#ff4757","t":"云测试","u":"数万","rate":4.3,"up":false,"hot":false,"d":"云端浏览器测试平台","p":"$29/月起"},
+{"r":47,"n":"Selenium","m":"社区","e":"🌐","c":"browser","cl":"#ff6b9d","t":"经典","u":"数千万","rate":4.2,"up":false,"hot":false,"d":"最经典浏览器自动化","p":"免费开源"},
+{"r":48,"n":"PhantomJS","m":"社区","e":"🌐","c":"browser","cl":"#b060ff","t":"轻量","u":"数百万","rate":3.8,"up":false,"hot":false,"d":"轻量级无头浏览器","p":"免费开源"},
+{"r":49,"n":"Cypress","m":"Cypress.io","e":"🌐","c":"browser","cl":"#00d4ff","t":"前端","u":"数百万","rate":4.4,"up":false,"hot":false,"d":"前端测试工具","p":"免费 / Cloud $75"},
+{"r":50,"n":"Selenium IDE","m":"Selenium","e":"🌐","c":"browser","cl":"#ff6b9d","t":"录制","u":"数百万","rate":3.9,"up":false,"hot":false,"d":"Selenium录制回放工具","p":"免费开源"}
+];</script>
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.type = 'text/javascript';
+  bp.async = true;
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>`n</body>`n</html>
