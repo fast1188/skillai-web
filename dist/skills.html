@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html style="background:#0a0e1a" lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>技能工厂 - ClawHub Top 100 Skills</title>
+<meta name="description" content="浏览 ClawHub 最热门的 100 个技能，一键安装到你的 AI 助手。">
+<meta name="theme-color" content="#0a0e17">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+/* ===== ClawHub-Style Skills Grid ===== */
+.skills-hero {
+  padding: 80px 16px 32px;
+  text-align: center;
+}
+.skills-hero h1 {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  margin-bottom: 8px;
+}
+.skills-hero p {
+  color: #8899aa;
+  font-size: 0.9rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.skills-hero .version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  color: #00d4ff;
+  margin-top: 12px;
+}
+
+/* Stats row */
+.skills-stats {
+  text-align: center;
+  padding: 0 16px 24px;
+  color: #667788;
+  font-size: 0.85rem;
+}
+.skills-stats span {
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+/* Filters */
+.skills-filters {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.skills-filters::-webkit-scrollbar { display: none; }
+.filter-btn {
+  background: #0f1623;
+  border: 1px solid rgba(0,212,255,0.12);
+  color: #8899aa;
+  padding: 7px 14px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+  min-height: 36px;
+}
+.filter-btn.active, .filter-btn:active {
+  background: rgba(0,212,255,0.15);
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+.filter-btn:hover:not(.active) {
+  border-color: rgba(0,212,255,0.3);
+  color: #aabbcc;
+}
+
+/* ===== Grid Layout ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  padding: 0 16px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Card ===== */
+.skill-card {
+  background: #0f1623;
+  border: 1px solid rgba(0,212,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,212,255,0.08);
+  border-color: rgba(0,212,255,0.25);
+}
+.skill-card:active {
+  transform: scale(0.98);
+}
+
+/* Platform badges row */
+.skill-platforms {
+  display: flex;
+  gap: 4px;
+  padding: 10px 14px 0;
+}
+.skill-platform {
+  font-size: 0.6rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #667788;
+  padding: 1px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Icon + Title */
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px 0;
+}
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: rgba(0,212,255,0.06);
+  border: 1px solid rgba(0,212,255,0.1);
+}
+.skill-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Description */
+.skill-desc {
+  font-size: 0.8rem;
+  color: #8899aa;
+  line-height: 1.5;
+  padding: 8px 14px 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Meta row */
+.skill-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px 0;
+  font-size: 0.72rem;
+  color: #667788;
+  flex-wrap: wrap;
+}
+.skill-author {
+  color: #8899aa;
+}
+.skill-dot {
+  color: #445566;
+}
+.skill-updated {
+  color: #667788;
+}
+.skill-stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+.skill-stat {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #667788;
+}
+.skill-stat svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0.5;
+}
+.skill-stat val {
+  font-size: 0.72rem;
+}
+
+/* Install button row */
+.skill-footer {
+  padding: 10px 14px 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.skill-install-btn {
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.18);
+  color: #00d4ff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'SF Mono','Fira Code','Consolas',monospace;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.skill-install-btn:hover {
+  background: rgba(0,212,255,0.15);
+  border-color: #00d4ff;
+}
+.skill-install-btn.copied {
+  background: rgba(0,200,80,0.15);
+  border-color: #00c850;
+  color: #00c850;
+}
+.skill-copy-btn {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #8899aa;
+  width: 32px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.skill-copy-btn:hover {
+  background: rgba(0,212,255,0.1);
+  border-color: rgba(0,212,255,0.25);
+  color: #00d4ff;
+}
+.skill-copy-btn.copied {
+  background: rgba(0,200,80,0.1);
+  border-color: #00c850;
+  color: #00c850;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #1a2332;
+  border: 1px solid rgba(0,212,255,0.2);
+  color: #aabbcc;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 9999;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Loading skeleton */
+.skills-loading {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  padding: 0 16px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.skeleton-card {
+  background: #0f1623;
+  border: 1px solid rgba(0,212,255,0.06);
+  border-radius: 12px;
+  padding: 14px;
+}
+.skeleton-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  margin-bottom: 10px;
+}
+.skeleton-line {
+  height: 12px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+  margin-bottom: 6px;
+}
+.skeleton-line.short {
+  width: 60%;
+}
+.skeleton-line.mid {
+  width: 80%;
+}
+
+/* Hidden */
+.skill-card.hidden { display: none; }
+
+
+/* ===== 多彩卡片配色 ===== */
+.skill-card { border-left: 3px solid rgba(0,212,255,0.3); }
+.skill-card:nth-child(1) { border-left-color: #00d4ff; }
+.skill-card:nth-child(2) { border-left-color: #ff6b9d; }
+.skill-card:nth-child(3) { border-left-color: #b060ff; }
+.skill-card:nth-child(4) { border-left-color: #00ff9f; }
+.skill-card:nth-child(5) { border-left-color: #ffd93d; }
+.skill-card:nth-child(6) { border-left-color: #ff8c42; }
+.skill-card:nth-child(7) { border-left-color: #00d4ff; }
+.skill-card:nth-child(8) { border-left-color: #ff4757; }
+.skill-card:nth-child(9) { border-left-color: #b060ff; }
+.skill-card:nth-child(10) { border-left-color: #00ff9f; }
+.skill-card:nth-child(11) { border-left-color: #ff6b9d; }
+.skill-card:nth-child(12) { border-left-color: #ffd93d; }
+.skill-card:nth-child(13) { border-left-color: #00d4ff; }
+.skill-card:nth-child(14) { border-left-color: #ff8c42; }
+.skill-card:nth-child(15) { border-left-color: #b060ff; }
+.skill-card:nth-child(16) { border-left-color: #00ff9f; }
+.skill-card:nth-child(17) { border-left-color: #ff4757; }
+.skill-card:nth-child(18) { border-left-color: #ff6b9d; }
+.skill-card:nth-child(19) { border-left-color: #00d4ff; }
+.skill-card:nth-child(20) { border-left-color: #ffd93d; }
+.skill-card:nth-child(21) { border-left-color: #b060ff; }
+.skill-card:nth-child(22) { border-left-color: #ff8c42; }
+.skill-card:nth-child(23) { border-left-color: #00ff9f; }
+.skill-card:nth-child(24) { border-left-color: #ff4757; }
+.skill-card:nth-child(25) { border-left-color: #ff6b9d; }
+
+.skill-card:nth-child(1) .skill-icon { background: rgba(0,212,255,0.15); border-color: rgba(0,212,255,0.25); }
+.skill-card:nth-child(2) .skill-icon { background: rgba(255,107,157,0.15); border-color: rgba(255,107,157,0.25); }
+.skill-card:nth-child(3) .skill-icon { background: rgba(176,96,255,0.15); border-color: rgba(176,96,255,0.25); }
+.skill-card:nth-child(4) .skill-icon { background: rgba(0,255,159,0.15); border-color: rgba(0,255,159,0.25); }
+.skill-card:nth-child(5) .skill-icon { background: rgba(255,217,61,0.15); border-color: rgba(255,217,61,0.25); }
+.skill-card:nth-child(6) .skill-icon { background: rgba(255,140,66,0.15); border-color: rgba(255,140,66,0.25); }
+.skill-card:nth-child(7) .skill-icon { background: rgba(0,212,255,0.15); border-color: rgba(0,212,255,0.25); }
+.skill-card:nth-child(8) .skill-icon { background: rgba(255,71,87,0.15); border-color: rgba(255,71,87,0.25); }
+.skill-card:nth-child(9) .skill-icon { background: rgba(176,96,255,0.15); border-color: rgba(176,96,255,0.25); }
+.skill-card:nth-child(10) .skill-icon { background: rgba(0,255,159,0.15); border-color: rgba(0,255,159,0.25); }
+.skill-card:nth-child(11) .skill-icon { background: rgba(255,107,157,0.15); border-color: rgba(255,107,157,0.25); }
+.skill-card:nth-child(12) .skill-icon { background: rgba(255,217,61,0.15); border-color: rgba(255,217,61,0.25); }
+.skill-card:nth-child(13) .skill-icon { background: rgba(0,212,255,0.15); border-color: rgba(0,212,255,0.25); }
+.skill-card:nth-child(14) .skill-icon { background: rgba(255,140,66,0.15); border-color: rgba(255,140,66,0.25); }
+.skill-card:nth-child(15) .skill-icon { background: rgba(176,96,255,0.15); border-color: rgba(176,96,255,0.25); }
+.skill-card:nth-child(16) .skill-icon { background: rgba(0,255,159,0.15); border-color: rgba(0,255,159,0.25); }
+.skill-card:nth-child(17) .skill-icon { background: rgba(255,71,87,0.15); border-color: rgba(255,71,87,0.25); }
+.skill-card:nth-child(18) .skill-icon { background: rgba(255,107,157,0.15); border-color: rgba(255,107,157,0.25); }
+.skill-card:nth-child(19) .skill-icon { background: rgba(0,212,255,0.15); border-color: rgba(0,212,255,0.25); }
+.skill-card:nth-child(20) .skill-icon { background: rgba(255,217,61,0.15); border-color: rgba(255,217,61,0.25); }
+.skill-card:nth-child(21) .skill-icon { background: rgba(176,96,255,0.15); border-color: rgba(176,96,255,0.25); }
+.skill-card:nth-child(22) .skill-icon { background: rgba(255,140,66,0.15); border-color: rgba(255,140,66,0.25); }
+.skill-card:nth-child(23) .skill-icon { background: rgba(0,255,159,0.15); border-color: rgba(0,255,159,0.25); }
+.skill-card:nth-child(24) .skill-icon { background: rgba(255,71,87,0.15); border-color: rgba(255,71,87,0.25); }
+.skill-card:nth-child(25) .skill-icon { background: rgba(255,107,157,0.15); border-color: rgba(255,107,157,0.25); }
+
+/* 关注度标签 - 前3名高亮 */
+.skill-card:nth-child(-n+3) { box-shadow: 0 0 20px rgba(0,212,255,0.08); }
+.skill-card:nth-child(1) { box-shadow: 0 0 24px rgba(255,217,61,0.12); }
+/* ===== Responsive ===== */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .skill-install-btn {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+}
+</style>
+  <!-- SEO优化 -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="OpenClaw, skillai.top">
+<meta name="revisit-after" content="7 days">
+<link rel="canonical" href="https://skillai.top/">
+  <meta name="keywords" content="AI技能,OpenClaw技能,AI自动化技能,AI工具技能">
+</head>
+<body>
+
+<!-- Stars Background -->
+<div class="stars-bg"></div>
+<div class="stars-glow"></div>
+<div class="shooting-stars"></div>
+
+<!-- Loading -->
+<div class="page-loading" id="pageLoading">
+  <div style="text-align:center">
+    <svg width="48" height="48" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="22" stroke="url(#logoNavGrad)" stroke-width="3" stroke-dasharray="140" stroke-dashoffset="60">
+            <animate attributeName="stroke-dashoffset" from="140" to="60" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="40" cy="40" r="35" stroke="url(#logoNavGrad)" stroke-width="1" opacity="0.2">
+            <animate attributeName="r" from="35" to="38" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.2" to="0.5" dur="2s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+    <div style="color:#8899aa;font-size:0.85rem;margin-top:12px">加载中...</div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" style="gap:12px;">
+            <img src="assets/images/openclaw-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="skills.html" class="nav-link active">skill技能</a>
+      <a href="download.html" class="nav-link">远程安装</a>
+      <a href="community.html" class="nav-link">AI社区</a>
+      <a href="top-models.html" class="nav-link">TOP模型</a>
+      <a href="top-agents.html" class="nav-link">TOP智能体</a>
+      <a href="about.html" class="nav-link">关于</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mobile-link">首页</a>
+      <a href="skills.html" class="mobile-link">skill技能</a>
+      <a href="download.html" class="mobile-link">远程安装</a>
+      <a href="community.html" class="mobile-link">AI社区</a>
+      <a href="top-models.html" class="mobile-link">TOP模型</a>
+      <a href="top-agents.html" class="mobile-link">TOP智能体</a>
+      <a href="about.html" class="mobile-link">关于</a>
+    </div>
+
+<!-- Hero -->
+<section class="skills-hero">
+  <h1>?? 技能市场</h1>
+  <p>ClawHub 下载量排名前 50 的精选技能，一键安装到你的 AI 助手</p>
+</section>
+
+<!-- Stats + CTA -->
+<div class="skills-stats">
+  共 <span id="totalCount">0</span> 个技能 · 按下载量排序
+  <span style="margin:0 8px;color:#445566">|</span>
+  想要更多？<a href="https://clawhub.ai/skills?sort=downloads" target="_blank" style="color:#ff6b9d;font-weight:600;text-decoration:none;">前往 ClawHub 发现完整技能库 →</a>
+</div>
+
+<!-- Filters -->
+<div class="skills-filters" id="filters">
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="工作流">工作流</button>
+  <button class="filter-btn" data-filter="开发工具">开发工具</button>
+  <button class="filter-btn" data-filter="数据&API">数据&amp;API</button>
+  <button class="filter-btn" data-filter="安全">安全</button>
+  <button class="filter-btn" data-filter="自动化">自动化</button>
+  <button class="filter-btn" data-filter="提示词">提示词</button>
+  <button class="filter-btn" data-filter="MCP工具">MCP工具</button>
+  <button class="filter-btn" data-filter="其他">其他</button>
+</div>
+
+<!-- Skills Grid -->
+<div id="skillsGrid" class="skills-grid"></div>
+
+<!-- Loading skeleton (shown while JS loads) -->
+<div id="skillsSkeleton" class="skills-loading">
+  <div class="skeleton-card">
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line mid"></div>
+    <div class="skeleton-line short"></div>
+  </div>
+  <div class="skeleton-card">
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line mid"></div>
+    <div class="skeleton-line short"></div>
+  </div>
+  <div class="skeleton-card">
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line mid"></div>
+    <div class="skeleton-line short"></div>
+  </div>
+  <div class="skeleton-card">
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line mid"></div>
+    <div class="skeleton-line short"></div>
+  </div>
+  <div class="skeleton-card">
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line mid"></div>
+    <div class="skeleton-line short"></div>
+  </div>
+  <div class="skeleton-card">
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line mid"></div>
+    <div class="skeleton-line short"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- CTA -->
+
+
+<!-- Footer -->
+<button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <svg width="28" height="28" viewBox="0 0 80 80" fill="none" style="flex-shrink:0;">
+          <circle cx="40" cy="40" r="22" stroke="url(#logoNavGrad)" stroke-width="3"/>
+          <path d="M40 20 L40 35 L50 27" stroke="url(#logoNavGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M40 35 L30 27" stroke="url(#logoNavGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="20" r="2.5" fill="#00d4ff"/><circle cx="50" cy="27" r="2" fill="#0088ff"/><circle cx="30" cy="27" r="2" fill="#b060ff"/>
+        </svg>
+        <span style="font-weight:700;font-size:1rem;color:#e8edf5;">Open</span><span style="font-weight:700;font-size:1rem;color:#667788;">Claw</span>
+      </div>
+      <p style="color:#667788;font-size:0.82rem;line-height:1.6;margin-bottom:20px;">您的全能AI私人助理，让 AI 替你工作24小时不间断。</p>
+      <!-- 横排导航 -->
+      <div class="footer-nav" style="display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:20px;">
+        <a href="index.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">首页</a>
+        <a href="skills.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">skill技能</a>
+        <a href="download.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">远程安装</a>
+        <a href="community.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">AI社区</a>
+        <a href="top-models.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP模型</a>
+        <a href="top-agents.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP智能体</a>
+        <a href="about.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">关于</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="text-align:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.04);color:#445566;font-size:0.78rem;">
+      <p>? 2026 OpenClaw. MIT 开源协议。</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+// ============================================================
+// ClawHub Top 25 Skills (已汉化, 按下载量排序)
+// ============================================================
+const skillsData = [
+  {author:"pskoett", name:"自进化智能体", slug:"self-improving-agent", desc:"记录学习、错误和修正经验以实现持续改进。当命令执行失败或用户纠正时自动学习，避免重复犯同样的错误。", icon:"??", stars:"3.6k", downloads:"442k", updated:"1周前", cat:"工作流"},
+  {author:"spclaudehome", name:"技能安全审查器", slug:"skill-vetter", desc:"从安全角度审查 AI 技能。在安装 ClawHub、GitHub 等来源的技能前运行，检查危险标记、权限范围和可疑模式。", icon:"???", stars:"1.1k", downloads:"244k", updated:"1周前", cat:"安全"},
+  {author:"joelchance", name:"预测市场查询", slug:"polymarket-trade", desc:"查询 Polymarket 预测市场。查看赔率、发现热门市场、搜索事件、追踪价格变动，帮你把握预测市场动态。", icon:"??", stars:"132", downloads:"196k", updated:"1周前", cat:"数据&API"},
+  {author:"ivangdavila", name:"自进化主动型智能体", slug:"self-improving", desc:"集自我反思、自我批评、自我学习和自我组织记忆于一体。AI 自主评估自身工作、发现错误并永久改进，越用越好用。", icon:"??", stars:"1.1k", downloads:"190k", updated:"1周前", cat:"工作流", platforms:['Linux', 'macOS', 'Windows']},
+  {author:"oswalpalash", name:"语义知识图谱", slug:"ontology", desc:"带类型的知识图谱，用于结构化智能体记忆和可组合技能。创建/查询 Person、Project、Task 等实体并语义关联。", icon:"??", stars:"610", downloads:"183k", updated:"1周前", cat:"开发工具"},
+  {author:"steipete", name:"GitHub 交互", slug:"github", desc:"通过 gh CLI 与 GitHub 交互。支持 issue、PR、CI 运行和高级查询，轻松管理代码仓库。", icon:"??", stars:"605", downloads:"181k", updated:"1周前", cat:"开发工具"},
+  {author:"steipete", name:"Google 工作空间", slug:"gog", desc:"Google Workspace CLI，管理 Gmail、日历、云端硬盘、联系人、表格和文档，一站式办公自动化。", icon:"??", stars:"895", downloads:"177k", updated:"1周前", cat:"开发工具"},
+  {author:"tokauthai", name:"技能安全扫描", slug:"skillscan", desc:"技能安全门禁。每个新技能在使用前必须通过安全检查，在安装、加载或评估技能时自动激活。", icon:"??", stars:"22", downloads:"169k", updated:"2天前", cat:"安全"},
+  {author:"halthelobster", name:"主动型智能体", slug:"proactive-agent", desc:"将 AI 智能体从任务执行者转变为主动合作伙伴，自动预测需求并持续改进。包含自主定时任务。", icon:"?", stars:"765", downloads:"161k", updated:"2天前", cat:"工作流"},
+  {author:"steipete", name:"天气预报", slug:"weather", desc:"获取当前天气和预报（无需 API 密钥）。随时查询天气状况，出行规划好帮手。", icon:"???", stars:"401", downloads:"153k", updated:"1周前", cat:"数据&API"},
+  {author:"gpyangyoujun", name:"多搜索引擎", slug:"multi-search-engine", desc:"集成 16 个搜索引擎（7 中文 + 9 全球）。支持高级搜索、时间过滤、站点搜索和 Wolfram Alpha。", icon:"??", stars:"688", downloads:"144k", updated:"1周前", cat:"开发工具"},
+  {author:"fly0pants", name:"广告情报分析", slug:"admapix", desc:"广告智能分析助手，搜索广告素材、分析应用排名、下载量、收入和市场规模洞察。", icon:"??", stars:"279", downloads:"129k", updated:"1周前", cat:"数据&API"},
+  {author:"biostartechnology", name:"AI 文本人性化", slug:"humanizer", desc:"去除文本中的 AI 生成痕迹，检测并修复夸张表述、宣传语气和术语堆砌等 AI 写作特征，让文字更自然。", icon:"??", stars:"626", downloads:"112k", updated:"1周前", cat:"提示词"},
+  {author:"matrixy", name:"智能浏览器", slug:"agent-browser-clawdbot", desc:"专为 AI 智能体优化的无头浏览器自动化工具，支持无障碍树快照和基于引用的元素选择。", icon:"??", stars:"392", downloads:"110k", updated:"1周前", cat:"自动化"},
+  {author:"steipete", name:"PDF 编辑", slug:"nano-pdf", desc:"使用自然语言指令通过 nano-pdf CLI 编辑 PDF 文件，无需复杂操作。", icon:"??", stars:"250", downloads:"106k", updated:"1周前", cat:"开发工具"},
+  {author:"steipete", name:"图像生成 Pro", slug:"nano-banana-pro", desc:"使用 Gemini 3 Pro Image 生成/编辑图片，支持文生图和图生图，1K/2K/4K 分辨率。", icon:"??", stars:"387", downloads:"98.2k", updated:"1天前", cat:"开发工具"},
+  {author:"pollyreach", name:"电话助手", slug:"pollyreach", desc:"为每个 AI 智能体配备电话号码，实现打电话、找联系人、完成任务的能力。", icon:"??", stars:"48", downloads:"97.8k", updated:"1周前", cat:"数据&API"},
+  {author:"steipete", name:"笔记管理", slug:"obsidian", desc:"通过 obsidian-cli 管理 Obsidian 笔记库，自动化处理 Markdown 笔记。", icon:"??", stars:"397", downloads:"96.4k", updated:"1天前", cat:"开发工具"},
+  {author:"jacky1n7", name:"Tavily 网络搜索", slug:"openclaw-tavily-search", desc:"通过 Tavily API 进行网络搜索，作为 Brave 搜索的替代方案。用于查询网络信息和资料。", icon:"??", stars:"257", downloads:"94k", updated:"1周前", cat:"数据&API"},
+  {author:"maximeprades", name:"自动更新器", slug:"auto-updater", desc:"每天自动更新 Clawbot 和所有已安装技能。通过定时任务检查更新、应用更新并汇总报告。", icon:"??", stars:"406", downloads:"88.1k", updated:"1天前", cat:"自动化", platforms:['macOS', 'Linux']},
+  {author:"steipete", name:"Notion 管理", slug:"notion", desc:"Notion API 集成，创建和管理页面、数据库、区块，让笔记和知识库管理自动化。", icon:"??", stars:"254", downloads:"87.7k", updated:"1周前", cat:"开发工具"},
+  {author:"ide-rea", name:"百度搜索", slug:"baidu-search", desc:"使用百度 AI 搜索引擎进行网络搜索。用于实时信息查询、资料查找和研究。", icon:"??", stars:"214", downloads:"86.7k", updated:"1周前", cat:"数据&API"},
+  {author:"chindden", name:"技能创作指南", slug:"skill-creator", desc:"创建高效技能的完整指南。用于创建新技能或更新现有技能，扩展 AI 的专业知识和工具集成。", icon:"???", stars:"287", downloads:"84.9k", updated:"3天前", cat:"开发工具"},
+  {author:"steipete", name:"音响控制", slug:"sonoscli", desc:"控制 Sonos 音响——发现设备、查看状态、播放控制、音量调节和分组管理。", icon:"??", stars:"54", downloads:"82.4k", updated:"1周前", cat:"自动化"},
+  {author:"steipete", name:"语音转文字", slug:"openai-whisper", desc:"本地语音转文字工具，使用 Whisper CLI 无需 API 密钥即可将语音转为文字。", icon:"???", stars:"309", downloads:"79.9k", updated:"1周前", cat:"开发工具"},
+  {author:"yesong-hue", name:"开发者工作流自动化", slug:"dev-workflow-automation", desc:"查询和管理 GitHub 仓库——列表、CI 状态、Issue、搜索和活动追踪。", icon:"??", stars:"0", downloads:"0", updated:"13分钟前", cat:"开发工具"},
+  {author:"parmasanandgarlic", name:"FarmDash 信号架构", slug:"farmdash-signal-architect", desc:"完整的零托管 DeFi 执行层，为自主智能体提供 FarmDash MCP 工具集（47个工具）。", icon:"??", stars:"2", downloads:"857", updated:"22分钟前", cat:"数据&API"},
+  {author:"bwhdx", name:"KashDAO TOP智能体", slug:"kashdao-cli", desc:"通过官方 KashDAO CLI 非托管交易预测市场——市场列表、报价、交易。", icon:"??", stars:"1", downloads:"0", updated:"26分钟前", cat:"数据&API"},
+  {author:"zc-kama", name:"Gateway 弹性守卫", slug:"gateway-resilience-guard", desc:"保持 Gateway、渠道、日志和模型探针在 Wi-Fi 断开后仍可观测。", icon:"???", stars:"0", downloads:"212", updated:"36分钟前", cat:"安全"},
+  {author:"mpalermiti", name:"Outlook MCP", slug:"outlook-mcp", desc:"生产级 MCP 服务器，61 个 Graph 工具覆盖邮件、日历、联系人等。", icon:"??", stars:"1", downloads:"548", updated:"40分钟前", cat:"开发工具"},
+  {author:"samber", name:"Golang 代码风格", slug:"golang-code-style", desc:"Go 代码风格规范——行长、变量声明、控制流清晰度、注释规范。", icon:"??", stars:"0", downloads:"523", updated:"41分钟前", cat:"开发工具"},
+  {author:"samber", name:"文案 CTA 设计", slug:"copywriting-cta", desc:"设计文章底部行动号召 CTA，用于博客、通讯稿、文章和内容营销。", icon:"??", stars:"0", downloads:"0", updated:"42分钟前", cat:"提示词"},
+  {author:"wangjipeng977", name:"AI 图片转代码", slug:"ai-image-to-code", desc:"将 UI 截图或设计图转换为 HTML、CSS 或组件代码。", icon:"??", stars:"1", downloads:"523", updated:"52分钟前", cat:"开发工具"},
+  {author:"wangjipeng977", name:"文本转 SQL", slug:"text-to-sql", desc:"将自然语言描述的数据查询需求转换为对应的 SQL 查询语句。", icon:"???", stars:"1", downloads:"500", updated:"52分钟前", cat:"开发工具"},
+  {author:"nevilpaulo", name:"M-Pesa 支付", slug:"mpesa-daraja", desc:"构建/测试 Safaricom M-Pesa Daraja API 集成，支持 STK Push、C2B 验证等。", icon:"??", stars:"0", downloads:"0", updated:"52分钟前", cat:"数据&API"},
+  {author:"taiyangc", name:"Nile 市场", slug:"nile-markets", desc:"查询 Nile Markets——链上外汇市场，支持不可交割远期合约(NDFs)。", icon:"??", stars:"0", downloads:"210", updated:"55分钟前", cat:"数据&API"},
+  {author:"mehdi149", name:"浏览器智能体", slug:"browseanything", desc:"驱动真实 Chromium 浏览器的自主 AI 智能体，可订票、爬取、填表等。", icon:"??", stars:"0", downloads:"0", updated:"1小时前", cat:"自动化"},
+  {author:"0marwalied", name:"车辆数据 API", slug:"carsxe", desc:"访问完整的 CarsXE 车辆数据 API——VIN 解码、车牌查询、市场价值、历史记录。", icon:"??", stars:"0", downloads:"407", updated:"1小时前", cat:"数据&API"},
+  {author:"swit001", name:"Agent 执行守卫", slug:"worldloops", desc:"WorldLoops 的安全默认责任层，让 AI 智能体将分散的信号转换为可验证的操作。", icon:"???", stars:"1", downloads:"726", updated:"1小时前", cat:"安全"},
+  {author:"samber", name:"Golang CLI 开发", slug:"golang-cli", desc:"Go 语言 CLI 应用开发指南，涵盖命令结构、参数解析和测试。", icon:"??", stars:"0", downloads:"419", updated:"1小时前", cat:"开发工具"},
+  {author:"mohebifar", name:"Codemod 代码迁移", slug:"codemod", desc:"使用 Codemod CLI 进行代码库迁移、升级、重构，以可重复的方式执行。", icon:"??", stars:"0", downloads:"22", updated:"1小时前", cat:"开发工具"},
+  {author:"jesustoachild", name:"夸克懒人追剧", slug:"quark-lazy-cli", desc:"基于夸克网盘的自动追剧追番工具，支持资源搜索、多级目录探查和偏好转存。", icon:"??", stars:"0", downloads:"609", updated:"1小时前", cat:"自动化"},
+  {author:"liuyanfeng1234", name:"V19 信任宣言", slug:"v19-trust-manifesto", desc:"Agent 社区认知治理协议公开受信声明，行业贡献定位与三方交叉验证。", icon:"??", stars:"0", downloads:"3.3k", updated:"2小时前", cat:"其他"},
+  {author:"fuckdayx", name:"Clawshop 带货", slug:"clawshop-pro", desc:"Clawshop 自动带货客户端，装上→登录→直接使用，零配置。", icon:"??", stars:"0", downloads:"211", updated:"2小时前", cat:"自动化"},
+  {author:"samber", name:"Golang 基准测试", slug:"golang-benchmark", desc:"Go 语言基准测试、性能分析和性能测量。编写、运行或比较 Go 基准测试。", icon:"??", stars:"0", downloads:"423", updated:"2小时前", cat:"开发工具"},
+  {author:"cbrunnkvist", name:"Nano 加密货币", slug:"nano", desc:"Nano (XNO) 钱包操作和协议专家。发送/接收、查询余额、管理钱包。", icon:"??", stars:"0", downloads:"491", updated:"2小时前", cat:"数据&API"},
+  {author:"otzippo", name:"小红书关键词批量采集", slug:"xiaohongshu-keyword-batch-autocomplete", desc:"小红书关键词联想词批量采集工具，支持批量导入、深度挖掘、自动去重和导出。", icon:"??", stars:"0", downloads:"41", updated:"2小时前", cat:"自动化"},
+  {author:"chuckwhisler", name:"视频批量编辑", slug:"batchedits", desc:"通过 BatchEdits 自主编辑视频、添加字幕、删除静音片段。", icon:"??", stars:"0", downloads:"73", updated:"3小时前", cat:"自动化"},
+  {author:"18072937735", name:"非接触式健康检测", slug:"smyx-contactless-health-risk-detection-analysis", desc:"结合面部图像和多模态生理特征分析，提供早期风险筛查和健康洞察。", icon:"??", stars:"5", downloads:"283", updated:"3小时前", cat:"其他"},
+  {author:"mohebifar", name:"Codemod 重构工具", slug:"codemod-2", desc:"代码重构和迁移工具，支持批量替换、模式匹配和自动化代码转换。", icon:"???", stars:"0", downloads:"18", updated:"1小时前", cat:"开发工具"},
+];
+
+
+// ============================================================
+// Util
+// ============================================================
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ============================================================
+// Render
+// ============================================================
+function renderSkills(skills) {
+  const grid = document.getElementById('skillsGrid');
+  grid.innerHTML = skills.map((s, i) => {
+    const installCmd = 'clawhub install ' + s.author + '/' + (s.slug || s.name.toLowerCase().replace(/\s+/g, '-'));
+    const platforms = (s.platforms || []).map(p => '<span class="skill-platform">' + escapeHtml(p) + '</span>').join('');
+    
+    return '<div class="skill-card" data-cat="' + escapeHtml(s.cat || 'Other') + '">' +
+      (platforms ? '<div class="skill-platforms">' + platforms + '</div>' : '') +
+      '<div class="skill-header">' +
+        '<div class="skill-icon">' + (s.icon || '??') + '</div>' +
+        '<div class="skill-title" title="' + escapeHtml(s.name) + '">' + escapeHtml(s.name) + '</div>' +
+      '</div>' +
+      '<div class="skill-desc">' + escapeHtml(s.desc) + '</div>' +
+      '<div class="skill-meta">' +
+        '<span class="skill-author">@' + escapeHtml(s.author) + '</span>' +
+        '<span class="skill-dot">·</span>' +
+        '<span class="skill-updated">' + escapeHtml(s.updated) + '</span>' +
+        '<span class="skill-stats">' +
+          '<span class="skill-stat">' +
+            '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.76 3.57 3.95.57-2.86 2.79.67 3.93L8 10.77l-3.52 1.85.67-3.93-2.86-2.79 3.95-.57L8 1.5z"/></svg>' +
+            '<val>' + (s.stars || '0') + '</val>' +
+          '</span>' +
+          '<span class="skill-stat">' +
+            '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5C4.14 1.5 1 7 1 7s3.14 5.5 7 5.5S15 7 15 7s-3.14-5.5-7-5.5zM8 10a3 3 0 110-6 3 3 0 010 6z" fill-rule="evenodd"/></svg>' +
+            '<val>' + (s.downloads || '0') + '</val>' +
+          '</span>' +
+        '</span>' +
+      '</div>' +
+      '<div class="skill-footer">' +
+        '<button class="skill-install-btn" data-cmd="' + escapeHtml(installCmd) + '" onclick="copyCmd(this)">' +
+          'clawhub install ' + escapeHtml(s.author) + '/' + escapeHtml(s.slug || s.name.toLowerCase().replace(/\s+/g, '-')) +
+        '</button>' +
+        '<button class="skill-copy-btn" onclick="copyCmd(this.previousElementSibling)" title="复制命令">??</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  document.getElementById('totalCount').textContent = skills.length;
+  document.getElementById('skillsSkeleton').style.display = 'none';
+}
+
+// ============================================================
+// Copy command
+// ============================================================
+function copyCmd(btn) {
+  const cmd = btn.getAttribute('data-cmd') || btn.textContent.trim();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(cmd).then(function() {
+      showCopied(btn);
+    }).catch(function() {
+      fallbackCopy(cmd, btn);
+    });
+  } else {
+    fallbackCopy(cmd, btn);
+  }
+}
+
+function fallbackCopy(text, btn) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showCopied(btn);
+  } catch (e) {
+    showToast('复制失败，请手动复制');
+  }
+  document.body.removeChild(ta);
+}
+
+function showCopied(btn) {
+  const orig = btn.textContent;
+  btn.classList.add('copied');
+  btn.textContent = '? 已复制';
+  showToast('已复制: ' + (btn.getAttribute('data-cmd') || btn.textContent.replace('? 已复制', '').trim()));
+  setTimeout(function() {
+    btn.classList.remove('copied');
+    btn.textContent = orig;
+  }, 2000);
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function() { t.classList.remove('show'); }, 2500);
+}
+
+// ============================================================
+// Filter
+// ============================================================
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    var filter = this.getAttribute('data-filter');
+    document.querySelectorAll('.skill-card').forEach(function(card) {
+      if (filter === 'all' || card.getAttribute('data-cat') === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// ============================================================
+// Init
+// ============================================================
+renderSkills(skillsData);
+</script>
+
+
+<!-- 统计代码 -->
+<script>
+(function() {
+  // 简单访问计数 - localStorage 版本
+  try {
+    var visitKey = 'oc_visit_' + window.location.pathname;
+    var count = parseInt(localStorage.getItem(visitKey) || '0');
+    count++;
+    localStorage.setItem(visitKey, count.toString());
+  } catch(e){}
+})();
+</script>
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    bp.type = 'text/javascript';
+    bp.async = true;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var loader = document.getElementById("pageLoading");
+    if (loader) {
+        loader.classList.add("hidden");
+        setTimeout(function() { loader.classList.add("removed"); }, 400);
+    }
+});
+</script>
+</body>
+</html>

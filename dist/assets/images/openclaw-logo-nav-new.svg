@@ -1,0 +1,66 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="50%" style="stop-color:#0099ee"/>
+      <stop offset="100%" style="stop-color:#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="crabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#0066cc"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background (matching site bg) -->
+  <rect width="400" height="240" fill="#0a0e17" rx="12"/>
+
+  <!-- ===== SIMPLE CRAB CHARACTER (CYAN/BLUE) ===== -->
+  <g transform="translate(200,85)">
+    
+    <!-- Main round body -->
+    <circle cx="0" cy="0" r="48" fill="url(#crabGrad)" opacity="0.95"/>
+    
+    <!-- Subtle highlight -->
+    <ellipse cx="-15" cy="-18" rx="12" ry="8" fill="#00d4ff" opacity="0.35"/>
+    
+    <!-- Left eye -->
+    <circle cx="-16" cy="-4" r="5.5" fill="#0a1628"/>
+    <circle cx="-14" cy="-6" r="2" fill="white"/>
+    
+    <!-- Right eye -->
+    <circle cx="16" cy="-4" r="5.5" fill="#0a1628"/>
+    <circle cx="18" cy="-6" r="2" fill="white"/>
+    
+    <!-- Simple smile -->
+    <path d="M-7,7 Q0,15 7,7" fill="none" stroke="#0a1628" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    
+    <!-- Left claw -->
+    <g transform="translate(-51,3) rotate(-20)">
+      <ellipse cx="0" cy="0" rx="12" ry="7" fill="url(#crabGrad)" opacity="0.95"/>
+    </g>
+    
+    <!-- Right claw -->
+    <g transform="translate(51,3) rotate(20)">
+      <ellipse cx="0" cy="0" rx="12" ry="7" fill="url(#crabGrad)" opacity="0.95"/>
+    </g>
+    
+    <!-- Left leg -->
+    <ellipse cx="-16" cy="51" rx="8" ry="5" fill="url(#crabGrad)" opacity="0.95"/>
+    
+    <!-- Right leg -->
+    <ellipse cx="16" cy="51" rx="8" ry="5" fill="url(#crabGrad)" opacity="0.95"/>
+  </g>
+
+  <!-- Brand name -->
+  <text x="200" y="168" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="42" fill="url(#textGrad)" letter-spacing="3">OpenClaw</text>
+
+  <!-- Tagline -->
+  <text x="200" y="202" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="400" font-size="12" fill="#8899AA" letter-spacing="6" opacity="0.85">AI &#xb7; PERSONAL &#xb7; ASSISTANT</text>
+</svg>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html style="background:#0a0e1a" lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>关于我们 - OpenClaw AI自动化助手</title>
+<meta name="description" content="了解 OpenClaw 的故事——我们是 AI 自动化领域的先行者，致力于让每个人都拥有自己的全能 AI 私人助理。">
+<meta name="theme-color" content="#0a0e17">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+/* ===== 关于页 ===== */
+.about-hero {
+  padding: 70px 16px 40px;
+  text-align: center;
+  position: relative;
+}
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,212,255,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+}
+.about-hero-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+.about-hero h1 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.about-hero p {
+  color: #8899aa;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 使命愿景 */
+.mission-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+.mission-card {
+  background: #0f1623;
+  border: 1px solid rgba(0,212,255,0.1);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00d4ff, #ff6b9d, #ffd93d);
+}
+.mission-icon {
+  font-size: 2.6rem;
+  margin-bottom: 16px;
+}
+.mission-card h2 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.mission-card p {
+  color: #8899aa;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* 时间线 */
+.timeline-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+.timeline-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.timeline-header h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.timeline-header p {
+  color: #8899aa;
+  font-size: 0.9rem;
+}
+.timeline {
+  position: relative;
+  padding-left: 36px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #00d4ff, #ff6b9d, #ffd93d, #00ff9f);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+  padding-left: 20px;
+}
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+.timeline-dot {
+  position: absolute;
+  left: -30px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0f1623;
+  border: 3px solid #00d4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.timeline-dot.pink { border-color: #ff6b9d; }
+.timeline-dot.yellow { border-color: #ffd93d; }
+.timeline-dot.green { border-color: #00ff9f; }
+.timeline-dot.purple { border-color: #b060ff; }
+.timeline-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #00d4ff;
+  margin-bottom: 4px;
+}
+.timeline-content {
+  background: #0f1623;
+  border: 1px solid rgba(0,212,255,0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.timeline-content h4 {
+  color: #e8edf5;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+.timeline-content p {
+  color: #8899aa;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+/* 团队 */
+.team-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+.team-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.team-header h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.team-header p {
+  color: #8899aa;
+  font-size: 0.9rem;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.team-card {
+  background: #0f1623;
+  border: 1px solid rgba(0,212,255,0.1);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.25s;
+}
+.team-card:hover {
+  border-color: rgba(0,212,255,0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,212,255,0.06);
+}
+.team-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(255,107,157,0.1));
+  border: 2px solid rgba(0,212,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 12px;
+}
+.team-name {
+  color: #e8edf5;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.team-role {
+  color: #00d4ff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.team-desc {
+  color: #8899aa;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* 价值观 */
+.values-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+.values-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.values-header h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.values-header p {
+  color: #8899aa;
+  font-size: 0.9rem;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.value-card {
+  background: #0f1623;
+  border: 1px solid rgba(0,212,255,0.1);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.value-card:hover {
+  border-color: rgba(0,212,255,0.25);
+}
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.value-card h4 {
+  color: #e8edf5;
+  font-size: 0.92rem;
+  margin-bottom: 6px;
+}
+.value-card p {
+  color: #8899aa;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* CTA */
+.about-cta {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+  text-align: center;
+}
+.about-cta-card {
+  background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(255,107,157,0.04));
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 16px;
+  padding: 36px 24px;
+}
+.about-cta-card h3 {
+  color: #fff;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+.about-cta-card p {
+  color: #8899aa;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.about-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.about-btn-primary {
+  background: linear-gradient(135deg, #00d4ff, #0088aa);
+  color: #0a0e17;
+}
+.about-btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+.about-btn-secondary {
+  background: transparent;
+  border: 1px solid #2a3a4a;
+  color: #8899aa;
+}
+.about-btn-secondary:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+/* 响应式 */
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .timeline {
+    padding-left: 44px;
+  }
+  .timeline::before {
+    left: 16px;
+  }
+  .timeline-dot {
+    left: -36px;
+    width: 18px;
+    height: 18px;
+  }
+}
+</style>
+  <!-- SEO优化 -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="OpenClaw, skillai.top">
+<meta name="revisit-after" content="7 days">
+<link rel="canonical" href="https://skillai.top/">
+  <meta name="keywords" content="OpenClaw介绍,AI自动化助手,开源AI项目,OpenClaw团队">
+</head>
+<body>
+
+<div class="stars-bg"></div>
+<div class="stars-glow"></div>
+<div class="shooting-stars"></div>
+
+<div class="page-loading" id="pageLoading">
+  <div style="text-align:center">
+    <svg width="48" height="48" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="22" stroke="url(#logoNavGrad)" stroke-width="3" stroke-dasharray="140" stroke-dashoffset="60">
+            <animate attributeName="stroke-dashoffset" from="140" to="60" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="40" cy="40" r="35" stroke="url(#logoNavGrad)" stroke-width="1" opacity="0.2">
+            <animate attributeName="r" from="35" to="38" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.2" to="0.5" dur="2s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+    <div style="color:#8899aa;font-size:0.85rem;margin-top:12px">加载中...</div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" style="gap:12px;">
+            <img src="assets/images/openclaw-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="skills.html" class="nav-link">skill技能</a>
+      <a href="download.html" class="nav-link">远程安装</a>
+      <a href="community.html" class="nav-link">AI社区</a>
+      <a href="top-models.html" class="nav-link">TOP模型</a>
+      <a href="top-agents.html" class="nav-link">TOP智能体</a>
+      <a href="about.html" class="nav-link active">关于</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+
+<div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mobile-link">首页</a>
+      <a href="skills.html" class="mobile-link">skill技能</a>
+      <a href="download.html" class="mobile-link">远程安装</a>
+      <a href="community.html" class="mobile-link">AI社区</a>
+      <a href="top-models.html" class="mobile-link">TOP模型</a>
+      <a href="top-agents.html" class="mobile-link">TOP智能体</a>
+      <a href="about.html" class="mobile-link">关于</a>
+    </div>
+
+<!-- Hero -->
+<section class="about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="about-hero-content">
+    <div class="about-hero-icon">??</div>
+    <h1>关于 OpenClaw</h1>
+    <p>我们相信 AI 不应只是少数人的专利——每个人都可以拥有自己的全能 AI 私人助理，让 AI 24 小时不间断地为你工作。</p>
+  </div>
+</section>
+
+<!-- 使命 -->
+<section class="mission-section">
+  <div class="mission-card">
+    <div class="mission-icon">??</div>
+    <h2>使命</h2>
+    <p>让 AI 自动化触手可及。OpenClaw 致力于打造最易用的 AI 自动化平台，帮助个人和团队将重复性工作交给 AI，把时间和精力集中在真正有价值的事情上。<br><br>从邮件整理到竞品监控，从日报生成到定时简报——OpenClaw 让你用自然语言定义任务，AI 替你执行。</p>
+  </div>
+</section>
+
+<!-- 时间线 -->
+<section class="timeline-section">
+  <div class="timeline-header">
+    <h2>?? 发展历程</h2>
+    <p>从想法到产品，OpenClaw 的成长之路</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">2025 Q1</div>
+        <h4>构想与起步</h4>
+        <p>创始团队在一次 AI 黑客马拉松中萌生想法——为什么不能让 AI 主动为人工作，而是等人去用 AI？OpenClaw 的核心架构在这一时期初步形成。</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot pink"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">2025 Q2</div>
+        <h4>首个内测版本</h4>
+        <p>OpenClaw Alpha 版本发布，支持基础的任务编排和模型接入。首批 50 名内测用户反馈了大量宝贵意见，驱动产品快速迭代。</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot yellow"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">2025 Q3</div>
+        <h4>技能系统上线</h4>
+        <p>Skill（技能）体系正式发布，用户可一键安装预设技能（飞书文档、邮件处理、竞品监控等），大幅降低使用门槛。社区用户数量突破 1000 人。</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot green"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">2025 Q4</div>
+        <h4>Heartbeat 与 Cron 调度</h4>
+        <p>推出 Heartbeat 自动心跳任务和 Cron 定时调度功能，AI 真正实现了"不需要人盯着也能干活"。支持飞书、Discord 等多渠道通知。</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot purple"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">2026</div>
+        <h4>全面开放与社区共建</h4>
+        <p>OpenClaw 以 MIT 开源协议全面开放，技能商店上线，社区贡献者超过 200 人。skillai.top 网站上线，服务用户遍布全球。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 价值观 -->
+<section class="values-section">
+  <div class="values-header">
+    <h2>?? 核心价值观</h2>
+    <p>这些原则指导着 OpenClaw 的每一个决策</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">??</div>
+      <h4>开放透明</h4>
+      <p>MIT 开源，代码完全公开。我们相信开源是软件的未来。</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">?</div>
+      <h4>效率至上</h4>
+      <p>每个功能都要为用户节省时间。如果不能让生活更轻松，就不值得做。</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">??</div>
+      <h4>用户驱动</h4>
+      <p>社区反馈是产品迭代的核心方向。用户需要什么，我们就做什么。</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">??</div>
+      <h4>持续进化</h4>
+      <p>AI 技术在变，我们在变。保持学习和进化，永远走在前面。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 团队 -->
+<section class="team-section">
+  <div class="team-header">
+    <h2>?? 核心团队</h2>
+    <p>一群热爱 AI 自动化的人</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">?????</div>
+      <div class="team-name">Alex</div>
+      <div class="team-role">创始人 & 架构师</div>
+      <div class="team-desc">AI 全栈开发者，专注于 AI Agent 框架与自动化工作流设计。</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">?????</div>
+      <div class="team-name">Luna</div>
+      <div class="team-role">产品 & 设计</div>
+      <div class="team-desc">负责产品体验与界面设计，追求"不用看文档也能用"的极致体验。</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">?????</div>
+      <div class="team-name">Ray</div>
+      <div class="team-role">后端工程师</div>
+      <div class="team-desc">专注系统稳定性和性能优化，确保 OpenClaw 7×24 小时稳定运行。</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">?????</div>
+      <div class="team-name">Mia</div>
+      <div class="team-role">社区运营</div>
+      <div class="team-desc">维护用户社区，收集反馈，让每个用户的声音都被听到。</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<!-- 服务说明 -->
+<section style="max-width:800px;margin:0 auto;padding:0 16px 48px;">
+  <div class="mission-card">
+    <div class="mission-icon">???</div>
+    <h2>服务支持</h2>
+    <p style="color:#8899aa;font-size:0.92rem;line-height:1.8;">本产品仅支持 <strong style="color:#fb923c;">64位操作系统</strong>（Windows 10/11 64位、macOS、Linux x64）。<br><br>提供远程技术部署服务，下单后24小时内对接，1-3个工作日完成部署。<br>部署完成后享7天技术协助。开源免费，人人可用。</p>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="about-cta-card">
+    <h3>加入 OpenClaw 大家庭</h3>
+    <p>无论你是想用 AI 提升工作效率的普通用户，<br>还是希望参与开源共建的开发者——这里都有你的位置。</p>
+    <div class="about-cta-actions">
+      <a href="download.html" class="about-btn about-btn-primary">立即使用 →</a>
+      <a href="community.html" class="about-btn about-btn-secondary">加入社区</a>
+      <a href="contact.html" class="about-btn about-btn-secondary">联系我们</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <img src="assets/images/openclaw-logo-nav-new.svg" height="28" style="height:28px;width:auto;flex-shrink:0;">
+        <span style="font-weight:700;font-size:1rem;color:#e8edf5;">Open</span><span style="font-weight:700;font-size:1rem;color:#667788;">Claw</span>
+      </div>
+      <p style="color:#667788;font-size:0.82rem;line-height:1.6;margin-bottom:20px;">您的全能AI私人助理，让 AI 替你工作24小时不间断。</p>
+      <!-- 横排导航 -->
+      <div class="footer-nav" style="display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:20px;">
+        <a href="index.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">首页</a>
+        <a href="skills.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">skill技能</a>
+        <a href="download.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">远程安装</a>
+        <a href="community.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">AI社区</a>
+        <a href="top-models.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP模型</a>
+        <a href="top-agents.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP智能体</a>
+        <a href="about.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">关于</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="text-align:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.04);color:#445566;font-size:0.78rem;">
+      <p>? 2026 OpenClaw. MIT 开源协议。</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="返回顶部">&#8593;</button>
+<script src="assets/js/main.js"></script>
+
+<!-- 统计代码 -->
+<script>
+(function() {
+  // 简单访问计数 - localStorage 版本
+  try {
+    var visitKey = 'oc_visit_' + window.location.pathname;
+    var count = parseInt(localStorage.getItem(visitKey) || '0');
+    count++;
+    localStorage.setItem(visitKey, count.toString());
+  } catch(e){}
+})();
+</script>
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    bp.type = 'text/javascript';
+    bp.async = true;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var loader = document.getElementById("pageLoading");
+    if (loader) {
+        loader.classList.add("hidden");
+        setTimeout(function() { loader.classList.add("removed"); }, 400);
+    }
+});
+</script>
+</body>
+</html>
