@@ -109,3 +109,30 @@
 [2026-06-02 07:26:43] OK: top-agents.html canonical
 [2026-06-02 07:26:43] OK: download.html canonical
 [2026-06-02 07:26:43] === INSPECT DONE | I=0 F=0 ===
+[2026-06-02 07:51:46] === INSPECT START ===
+[2026-06-02 07:51:48] OK: Home
+[2026-06-02 07:51:49] OK: About
+[2026-06-02 07:51:49] OK: Skills
+[2026-06-02 07:51:49] OK: Download
+[2026-06-02 07:51:50] OK: Community
+[2026-06-02 07:51:50] OK: TopModels
+[2026-06-02 07:51:51] OK: TopAgents
+[2026-06-02 07:51:51] OK: Contact
+[2026-06-02 07:51:51] OK: Blog
+[2026-06-02 07:51:51] OK: Coop
+[2026-06-02 07:51:52] OK: Tutorial
+[2026-06-02 07:51:52] OK: News
+[2026-06-02 07:51:53] OK: Guide
+[2026-06-02 07:51:53] OK: Agreement
+[2026-06-02 07:51:53] OK: robots.txt
+[2026-06-02 07:51:53] OK: sitemap.xml
+[2026-06-02 07:51:54] OK: /downloads/OpenClaw-Windows-Setup.bat
+[2026-06-02 07:51:54] OK: /downloads/OpenClaw-macOS-Setup.sh
+[2026-06-02 07:51:55] OK: /downloads/OpenClaw-Linux-Setup.sh
+[2026-06-02 07:51:55] OK: skills.html canonical
+[2026-06-02 07:51:57] OK: community.html canonical
+[2026-06-02 07:51:57] OK: about.html canonical
+[2026-06-02 07:51:57] OK: top-models.html canonical
+[2026-06-02 07:51:58] OK: top-agents.html canonical
+[2026-06-02 07:51:58] OK: download.html canonical
+[2026-06-02 07:51:59] === INSPECT DONE | I=0 F=0 ===
