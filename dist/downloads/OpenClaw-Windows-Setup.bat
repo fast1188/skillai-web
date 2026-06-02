@@ -1,11 +1,17 @@
 @echo off
 chcp 65001 >nul
-echo ============================================
-echo    OpenClaw AI ????? - Windows ???
-echo ============================================
 echo.
-echo ?????????...
-echo ??? https://skillai.top/download.html ???????
+echo ===============================================
+echo   OpenClaw AI - Windows Installation Script
+echo ===============================================
 echo.
-start https://skillai.top/download.html
+echo Installing OpenClaw AI assistant...
+echo.
+echo Please visit https://skillai.top/download/
+echo to download the latest installer.
+echo.
+echo For support, contact:
+echo   WeChat: kaka12512535
+echo   QQ Group: 482123078
+echo.
 pause
