@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="background:#0a0e1a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPU集群利用率仅35%？我用开源预测工具把排队时间砍半 | skillai.top</title>
+<meta name="description" content="手记：SLURM集群浪费严重，用户多占资源导致CUDA OOM频发。我通过分析作业历史+AI预测（Hermes AI+DeepSeek API）实现精准推荐，解决了资源利用率低的问题。">
+<meta name="theme-color" content="#0a0e17">
+<link rel="canonical" href="https://skillai.top/blog/2026-06-02/GPU集群利用率仅35我用开源预测工具把排队时间砍半.html">
+<style>
+body { font-family: system-ui, -apple-system, sans-serif; background: #0a0e1a; color: #e8edf5; line-height: 1.8; margin: 0; padding: 0; }
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+h1 { color: #60a5fa; font-size: 1.8rem; margin-bottom: 0.5rem; }
+h2 { color: #93c5fd; font-size: 1.4rem; margin: 2rem 0 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+h3 { color: #93c5fd; font-size: 1.2rem; margin: 1.5rem 0 0.8rem; }
+p { margin-bottom: 1rem; color: #cbd5e1; }
+li { margin-bottom: 0.5rem; color: #cbd5e1; }
+code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+pre { background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+strong { color: #f1f5f9; }
+.back-link { display: inline-block; margin-top: 20px; color: #60a5fa; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.meta-info { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+<div class="container">
+<a href="/blog/" class="back-link">&larr; 返回博客</a>
+<div class="meta-info">2026-06-02 &middot; SkillAI</div>
+<h1>GPU集群利用率仅35%？我用开源预测工具把排队时间砍半</h1>
+<h2>一、问题背景：12万作业里59%的算力在空转</h2><br>
+<p>我管着一个40节点的GPU集群，SLURM调度，Python 3.11 + PyTorch 2.1 + CUDA 12.1环境。刚开始接手时，集群利用率长期在35%上下徘徊，排队却要等两三天。查了一下作业记录——一个月跑了12万条作业，结果发现59%的算力浪费掉了。举个例子：有个用户提交了8块V100的请求，实际只用了2块，剩下6块就在那空跑，既不耗显存也不吃计算，纯粹占坑。</p><br>
+<p>更坑的是，很多作业中途被kill，报错清一色是“CUDA out of memory”（显存溢出）。用户怕重跑，干脆每次申请双倍资源，结果就是排队越来越长，空转越来越多。我尝试在SLURM配置文件里加资源上限，结果用户炸了：<strong>“你限制了我，作业崩了谁负责？”</strong> 那段时间我天天被催，差点放弃。</p><br>
+<h2>二、排查过程：用户多占资源背后的心理博弈</h2><br>
+<h3>2.1 为什么不直接减资源？</h3><br>
+我分析了几百条作业的提交脚本和运行日志，发现真实资源需求往往只有申请量的30%~50%。但用户有自己的逻辑：申请少了，作业中途被kill损失几天结果；申请多了，大不了排队久点，反正不吃亏。这种不对称风险导致群体性过度申请。<br>
+<h3>2.2 第一个尝试：用Hermes AI做预测</h3><br>
+我打算用AI建模，预测作业实际需求。先试了Hermes AI的API，想让它读作业源码给出推荐。结果调了两小时，一直报 <strong>Error 403：Forbidden</strong>。查了半天发现是Token认证问题——我们对接的API网关用了<strong>Token中转</strong>服务，我忘了更新中间层的凭证。折腾两小时后总算调通，但Hermes AI返回的推荐值太保守，总是建议多申请30%，毫无优化空间。<br>
+<h3>2.3 第二个尝试：结合DeepSeek API</h3><br>
+后来我换了思路：用DeepSeek API来解析作业代码里的数据加载、模型参数、批大小，再结合历史硬件监控（DCGM、CUPTI、Cgroups日志），做一个回归模型。DeepSeek API调用倒是顺利，但每次请求<strong>ConnectionTimeout</strong>频发，只能加重试逻辑和超时配置。还好，最终拿到了2000多条训练数据。<br>
+<h2>三、解决方案：自己写一个作业资源预测器</h2><br>
+<h3>3.1 模型设计</h3><br>
+我基于<strong>OpenClaw</strong>开源框架（这个框架专门做HPC资源预测）调整了一下。核心思路：<br>
+<li>输入：作业源码文本（经DeepSeek API提取的依赖摘要）、提交脚本参数、历史硬件遥测数据（GPU显存峰值、CPU利用率、walltime实际值）。</li><br>
+<li>输出：推荐GPU显存、CPU核数、运行时长（带p90置信区间）。</li><br>
+<li>模型：用PyTorch 2.1训练了一个轻量级的MLP，嵌入层用了Hermes AI的文本向量。</li><br>
+<p>训练集来自集群过去3个月的真实作业（12万条过滤掉异常后剩8万条）。一开始模型Overfitting严重，后来加了dropout和early stopping，总算收敛。<strong>卡了两小时</strong>调超参数，最终在测试集上比用户申请量平均降低了35%的请求，同时作业失败率仅上升了0.3%。</p><br>
+<h3>3.2 集成到SLURM</h3><br>
+我在SLURM的资源提交生命周期中插入一个plugin：当用户在<code>sbatch</code>提交时，自动触发预测器，返回建议值（例如：“建议显存从12000MB改为8000MB，CPU核数从8改为4，walltime从24h改为10h”）。用户可以选择采纳或无视。我设置了p90值作为推荐，因为模型被训练为<strong>宁可over-provision 10%也不允许under-provision</strong>，避免作业崩溃。<br>
+<h3>3.3 实测效果</h3><br>
+跑了一个月后，集群利用率从35%爬到了72%，排队时间从平均2.7天降到了1.2天。CUDA OOM报错减少了80%。用户反馈也挺正面——有个做视觉训练的哥们说：“以前申请32G显存总担心不够，现在按推荐只给了20G，居然没崩，还跑完了。”<br>
+<h2>四、踩坑总结 & 后续扩展</h2><br>
+<li><strong>API调用稳定性</strong>：DeepSeek API的ConnectionTimeout让我浪费了两小时，最后用指数退避重试+本地缓存历史代码摘要才解决。</li><br>
+<li><strong>模型校准</strong>：不对称风险真的很坑。我一开始用均值预测，结果作业崩溃率升高，被老板骂。后来换成p90，配合置信区间提示用户，才稳住。</li><br>
+<li><strong>OpenClaw的启发</strong>：这个框架的思路很值得参考，但它的文档不全，我踩了很多坑在数据格式转换上。</li><br>
+<p>如果你也遇到类似GPU集群浪费的问题，不妨从作业日志分析开始，结合Hermes AI和DeepSeek API做简单预测。当然，更省心的方式是直接找一个成熟的平台——比如<strong>skillai</strong>，上面有类似资源优化的商业化方案，省去自己调模型的麻烦。我后面打算再测一下</p>
+<a href="/blog/" class="back-link">&larr; 返回博客</a>
+</div>
+</body>
+</html>
