@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+﻿const fs = require('fs');
+const path = require('path');
+const dir = path.join(__dirname, '..', 'dist');
+
+const cooperationHtml = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -230,4 +234,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e8
 <div class="footer-bottom"><p>&copy; 2024-2026 SkillAI.top All Rights Reserved. | 客服微信 164223412</p></div>
 </footer>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(path.join(dir, 'cooperation', 'index.html'), cooperationHtml, 'utf8');
+console.log('cooperation/index.html written: ' + cooperationHtml.length + ' chars');

@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+﻿const fs = require('fs');
+const path = require('path');
+
+const contactHtml = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -142,4 +145,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e8
 <div class="footer-bottom"><p>&copy; 2024-2026 SkillAI.top All Rights Reserved. | 客服微信 164223412</p></div>
 </footer>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(path.join(__dirname, '..' , 'dist', 'contact', 'index.html'), contactHtml, 'utf8');
+console.log('contact/index.html written: ' + contactHtml.length + ' chars');
