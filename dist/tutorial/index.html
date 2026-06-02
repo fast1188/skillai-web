@@ -118,7 +118,30 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .step-card:nth-child(2){animation-delay:.08s}
 .step-card:nth-child(3){animation-delay:.16s}
 .step-card:nth-child(4){animation-delay:.24s}
-</style>
+
+/* === DARK THEME FIX === */
+body{background:#0a0e1a!important;color:#e8edf5!important}
+*{border-color:rgba(255,255,255,0.08)!important}
+h1,h2,h3,h4,h5,h6{color:#f1f5f9!important}
+p,a,span,li,label,strong,em{color:inherit!important}
+a{color:#60a5fa!important}
+a:hover{color:#93c5fd!important}
+.card,.feature-card,.skill-card,.post-card,.tool-card,.usecase-card{background:#111827!important;border-color:#1e293b!important;color:#e8edf5!important}
+.card h2,.card h3,.feature-card h2,.skill-card h3{color:#f1f5f9!important}
+.card p,.feature-card p,.skill-card p{color:#94a3b8!important}
+.header,.nav{background:rgba(10,14,23,0.95)!important}
+.nav-link{color:#94a3b8!important}
+.nav-link:hover,.nav-link.active{color:#fff!important}
+.footer{background:#080c14!important;border-top-color:#1e293b!important}
+.footer a{color:#94a3b8!important}
+.tag,.badge,.category{background:rgba(255,255,255,0.05)!important;color:#94a3b8!important;border-color:#1e293b!important}
+.social-proof,.proof-stats{background:#0a0e17!important}
+.btn-white{color:#fff!important;background:#ef4444!important}
+.btn-outline{color:#e8edf5!important;border-color:#334155!important}
+input,textarea,select{background:#111827!important;color:#e8edf5!important;border-color:#1e293b!important}
+::-webkit-scrollbar{background:#0a0e17!important}
+::-webkit-scrollbar-thumb{background:#334155!important}</style>
+<meta property="og:url" content="https://skillai.top/tutorial/">
 </head>
 <body style="background:#0a0e1a">
 <div id="header" class="header">
@@ -141,7 +164,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 <section class="tutorial-hero">
   <div class="container">
-    <div class="hero-badge">?? 快速上手指南</div>
+    <div class="hero-badge"> 快速上手指南</div>
     <h1>3 分钟拥有你的 AI 私人助理</h1>
     <p>从下载安装到连接 AI 模型，手把手教你完成部署。无需任何技术背景。</p>
     <div class="hero-steps-row">
@@ -155,18 +178,18 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title"><span>?? 第一步：下载安装</span></h2>
+    <h2 class="section-title"><span> 第一步：下载安装</span></h2>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num"><span class="badge">1</span><h3>下载安装包</h3></div>
         <div class="step-desc">访问<a href="/download/" style="color:var(--accent)">免费下载页</a>，选择对应平台的版本下载。</div>
-        <div class="step-note info"><span class="icon">??</span> Windows 用户建议下载 exe 安装包，macOS/Linux 用户可使用一键脚本安装。</div>
+        <div class="step-note info"><span class="icon"></span> Windows 用户建议下载 exe 安装包，macOS/Linux 用户可使用一键脚本安装。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">2</span><h3>运行安装程序</h3></div>
         <div class="step-desc">Windows 双击安装包按提示完成安装，macOS/Linux 在终端执行安装命令。</div>
-        <div class="step-code"><code>curl -fsSL https://openclaw.ai/install.sh | bash</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
-        <div class="step-note info"><span class="icon">??</span> 安装过程自动完成环境检测，一般 1-2 分钟即可完成。</div>
+        <div class="step-code"><code>curl -fsSL https://openclaw.ai/install.sh | bash</code><button class="copy-btn" onclick="copyText(this)"></button></div>
+        <div class="step-note info"><span class="icon"></span> 安装过程自动完成环境检测，一般 1-2 分钟即可完成。</div>
       </div>
     </div>
   </div>
@@ -174,17 +197,17 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title"><span>?? 第二步：获取 API Key</span></h2>
+    <h2 class="section-title"><span> 第二步：获取 API Key</span></h2>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num"><span class="badge">1</span><h3>选择 AI 模型服务商</h3></div>
         <div class="step-desc">OpenClaw 支持 DeepSeek、通义千问、智谱 GLM、豆包等主流模型。推荐使用 DeepSeek（免费额度充足）。前往 <a href="https://token.skillai.top" target="_blank" style="color:var(--accent)">token.skillai.top</a> 注册获取 API Key。</div>
-        <div class="step-note info"><span class="icon">??</span> 注册并创建 API Key，首次注册通常赠送免费额度，足够日常使用。</div>
+        <div class="step-note info"><span class="icon"></span> 注册并创建 API Key，首次注册通常赠送免费额度，足够日常使用。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">2</span><h3>复制保存 API Key</h3></div>
         <div class="step-desc">在 <a href="https://token.skillai.top" target="_blank" style="color:var(--accent)">token.skillai.top</a> 注册后创建 API Key，复制并保存到安全位置。接下来配置时会用到。</div>
-        <div class="step-note warning"><span class="icon">??</span> 请妥善保管 API Key，不要分享给他人。如 Key 泄露可随时在控制台吊销重建。</div>
+        <div class="step-note warning"><span class="icon"></span> 请妥善保管 API Key，不要分享给他人。如 Key 泄露可随时在控制台吊销重建。</div>
       </div>
     </div>
   </div>
@@ -192,31 +215,31 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title"><span>?? 第三步：配置并连接</span></h2>
+    <h2 class="section-title"><span> 第三步：配置并连接</span></h2>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num"><span class="badge">1</span><h3>启动 OpenClaw</h3></div>
         <div class="step-desc">安装完成后，在终端输入以下命令启动 OpenClaw：</div>
-        <div class="step-code"><code>openclaw start</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
-        <div class="step-note info"><span class="icon">??</span> 首次启动会自动创建配置目录。</div>
+        <div class="step-code"><code>openclaw start</code><button class="copy-btn" onclick="copyText(this)"></button></div>
+        <div class="step-note info"><span class="icon"></span> 首次启动会自动创建配置目录。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">2</span><h3>配置 API Key</h3></div>
         <div class="step-desc">将上一步获取的 API Key 填入配置，或通过配置文件设置：</div>
-        <div class="step-code"><code>openclaw config set api_key=your_key_here</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
-        <div class="step-note info"><span class="icon">??</span> 也可通过图形界面直接粘贴配置，点击"验证连接"确保正确。</div>
+        <div class="step-code"><code>openclaw config set api_key=your_key_here</code><button class="copy-btn" onclick="copyText(this)"></button></div>
+        <div class="step-note info"><span class="icon"></span> 也可通过图形界面直接粘贴配置，点击"验证连接"确保正确。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">3</span><h3>验证连接</h3></div>
         <div class="step-desc">配置完成后，执行以下命令测试连接是否正常：</div>
-        <div class="step-code"><code>openclaw test</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
-        <div class="step-note info"><span class="icon">??</span> 显示 "Connection OK" 表示配置成功。如遇问题请检查 API Key 是否正确。</div>
+        <div class="step-code"><code>openclaw test</code><button class="copy-btn" onclick="copyText(this)"></button></div>
+        <div class="step-note info"><span class="icon"></span> 显示 "Connection OK" 表示配置成功。如遇问题请检查 API Key 是否正确。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">4</span><h3>选择工作模式</h3></div>
         <div class="step-desc">OpenClaw 提供多种模式——对话模式、自动化任务模式、代码辅助模式。选择适合你的方式。</div>
-        <div class="step-code"><code>openclaw mode chat</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
-        <div class="step-note info"><span class="icon">??</span> 使用 <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">openclaw --help</code> 查看全部命令。</div>
+        <div class="step-code"><code>openclaw mode chat</code><button class="copy-btn" onclick="copyText(this)"></button></div>
+        <div class="step-note info"><span class="icon"></span> 使用 <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">openclaw --help</code> 查看全部命令。</div>
       </div>
     </div>
   </div>
@@ -224,28 +247,28 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title"><span>?? 第四步：开始使用</span></h2>
+    <h2 class="section-title"><span> 第四步：开始使用</span></h2>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num"><span class="badge">1</span><h3>对话式交互</h3></div>
         <div class="step-desc">就像跟朋友聊天一样，用自然语言告诉 AI 你想做什么。OpenClaw 会自动理解并执行。</div>
-        <div class="step-code"><code>openclaw chat "帮我整理桌面文件"</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
+        <div class="step-code"><code>openclaw chat "帮我整理桌面文件"</code><button class="copy-btn" onclick="copyText(this)"></button></div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">2</span><h3>自动化任务</h3></div>
         <div class="step-desc">设置定时任务，让 AI 在你睡觉时自动完成数据采集、文件整理、报告生成等工作。</div>
-        <div class="step-code"><code>openclaw schedule "每天8点收集行业新闻"</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
-        <div class="step-note info"><span class="icon">??</span> 任务支持定时、周期和条件触发三种模式，灵活配置。</div>
+        <div class="step-code"><code>openclaw schedule "每天8点收集行业新闻"</code><button class="copy-btn" onclick="copyText(this)"></button></div>
+        <div class="step-note info"><span class="icon"></span> 任务支持定时、周期和条件触发三种模式，灵活配置。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">3</span><h3>高级功能探索</h3></div>
         <div class="step-desc">熟悉基础操作后，可以尝试更多高级功能，如多模型切换、自定义指令、批量处理等。</div>
-        <div class="step-note info"><span class="icon">??</span> 不熟悉配置可联系客服微信 <strong style="color:var(--text)">kaka12512535</strong> 获取免费远程协助。远程部署安装服务为付费增值服务。</div>
+        <div class="step-note info"><span class="icon"></span> 不熟悉配置可联系客服微信 <strong style="color:var(--text)">kaka12512535</strong> 获取免费远程协助。远程部署安装服务为付费增值服务。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">4</span><h3>加入社区交流</h3></div>
         <div class="step-desc">加入我们的 QQ 交流群，与其他用户交流经验、获取最新动态和技术支持。</div>
-        <div class="step-note info"><span class="icon">??</span> QQ 群：<strong style="color:var(--text)">482123078</strong>（SkillAI 一站式 Token 官方服务群），工作日 9:00-22:00 在线。</div>
+        <div class="step-note info"><span class="icon"></span> QQ 群：<strong style="color:var(--text)">482123078</strong>（SkillAI 一站式 Token 官方服务群），工作日 9:00-22:00 在线。</div>
       </div>
     </div>
   </div>
@@ -280,7 +303,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <h2>准备好了吗？</h2>
     <p>立即下载 OpenClaw Hermes Codex，开启你的 AI 自动化之旅。</p>
     <div class="cta-buttons">
-      <a href="/downloads/OpenClaw-Windows-Setup.bat" class="btn btn-primary" style="padding:12px 32px;font-size:.9rem">?? 免费下载 Windows 版</a>
+      <a href="/downloads/OpenClaw-Windows-Setup.bat" class="btn btn-primary" style="padding:12px 32px;font-size:.9rem"> 免费下载 Windows 版</a>
       <a href="/download/" class="btn btn-outline" style="padding:12px 32px;font-size:.9rem">查看所有平台 →</a>
     </div>
   </div>
@@ -322,7 +345,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 <script>
 window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
 function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
-function copyText(btn){var code=btn.parentElement;var text=code.textContent.replace('??','').trim();navigator.clipboard.writeText(text).then(function(){btn.textContent='?';setTimeout(function(){btn.textContent='??'},1500)})}
+function copyText(btn){var code=btn.parentElement;var text=code.textContent.replace('','').trim();navigator.clipboard.writeText(text).then(function(){btn.textContent='?';setTimeout(function(){btn.textContent=''},1500)})}
 </script>
 </body>
 </html>

@@ -148,7 +148,30 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 .partner-card,.why-item,.qr-card,.process-step{animation:fadeUp .6s ease-out both}
 .partner-card:nth-child(2){animation-delay:.1s}
 .partner-card:nth-child(3){animation-delay:.2s}
-</style>
+
+/* === DARK THEME FIX === */
+body{background:#0a0e1a!important;color:#e8edf5!important}
+*{border-color:rgba(255,255,255,0.08)!important}
+h1,h2,h3,h4,h5,h6{color:#f1f5f9!important}
+p,a,span,li,label,strong,em{color:inherit!important}
+a{color:#60a5fa!important}
+a:hover{color:#93c5fd!important}
+.card,.feature-card,.skill-card,.post-card,.tool-card,.usecase-card{background:#111827!important;border-color:#1e293b!important;color:#e8edf5!important}
+.card h2,.card h3,.feature-card h2,.skill-card h3{color:#f1f5f9!important}
+.card p,.feature-card p,.skill-card p{color:#94a3b8!important}
+.header,.nav{background:rgba(10,14,23,0.95)!important}
+.nav-link{color:#94a3b8!important}
+.nav-link:hover,.nav-link.active{color:#fff!important}
+.footer{background:#080c14!important;border-top-color:#1e293b!important}
+.footer a{color:#94a3b8!important}
+.tag,.badge,.category{background:rgba(255,255,255,0.05)!important;color:#94a3b8!important;border-color:#1e293b!important}
+.social-proof,.proof-stats{background:#0a0e17!important}
+.btn-white{color:#fff!important;background:#ef4444!important}
+.btn-outline{color:#e8edf5!important;border-color:#334155!important}
+input,textarea,select{background:#111827!important;color:#e8edf5!important;border-color:#1e293b!important}
+::-webkit-scrollbar{background:#0a0e17!important}
+::-webkit-scrollbar-thumb{background:#334155!important}</style>
+<meta property="og:url" content="https://skillai.top/cooperation/">
 </head>
 <body style="background:#0a0e1a">
 <div id="header" class="header">
@@ -194,7 +217,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <div class="partner-card">
         <div class="card-header">
           <div class="card-icon">?</div>
-          <div class="card-tags"><span class="tag tag-recommend">?? 热门</span></div>
+          <div class="card-tags"><span class="tag tag-recommend"> 热门</span></div>
         </div>
         <h3>Token 代理代充</h3>
         <p class="desc">提供 DeepSeek、通义千问、豆包、智谱 AI 等主流大模型 API Token 代理代充服务。一手资源，价格透明，到账迅速，让您省心省力。</p>
@@ -221,22 +244,22 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     </div>
     <div class="why-grid">
       <div class="why-item">
-        <div class="icon">??</div>
+        <div class="icon"></div>
         <h4>市场先机</h4>
         <p>一手 Token 资源，价格有竞争力，支持 DeepSeek / 通义千问 / 豆包 / 智谱等主流模型。</p>
       </div>
       <div class="why-item">
-        <div class="icon">??</div>
+        <div class="icon"></div>
         <h4>技术支持</h4>
         <p>充值到账快，标准订单 5-30 分钟到账，大额可加急处理。</p>
       </div>
       <div class="why-item">
-        <div class="icon">??</div>
+        <div class="icon"></div>
         <h4>丰富物料</h4>
         <p>支持按量充值和包月套餐，灵活选择，满足不同需求。</p>
       </div>
       <div class="why-item">
-        <div class="icon">??</div>
+        <div class="icon"></div>
         <h4>利润丰厚</h4>
         <p>企业用户可享专属折扣，量大从优，详情联系商务团队。</p>
       </div>
@@ -316,7 +339,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 
 <section class="contact-section">
   <div class="container">
-    <h2><span>?? 联系我们</span></h2>
+    <h2><span> 联系我们</span></h2>
     <p style="text-align:center;color:var(--text2);font-size:.85rem;margin:0 auto 40px;max-width:500px">准备好合作了吗？立即联系我们的商务团队，开启您的 AI 事业。</p>
     <div class="contact-qr-grid">
       <div class="qr-card">
@@ -324,7 +347,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <img src="/assets/qrcode-our.png" alt="微信二维码" class="qr-img" loading="lazy">
         </div>
         <div class="qr-body">
-          <div class="qr-badge wechat">?? 微信</div>
+          <div class="qr-badge wechat"> 微信</div>
           <p class="qr-id">kaka12512535</p>
           <p class="qr-note">扫码添加 · 工作日 9:00-22:00 在线</p>
         </div>
@@ -334,7 +357,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           <img src="/assets/qq-group-qr.jpg" alt="QQ群二维码" class="qr-img" loading="lazy">
         </div>
         <div class="qr-body">
-          <div class="qr-badge qq">?? QQ 群</div>
+          <div class="qr-badge qq"> QQ 群</div>
           <p class="qr-id">482123078</p>
           <p class="qr-note">SkillAI 官方服务群 · 扫码加入</p>
         </div>
@@ -346,7 +369,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           </div>
         </div>
         <div class="qr-body">
-          <div class="qr-badge wechat">?? 个人微信</div>
+          <div class="qr-badge wechat"> 个人微信</div>
           <p class="qr-id">kaka12512535</p>
           <p class="qr-note">搜索微信号添加 · 备注"商务合作"</p>
         </div>
@@ -358,7 +381,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
           </div>
         </div>
         <div class="qr-body">
-          <div class="qr-badge qq">?? 个人 QQ</div>
+          <div class="qr-badge qq"> 个人 QQ</div>
           <p class="qr-id">164223412</p>
           <p class="qr-note">直接添加好友 · 24小时内回复</p>
         </div>
