@@ -1,11 +1,11 @@
-@echo off
+﻿@echo off
 chcp 65001 >nul
 echo.
 echo ===============================================
-echo   OpenClaw AI - Windows Installation Script
+echo   SkillAI AI - Windows Installation Script
 echo ===============================================
 echo.
-echo Installing OpenClaw AI assistant...
+echo Installing SkillAI AI assistant...
 echo.
 echo Please visit https://skillai.top/download/
 echo to download the latest installer.
