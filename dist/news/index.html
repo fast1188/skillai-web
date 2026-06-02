@@ -130,19 +130,16 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 <header class="header scrolled" id="header">
   <div class="container">
     <nav class="nav">
-      <a class="nav-brand" href="/">
-        <img src="/assets/logo-192.png" alt="SkillAI" width="34" height="34" style="border-radius:8px">
-        <span>SkillAI</span>
-      </a>
-      <ul class="nav-links" style="color:#f1f5f9!important">
-        <li><a href="/">首页</a></li>
-        <li><a href="/#usecases">AI超能力</a></li>
-        <li><a href="/#features">远程部署</a></li>
-        <li><a href="/tutorial/">新手教程</a></li>
-        <li><a href="/download/">免费下载</a></li>
-        <li><a href="/news/" class="active">动态资讯</a></li>
-        <li><a href="/cooperation/">商务合作</a></li>
-      </ul>
+      <a href="/" class="nav-brand"><img src="/assets/logo-192.png" alt="SkillAI" width="32" height="32" style="border-radius:6px"> SkillAI</a>
+      <ul class="nav-links">
+    <li><a href="/">首页</a></li>
+    <li><a href="/guide/">教程</a></li>
+    <li><a href="/download/">下载</a></li>
+    <li><a href="/community/">社区</a></li>
+    <li><a href="/news/">动态</a></li>
+    <li><a href="/cooperation/">合作</a></li>
+    <li><a href="/contact/">联系我们</a></li>
+</ul>
       <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">&#9776;</button>
     </nav>
   </div>
@@ -311,10 +308,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   </div>
 </div>
 
-<footer class="ft">
-  <p>u{00A9} 2026 SkillAI | 客服微信 kaka12512535 | QQ群 482123078</p>
-  <p><a href="/">首页</a> · <a href="/tutorial/">教程</a> · <a href="/download/">下载</a> · <a href="/cooperation/">合作</a></p>
-</footer>
+<footer style="border-top:1px solid rgba(255,255,255,0.06);padding:30px 0;text-align:center;color:#64748b;font-size:.82rem"><div class="container"><p>© 2024-2026 <a href="/" style="color:#00d4ff">SkillAI.top</a> All Rights Reserved. | <a href="/agreement/" style="color:#00d4ff">用户协议</a> | <a href="/contact/" style="color:#00d4ff">联系我们</a> | 客服微信 kaka12512535</p></div></footer>
 
 <script>
 window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
