@@ -65,9 +65,9 @@ print(r.status_code, r.text)<br>
 <h3>缁楊兛绨╁銉窗閸欐垹骞?Token 娑擃叀娴嗛弬瑙勵攳</h3><br>
 <p>閸氬奔绨ㄩ幓鎰板晪閿涘苯褰叉禒銉ф暏 <strong>Token 娑擃叀娴?/strong> 閺堝秴濮熼垾鏂衡偓鏃€濡?DeepSeek API 鐠囬攱鐪版潪顒€褰傞崚鏉垮讲鐠佸潡妫堕惃鍕敩閻炲棜濡悙骞库偓鍌涘灉閹靛彞绨℃稉顏囦氦闁插繒娈戞稉顓℃祮瀹搞儱鍙?<strong>SkillAI</strong>閿涘澊0.3.2閿涘绱濋柊宥囩枂娴犲懘娓?3 濮濄儻绱?/p><br>
 <li>閸?SkillAI 閻?<code>config.yaml</code> 闁插苯锝為崘娆庣瑐濞?API 閸︽澘娼冮崪?Key</li><br>
-<li>閸氼垰濮╂禒锝囨倞閺堝秴濮熼敍?code>openclaw serve --port 8080</code></li><br>
+<li>閸氼垰濮╂禒锝囨倞閺堝秴濮熼敍?code>skillai serve --port 8080</code></li><br>
 <li>娣囶喗鏁兼い鍦窗娑擃叀顕Ч?URL 娑?<code>http://127.0.0.1:8080/v1/chat/completions</code></li><br>
-<pre><code class="language-yaml"><h1>openclaw config.yaml</h1><br>
+<pre><code class="language-yaml"><h1>skillai config.yaml</h1><br>
 upstream:<br>
   base_url: "https://api.deepseek.com"<br>
   api_key: "sk-xxxxx"<br>
@@ -96,7 +96,7 @@ session.mount("https://", adapter)<br>
 <h3>閻楀牊婀版稉搴濈贩鐠ф牜绮忛懞?/h3><br>
 <li><strong>Python</strong> 3.11.5  </li><br>
 <li><strong>requests</strong> 2.31.0  </li><br>
-<li><strong>openclaw</strong> 0.3.2  </li><br>
+<li><strong>skillai</strong> 0.3.2  </li><br>
 <li><strong>Hermes AI</strong> 閹绘帊娆㈤悧鍫熸拱 1.2.0  </li><br>
 <li><strong>CUDA</strong> 12.1閿涘牏鏁ゆ禍搴㈡拱閸︾増膩閸ㄥ甯归悶鍡礉閾忕晫鍔ф潻娆愵偧濞岋紕鏁ら敍?/li><br>
 <p>濞夈劍鍓伴敍姘洤閺嬫粍婀伴崷鎷岀獓濡€崇€烽敍鍫濐洤 Llama閿涘绱滳UDA 閻滎垰顣ㄩ崣姗€鍣?<code>CUDA_VISIBLE_DEVICES</code> 鐟曚礁宕熼悪顒冾啎缂冾噯绱濋崥锕€鍨€硅妲楅幎?<strong>CUDA OOM</strong>閵嗗倹鍨滈煪鈺勭箖閸ф垯鈧?/p><br>

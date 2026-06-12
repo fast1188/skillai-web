@@ -1,135 +1,135 @@
-﻿{
-    "framework":  null,
-    "headers":  [
-                    {
-                        "source":  "/(.*)",
-                        "headers":  [
-                                        {
-                                            "key":  "X-Frame-Options",
-                                            "value":  "DENY"
-                                        },
-                                        {
-                                            "key":  "X-Content-Type-Options",
-                                            "value":  "nosniff"
-                                        },
-                                        {
-                                            "key":  "Referrer-Policy",
-                                            "value":  "strict-origin-when-cross-origin"
-                                        },
-                                        {
-                                            "key":  "Permissions-Policy",
-                                            "value":  "camera=(), microphone=(), geolocation=()"
-                                        },
-                                        {
-                                            "key":  "Strict-Transport-Security",
-                                            "value":  "max-age=63072000; includeSubDomains; preload"
-                                        }
-                                    ]
-                    },
-                    {
-                        "source":  "/(.*)\\.(html|css|js|json|xml|txt|ico|svg)",
-                        "headers":  [
-                                        {
-                                            "key":  "Cache-Control",
-                                            "value":  "public, max-age=3600, stale-while-revalidate=86400"
-                                        }
-                                    ]
-                    },
-                    {
-                        "source":  "/(.*)\\.(png|jpg|jpeg|gif|webp|woff|woff2|ttf|eot)",
-                        "headers":  [
-                                        {
-                                            "key":  "Cache-Control",
-                                            "value":  "public, max-age=604800, immutable"
-                                        }
-                                    ]
-                    },
-                    {
-                        "source":  "/favicon.ico",
-                        "headers":  [
-                                        {
-                                            "key":  "Cache-Control",
-                                            "value":  "public, max-age=86400, immutable"
-                                        }
-                                    ]
-                    },
-                    {
-                        "source":  "/apple-touch-icon.png",
-                        "headers":  [
-                                        {
-                                            "key":  "Cache-Control",
-                                            "value":  "public, max-age=86400, immutable"
-                                        }
-                                    ]
-                    },
-                    {
-                        "source":  "/opengraph-image.png",
-                        "headers":  [
-                                        {
-                                            "key":  "Cache-Control",
-                                            "value":  "public, max-age=86400, immutable"
-                                        }
-                                    ]
-                    },
-                    {
-                        "source":  "/manifest.json",
-                        "headers":  [
-                                        {
-                                            "key":  "Cache-Control",
-                                            "value":  "public, max-age=86400"
-                                        },
-                                        {
-                                            "key":  "Content-Type",
-                                            "value":  "application/manifest+json"
-                                        }
-                                    ]
-                    },
-                    {
-                        "source":  "/sw.js",
-                        "headers":  [
-                                        {
-                                            "key":  "Cache-Control",
-                                            "value":  "public, max-age=0, must-revalidate"
-                                        },
-                                        {
-                                            "key":  "Service-Worker-Allowed",
-                                            "value":  "/"
-                                        }
-                                    ]
-                    }
-                ],
-    "redirects":  [
-                      {
-                          "source":  "/about.html",
-                          "destination":  "/about/",
-                          "permanent":  true
-                      },
-                      {
-                          "source":  "/community.html",
-                          "destination":  "/community/",
-                          "permanent":  true
-                      },
-                      {
-                          "source":  "/download.html",
-                          "destination":  "/download/",
-                          "permanent":  true
-                      },
-                      {
-                          "source":  "/skills.html",
-                          "destination":  "/skills/",
-                          "permanent":  true
-                      },
-                      {
-                          "source":  "/top-agents.html",
-                          "destination":  "/top-agents/",
-                          "permanent":  true
-                      },
-                      {
-                          "source":  "/top-models.html",
-                          "destination":  "/top-models/",
-                          "permanent":  true
-                      }
-                  ],
-    "buildCommand":  null,
-    "outputDirectory":  "dist"
+{
+  "framework": null,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(html|css|js|json|xml|txt|ico|svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|gif|webp|woff|woff2|ttf|eot)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/opengraph-image.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about.html",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/community.html",
+      "destination": "/community/",
+      "permanent": true
+    },
+    {
+      "source": "/download.html",
+      "destination": "/download/",
+      "permanent": true
+    },
+    {
+      "source": "/skills.html",
+      "destination": "/skills/",
+      "permanent": true
+    },
+    {
+      "source": "/top-agents.html",
+      "destination": "/top-agents/",
+      "permanent": true
+    },
+    {
+      "source": "/top-models.html",
+      "destination": "/top-models/",
+      "permanent": true
+    }
+  ],
+  "buildCommand": null,
+  "outputDirectory": "dist"
 }

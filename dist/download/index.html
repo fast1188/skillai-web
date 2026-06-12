@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/assets/logo-192.png">
+    <link rel="icon" type="image/png" href="/favicon-192.png">
 <title>免费下载 - SkillAI Hermes Codex AI 开发工具套件</title>
 <link rel="manifest" href="/manifest.json">
 <meta name="twitter:card" content="summary">
@@ -128,7 +128,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   <div class="container">
     <nav class="nav">
       <a class="nav-brand" href="/">
-  <img src="/assets/logo-192.png" alt="SkillAI Hermes Codex 远程部署安装" width="36" height="36" style="border-radius:8px">
+  <img src="/favicon-192.png" alt="SkillAI Hermes Codex 远程部署安装" width="36" height="36" style="border-radius:8px">
   <span>SkillAI Hermes Codex 远程部署安装</span>
 </a>
       <ul class="nav-links">
@@ -141,7 +141,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
         <li><a href="/cooperation/">商务合作</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="/downloads/SkillAI-setup.exe" class="btn btn-primary">免费下载</a>
+        <a href="/download/" title="下载页" class="btn btn-primary">免费下载</a>
       </div>
       <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
     </nav>
@@ -165,7 +165,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <h2>🦞 SkillAI 一键部署</h2>
     <p>你的专属 AI 自动化部署工具。完全免费，无任何隐藏费用。支持三大平台。</p>
     <div class="platform-dl">
-      <a href="/downloads/SkillAI-setup.exe" class="platform-btn win">
+      <a href="/download/" title="下载页" class="platform-btn win">
         <span class="icon">🪟</span>
         <span class="label">Windows 版</span>
         <span class="sub">下载安装包 (7MB)</span>
@@ -173,7 +173,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       <a href="https://brew.sh/" class="platform-btn mac" target="_blank">
         <span class="icon">🍎</span>
         <span class="label">macOS 版</span>
-        <span class="sub">brew install openclaw</span>
+        <span class="sub">brew install skillai</span>
       </a>
       <a href="https://skillai.top/downloads/install.sh" class="platform-btn linux" target="_blank">
         <span class="icon">🐧</span>
@@ -194,7 +194,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <div class="card">
       <div class="card-header">
         <div class="card-header-left"><span class="card-emoji">🦞</span><span class="card-name">SkillAI</span></div>
-        <a class="card-link" href="https://openclaw.ai" target="_blank" rel="noopener">↗</a>
+        <a class="card-link" href="https://skillai.ai" target="_blank" rel="noopener">↗</a>
       </div>
       <div class="tags">
         <span class="tag mac">macOS</span>
@@ -202,11 +202,11 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
         <span class="tag lin">Linux</span>
         <span class="tag uni">npm</span>
       </div>
-      <div class="code"><span class="label">macOS</span><pre><code>brew install openclaw</code></pre><button class="copy" onclick="copyCmd(this)">📋</button></div>
-      <div class="code"><span class="label">Windows (PowerShell)</span><pre><code>iwr -useb https://openclaw.ai/install.ps1 | iex</code></pre><button class="copy" onclick="copyCmd(this)">📋</button></div>
+      <div class="code"><span class="label">macOS</span><pre><code>brew install skillai</code></pre><button class="copy" onclick="copyCmd(this)">📋</button></div>
+      <div class="code"><span class="label">Windows (PowerShell)</span><pre><code>iwr -useb https://skillai.ai/install.ps1 | iex</code></pre><button class="copy" onclick="copyCmd(this)">📋</button></div>
       <div class="code"><span class="label">Linux</span><pre><code>curl -fsSL https://skillai.top/downloads/install.sh | bash</code></pre><button class="copy" onclick="copyCmd(this)">📋</button></div>
-      <div class="code"><span class="label">通用 (npm)</span><pre><code>npm install -g openclaw@latest</code></pre><button class="copy" onclick="copyCmd(this)">📋</button></div>
-      <a class="dl-link" href="https://github.com/openclaw/openclaw/releases/latest" target="_blank" rel="noopener"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> GitHub 下载</a>
+      <div class="code"><span class="label">通用 (npm)</span><pre><code>npm install -g skillai@latest</code></pre><button class="copy" onclick="copyCmd(this)">📋</button></div>
+      <a class="dl-link" href="https://github.com/skillai/skillai/releases/latest" target="_blank" rel="noopener"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> GitHub 下载</a>
     </div>
 
     <!-- Hermes Agent -->
