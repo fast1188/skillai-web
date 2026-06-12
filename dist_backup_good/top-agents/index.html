@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/logo-192.png">
 <title>TOP智能体 - AI Agent应用排行榜 | SkillAI</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="https://skillai.top/top-agents.html">
 <meta name="description" content="AI智能体TOP50排行榜，ChatGPT、Claude、DeepSeek、SkillAI等主流AI应用排名，动态展示各类AI智能体。">
 <meta name="keywords" content="AI智能体排行, AI Agent排名, 智能体推荐, ChatGPT, Claude, DeepSeek, SkillAI">
@@ -29,7 +30,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a href="/index.html" class="nav-logo" style="gap:12px;">
-      <img src="/assets/images/openclaw-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;">
+      <img src="/assets/images/openclaw-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;" alt="">
     </a>
     <div class="nav-links">
       <a href="/index.html" class="nav-link">首页</a>
@@ -198,4 +199,10 @@ document.addEventListener('DOMContentLoaded',function(){
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(bp, s);
 })();
-</script>`n</body>`n</html>
+</script>`n
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>`n</html>

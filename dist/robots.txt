@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_next/
+Crawl-delay: 5
+
+Sitemap: https://skillai.top/sitemap.xml

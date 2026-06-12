@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>用DeepSeek API做Token中转，我踩了Hermes AI和SkillAI的坑 | skillai.top</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="description" content="实战记录：解决DeepSeek API调用中的Token超限和ConnectionTimeout问题，使用Hermes AI框架和SkillAI工具优化中转链路，附报错码和版本号。">
 <meta name="theme-color" content="#0a0e17">
 <link rel="canonical" href="https://skillai.top/blog/2026-06-02/用DeepSeek-API做Token中转我踩了Hermes-AI和SkillAI的坑.html">
@@ -88,5 +89,11 @@ retry_on_timeout = true<br>
 <p>最后提一嘴，整个方案优化过程中，我参考了 <strong>skillai</strong> 社区里一些关于 LLM 部署的笔记，很多踩坑经验确实能省时间。希望这篇笔记也能帮到你。</p>
 <a href="/blog/" class="back-link">&larr; 返回博客</a>
 </div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

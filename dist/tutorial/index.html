@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/logo-192.png">
 <title>新手教程 - SkillAI Hermes Codex 快速上手指南</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://skillai.top/opengraph-image.png">
 <meta name="theme-color" content="#0a0e17">
@@ -19,7 +20,7 @@
     <meta property="og:url" content="https://skillai.top/tutorial/">
     <meta property="og:type" content="website">
 <meta property="og:image" content="https://skillai.top/opengraph-image.png">
-<meta property="og:type" content="website">
+
 <link rel="canonical" href="https://skillai.top/tutorial/">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -331,6 +332,12 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
 function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
 function copyText(btn){var code=btn.parentElement;var text=code.textContent.replace('??','').trim();navigator.clipboard.writeText(text).then(function(){btn.textContent='?';setTimeout(function(){btn.textContent='??'},1500)})}
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
 </script>
 </body>
 </html>

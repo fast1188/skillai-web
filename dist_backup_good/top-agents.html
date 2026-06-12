@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>TOP智能体 - AI Agent应用排行榜 | SkillAI</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="https://skillai.top/top-agents.html">
 <meta name="description" content="AI智能体TOP50排行榜，ChatGPT、Claude、DeepSeek、SkillAI等主流AI应用排名，动态展示各类AI智能体。">
 <meta name="keywords" content="AI智能体排行, AI Agent排名, 智能体推荐, ChatGPT, Claude, DeepSeek, SkillAI">
@@ -195,4 +196,10 @@ document.addEventListener('DOMContentLoaded',function(){
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(bp, s);
 })();
-</script>`n</body>`n</html>
+</script>`n
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>`n</html>

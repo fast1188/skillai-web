@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DeepSeek API 调用踩坑记：从 ConnectionTimeout 到 Token 中转实战 | skillai.top</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="description" content="一次使用DeepSeek API时的ConnectionTimeout错误排查，通过SkillAI和Hermes AI工具对比，最终用Token中转解决，分享实战经验。">
 <meta name="theme-color" content="#0a0e17">
 <link rel="canonical" href="https://skillai.top/blog/2026-06-02/DeepSeek-API-调用踩坑记-从-ConnectionTimeout-到-Token-中转实战.html">
@@ -74,5 +75,11 @@ session.mount('https://', adapter)</p><br>
 <p>如果你也在集成 DeepSeek API 时遇到过类似 <code>ConnectionTimeout</code> 或 <code>403</code>，不妨试试 Token 中转这条路径。我在 skillai 社区里也分享过更完整的脚本和压测数据，欢迎大家一起交流避坑经验。</p>
 <a href="/blog/" class="back-link">&larr; 返回博客</a>
 </div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

@@ -9,7 +9,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link rel="icon" type="image/png" href="/assets/logo-192.png">
-<title>关于我们 - SkillAI AI自动化助手</title>
+<title>关于我们 - AI自动化助手</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="description" content="了解 SkillAI 的故事——我们是 AI 自动化领域的先行者，致力于让每个人都拥有自己的全能 AI 私人助理。">
 <meta name="theme-color" content="#0a0e17">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -372,7 +373,7 @@
 <meta name="author" content="SkillAI, skillai.top">
 <meta name="revisit-after" content="7 days">
 <link rel="canonical" href="https://skillai.top/about.html">
-<meta property="og:title" content="关于SkillAI - SkillAI AI自动化助手">
+<meta property="og:title" content="关于SkillAI - AI自动化助手">
 <meta property="og:description" content="了解 SkillAI 的故事，致力于让每个人都拥有自己的全能 AI 私人助理">
 <meta property="og:url" content="https://skillai.top/about.html">
 <meta property="og:type" content="website">
@@ -380,7 +381,7 @@
 <meta property="og:site_name" content="SkillAI">
 <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://skillai.top/opengraph-image.png">
-<meta name="twitter:title" content="关于SkillAI - SkillAI AI自动化助手">
+<meta name="twitter:title" content="关于SkillAI - AI自动化助手">
 <meta name="twitter:description" content="了解 SkillAI 的故事，致力于让每个人都拥有自己的全能 AI 私人助理">
   <meta name="keywords" content="SkillAI介绍,AI自动化助手,开源AI项目,SkillAI团队">
 <script type="application/ld+json">
@@ -422,7 +423,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a href="/index.html" class="nav-logo" style="gap:12px;">
-            <img src="/assets/images/openclaw-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;">
+            <img src="/assets/images/openclaw-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;" alt="">
     </a>
     <div class="nav-links">
       <a href="/index.html" class="nav-link">首页</a>
@@ -606,7 +607,7 @@
   <div class="footer-container">
     <div class="footer-brand">
       <div class="footer-logo" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-        <img src="/assets/images/openclaw-logo-nav-new.svg" height="28" style="height:28px;width:auto;flex-shrink:0;">
+        <img src="/assets/images/openclaw-logo-nav-new.svg" height="28" style="height:28px;width:auto;flex-shrink:0;" alt="">
         <span style="font-weight:700;font-size:1rem;color:#e8edf5;">Open</span><span style="font-weight:700;font-size:1rem;color:#667788;">Claw</span>
       </div>
       <p style="color:#667788;font-size:0.82rem;line-height:1.6;margin-bottom:20px;">您的全能AI私人助理，让 AI 替你工作24小时不间断。</p>
@@ -666,6 +667,12 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() { loader.classList.add("removed"); }, 400);
     }
 });
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
 </script>
 </body>
 </html>

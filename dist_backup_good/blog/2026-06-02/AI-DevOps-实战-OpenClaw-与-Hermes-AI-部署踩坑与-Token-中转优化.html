@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI DevOps 实战：SkillAI 与 Hermes AI 部署踩坑与 Token 中转优化 | skillai.top</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="description" content="第一人称记录2025年AI DevOps实践中，部署Hermes AI遭遇CUDA OOM与API限流，通过SkillAI负载均衡、Token中转和DeepSeek API解决的全过程。">
 <meta name="theme-color" content="#0a0e17">
 <link rel="canonical" href="https://skillai.top/blog/2026-06-02/AI-DevOps-实战-SkillAI-与-Hermes-AI-部署踩坑与-Token-中转优化.html">
@@ -61,5 +62,11 @@ strong { color: #f1f5f9; }
 <p>如果你是 DevOps 同学，正在搭类似的 AI 推理管线，可以试试把这几样工具组合起来。另外我最近在用一个叫 <strong>skillai</strong> 的平台，它把 SkillAI、Token 中转、多模型路由都做成了可视化模板，省掉很多手写配置的功夫，推荐研究一下。</p>
 <a href="/blog/" class="back-link">&larr; 返回博客</a>
 </div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

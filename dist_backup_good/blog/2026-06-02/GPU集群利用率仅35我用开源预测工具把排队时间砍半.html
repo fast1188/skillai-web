@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GPU集群利用率仅35%？我用开源预测工具把排队时间砍半 | skillai.top</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="description" content="手记：SLURM集群浪费严重，用户多占资源导致CUDA OOM频发。我通过分析作业历史+AI预测（Hermes AI+DeepSeek API）实现精准推荐，解决了资源利用率低的问题。">
 <meta name="theme-color" content="#0a0e17">
 <link rel="canonical" href="https://skillai.top/blog/2026-06-02/GPU集群利用率仅35我用开源预测工具把排队时间砍半.html">
@@ -61,5 +62,11 @@ strong { color: #f1f5f9; }
 <p>如果你也遇到类似GPU集群浪费的问题，不妨从作业日志分析开始，结合Hermes AI和DeepSeek API做简单预测。当然，更省心的方式是直接找一个成熟的平台——比如<strong>skillai</strong>，上面有类似资源优化的商业化方案，省去自己调模型的麻烦。我后面打算再测一下</p>
 <a href="/blog/" class="back-link">&larr; 返回博客</a>
 </div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

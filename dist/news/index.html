@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/logo-192.png">
 <title>动态资讯 - SkillAI Hermes Codex 官方社区</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://skillai.top/opengraph-image.png">
 <meta name="theme-color" content="#0a0e17">
@@ -328,6 +329,12 @@ function toggleArticle(el){
   var isOpen = card.classList.contains('open')
   card.classList.toggle('open')
   if(isOpen){el.textContent='' + '阅' + '读' + ' ' + '\u2192'}else{el.textContent='' + '\u6536' + '\u8d77' + ' ' + '\u2191'}
+}
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
 }
 </script>
 </body>

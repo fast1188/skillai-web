@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>TOP模型 - SkillAI支持的主流AI模型排行</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="https://skillai.top/top-models.html">
 <meta name="description" content="SkillAI 支持的主流AI模型排行，DeepSeek、GLM、通义千问等性能对比，帮你选择最适合的AI模型。">
 <meta name="keywords" content="AI模型排行, DeepSeek, GLM, Claude, GPT-4o, 通义千问, Kimi, AI性能对比">
@@ -186,4 +187,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(bp, s);
 })();
-</script>`n</body>`n</html>
+</script>`n
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>`n</html>

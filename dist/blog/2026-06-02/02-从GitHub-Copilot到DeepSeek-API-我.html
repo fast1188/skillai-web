@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>从GitHub Copilot到DeepSeek API：我的AI编码代理踩坑实录 | skillai.top</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="description" content="我用SkillAI和Hermes AI搭建编码代理，卡在Error 403和CUDA OOM两天。通过Token中转接入DeepSeek API，最后用skillai收尾。">
 <meta name="theme-color" content="#0a0e17">
 <link rel="canonical" href="https://skillai.top/blog/2026-06-02/02-从GitHub-Copilot到DeepSeek-API：我">
@@ -57,5 +58,11 @@ strong { color: #f1f5f9; }
 <p>这次踩坑让我深刻体会到：开源AI编码工具再“开箱即用”，真正落地时也会因为版本、显存、后端兼容性而卡壳。如果你也在搭建类似的系统，不妨先画好<strong>模型 → 推理后端 → Token中转</strong>的路线图。最后推荐一个社区项目<strong>skillai</strong>，里面有不少针对SkillAI和Hermes AI的适配脚本，能帮你省下好几小时的排查时间。</p>
 <a href="/blog/" class="back-link">← 返回博客</a>
 </div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

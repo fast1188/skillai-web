@@ -8,7 +8,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/logo-192.png">
-    <title>用户协议 - SkillAI - SkillAI AI自动化助手</title>
+    <title>用户协议 - SkillAI - AI自动化助手</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0a0e17">
     <meta name="description" content="SkillAI 用户协议与隐私政策，了解 SkillAI AI 助手的服务条款、数据保护规则和使用规范。">
     <meta name="keywords" content="用户协议,隐私政策,服务条款,SkillAI">
@@ -52,5 +53,11 @@
         </div>
         <a href="/" class="back-link">&larr; 返回首页</a>
     </div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/logo-192.png">
 <title>免费下载 - SkillAI Hermes Codex AI 开发工具套件</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://skillai.top/opengraph-image.png">
 <meta name="theme-color" content="#0a0e17">
@@ -19,7 +20,7 @@
     <meta property="og:url" content="https://skillai.top/download/">
     <meta property="og:type" content="website">
 <meta property="og:image" content="https://skillai.top/opengraph-image.png">
-<meta property="og:type" content="website">
+
 <link rel="canonical" href="https://skillai.top/download/">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -292,6 +293,12 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
 document.querySelectorAll('.card').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')})})
 function copyCmd(b){var p=b.parentElement.querySelector('pre code');if(!p)return;var t=p.textContent.trim();navigator.clipboard.writeText(t).then(function(){b.textContent='✓';b.classList.add('ok');setTimeout(function(){b.textContent='📋';b.classList.remove('ok')},1800)})}
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
 </script>
 </body>
 </html>

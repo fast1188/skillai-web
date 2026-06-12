@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/logo-192.png">
 <title>商务合作 - SkillAI Hermes Codex 携手共赢 AI 新赛道</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://skillai.top/opengraph-image.png">
 <meta name="theme-color" content="#0a0e17">
@@ -18,7 +19,7 @@
 <meta property="og:description" content="提供 DeepSeek、通义千问、豆包、智谱 AI 等主流大模型 API Token 代充服务。一手资源，价格透明。">
     <meta property="og:url" content="https://skillai.top/cooperation/">
     <meta property="og:type" content="website">
-<meta property="og:type" content="website">
+
     <meta property="og:image" content="https://skillai.top/opengraph-image.png">
 <link rel="canonical" href="https://skillai.top/cooperation/">
 <style>
@@ -390,6 +391,12 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 <script>
 window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)})
 function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
 </script>
 </body>
 </html>

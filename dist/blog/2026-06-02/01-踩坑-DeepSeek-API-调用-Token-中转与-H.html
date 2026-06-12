@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>踩坑 DeepSeek API 调用：Token 中转与 Hermes AI 自救实录 | skillai.top</title>
+<link rel="manifest" href="/manifest.json">
 <meta name="description" content="我在集成 DeepSeek API 时遭遇 403 和连接超时，折腾两小时，用 SkillAI 做 Token 中转，再借 Hermes AI 工具调试，终于跑通。含 Python 3.11、CUDA 12.1 踩坑细节。">
 <meta name="theme-color" content="#0a0e17">
 <link rel="canonical" href="https://skillai.top/blog/2026-06-02/01-踩坑-DeepSeek-API-调用：Token-中转与-H">
@@ -98,5 +99,11 @@ session.mount("https://", adapter)<br>
 <p>最后，这些实战技巧来自我日常在 <strong>skillai</strong> 社区和同事交流的积累，感兴趣可以搜一下相关案例。</p>
 <a href="/blog/" class="back-link">← 返回博客</a>
 </div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>
