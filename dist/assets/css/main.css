@@ -1,1 +1,31 @@
-/* skillai.top main.css placeholder 2026-06-13 */
+/* skillai.top 自定义样式 v3.0 (2026-06-13)
+   1) 修复浅色文字对比度
+   2) Footer 字体和导航栏一致
+   3) Header 重复去重
+   4) 隐藏设计与开发由 New API
+   5) Vendor LOGO 缺失 fallback */
+
+:root { --text-primary: #f5f5f5; --text-secondary: #d4d4d4; --text-muted: #a3a3a3; --bg-dark: #0a0a0a; --accent: #7c5cff; }
+body { color: var(--text-primary) !important; background-color: var(--bg-dark) !important; }
+.text-gray-400, .text-zinc-400, .text-neutral-400 { color: #c4c4c4 !important; }
+.text-gray-500, .text-zinc-500, .text-neutral-500 { color: #a8a8a8 !important; }
+.text-gray-300, .text-zinc-300, .text-neutral-300 { color: #d4d4d4 !important; }
+
+/* Header 重复去重 */
+header a[href*="/download"]:not(:first-of-type) { display: none !important; }
+header a[href*="/download"] { white-space: nowrap !important; }
+header a[href*="/download"] ~ a[href*="/download"] { display: none !important; }
+
+/* Footer 字体和导航栏一致 */
+footer, footer * { font-size: 0.875rem !important; }
+footer .text-sm { font-size: 0.875rem !important; }
+
+/* 隐藏设计与开发由 New API */
+a[href*="newapi.pro"]:not([target="_blank"]), a[href*="github.com/songquanpeng/one-api"]:not([target="_blank"]), footer a[href*="newapi"]:not([target="_blank"]) { display: none !important; }
+
+/* Vendor LOGO 缺失 fallback */
+img[alt*="logo"], img[src*="vendor"], img[src*="ai-logos"] { background: linear-gradient(135deg, #7c5cff, #22d3ee) !important; color: #fff !important; font-weight: 700 !important; border-radius: 12px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; min-width: 48px !important; min-height: 48px !important; }
+
+/* 强化暗色背景 */
+.bg-white { background-color: #0a0a0a !important; color: #f5f5f5 !important; }
+.bg-gray-50, .bg-zinc-50 { background-color: #1a1a1a !important; }
