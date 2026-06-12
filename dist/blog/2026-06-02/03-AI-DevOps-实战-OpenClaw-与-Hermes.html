@@ -7,11 +7,11 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI DevOps 实战：SkillAI 与 Hermes AI 部署踩坑与 Token 中转优化 | skillai.top</title>
+<title>AI DevOps 鐎圭偞鍨敍姝媖illAI 娑?Hermes AI 闁劎璁查煪鈺佹綑娑?Token 娑擃叀娴嗘导妯哄 | skillai.top</title>
 <link rel="manifest" href="/manifest.json">
-<meta name="description" content="第一人称记录2025年AI DevOps实践中，部署Hermes AI遭遇CUDA OOM与API限流，通过SkillAI负载均衡、Token中转和DeepSeek API解决的全过程。">
+<meta name="description" content="缁楊兛绔存禍铏剐炵拋鏉跨秿2025楠炵I DevOps鐎圭偠杩旀稉顓ㄧ礉闁劎璁睭ermes AI闁參浜UDA OOM娑撳盯PI闂勬劖绁﹂敍宀勨偓姘崇箖SkillAI鐠愮喕娴囬崸鍥€€閵嗕箑oken娑擃叀娴嗛崪瀛宔epSeek API鐟欙絽鍠呴惃鍕弿鏉╁洨鈻奸妴?>
 <meta name="theme-color" content="#0a0e17">
-<link rel="canonical" href="https://skillai.top/blog/2026-06-02/03-AI-DevOps-实战：SkillAI-与-Hermes">
+<link rel="canonical" href="https://skillai.top/blog/2026-06-02/03-AI-DevOps-鐎圭偞鍨敍姝媖illAI-娑?Hermes">
 <style>
 body { font-family: system-ui, -apple-system, sans-serif; background: #0a0e1a; color: #e8edf5; line-height: 1.8; margin: 0; padding: 0; }
 .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
@@ -28,39 +28,46 @@ strong { color: #f1f5f9; }
 .back-link:hover { text-decoration: underline; }
 .meta-info { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
 </style>
+<meta property="og:title" content="AI DevOps 鐎圭偞鍨敍姝媖illAI 娑?Hermes AI 闁劎璁查煪鈺佹綑娑?Token 娑擃叀娴嗘导妯哄">
+<meta property="og:description" content="缁楊兛绔存禍铏剐炵拋鏉跨秿2025楠炵I DevOps鐎圭偠杩旀稉顓ㄧ礉闁劎璁睭ermes AI闁參浜UDA OOM娑撳盯PI闂勬劖绁﹂敍宀勨偓姘崇箖SkillAI鐠愮喕娴囬崸鍥€€閵嗕箑oken娑擃叀娴嗛崪瀛宔epSeek API鐟欙絽鍠呴惃鍕弿鏉╁洨鈻奸妴?>
+<meta name=">
+<meta property="og:url" content="https://skillai.top/blog/2026-06-02/03-AI-DevOps-鐎圭偞鍨敍姝媖illAI-娑?Hermes">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SkillAI">
+<meta property="og:image" content="https://skillai.top/opengraph-image.png">
 </head>
 <body>
 <div class="container">
-<a href="/blog/" class="back-link">← 返回博客</a>
-<div class="meta-info">2026-06-02 · SkillAI</div>
-<h1>AI DevOps 实战：SkillAI 与 Hermes AI 部署踩坑与 Token 中转优化</h1>
-<h2>一、踩坑背景：我为什么要折腾 Hermes AI</h2><br>
-<p>2025 年初，团队决定把推理服务从单体容器切到微服务架构，我作为 DevOps 负责落地。选型时看中了 Hermes AI —— 开源、支持多模态、接口兼容 OpenAI 格式。我用 Python 3.11 + PyTorch 2.1 + CUDA 12.1 搭了一套原型，心想“应该两天就能上线”。</p><br>
-<p>结果……卡了两小时还没跑通第一个请求。</p><br>
-<h2>二、第一个坑：CUDA OOM 来得毫无预兆</h2><br>
-<p>第一次启动推理容器，刚发两个并发请求，终端直接弹红：</p><br>
+<a href="/blog/" class="back-link">閳?鏉╂柨娲栭崡姘吂</a>
+<div class="meta-info">2026-06-02 璺?SkillAI</div>
+<h1>AI DevOps 鐎圭偞鍨敍姝媖illAI 娑?Hermes AI 闁劎璁查煪鈺佹綑娑?Token 娑擃叀娴嗘导妯哄</h1>
+<h2>娑撯偓閵嗕浇淇崸鎴ｅ剹閺咁垽绱伴幋鎴滆礋娴犫偓娑斿牐顩﹂幎妯垮悩 Hermes AI</h2><br>
+<p>2025 楠炴潙鍨甸敍灞芥礋闂冪喎鍠呯€规碍濡搁幒銊ф倞閺堝秴濮熸禒搴″礋娴ｆ挸顔愰崳銊ュ瀼閸掓澘浜曢張宥呭閺嬭埖鐎敍灞惧灉娴ｆ粈璐?DevOps 鐠愮喕鐭楅拃钘夋勾閵嗗倿鈧鐎烽弮鍓佹箙娑擃厺绨?Hermes AI 閳ユ柡鈧?瀵偓濠ф劑鈧焦鏁幐浣割樋濡剝鈧降鈧焦甯撮崣锝呭悑鐎?OpenAI 閺嶇厧绱￠妴鍌涘灉閻?Python 3.11 + PyTorch 2.1 + CUDA 12.1 閹碱厺绨℃稉鈧總妤€甯崹瀣剁礉韫囧啯鍏傞垾婊冪安鐠囥儰琚辨径鈺佹皑閼虫垝绗傜痪搴撯偓婵勨偓?/p><br>
+<p>缂佹挻鐏夐垾锔光偓锕€宕辨禍鍡曡⒈鐏忓繑妞傛潻妯荤梾鐠烘垿鈧氨顑囨稉鈧稉顏囶嚞濮瑰倶鈧?/p><br>
+<h2>娴滃被鈧胶顑囨稉鈧稉顏勬綑閿涙UDA OOM 閺夈儱绶卞В顐ｆ￥妫板嫬鍘?/h2><br>
+<p>缁楊兛绔村▎鈥虫儙閸斻劍甯归悶鍡楊啇閸ｎ煉绱濋崚姘絺娑撱倓閲滈獮璺哄絺鐠囬攱鐪伴敍宀€绮撶粩顖滄纯閹恒儱鑴婄痪顫窗</p><br>
 <pre><code class="language-">RuntimeError: CUDA out of memory. Tried to allocate 2.34 GiB. GPU has 24.00 GiB total capacity, 2.50 GiB free.<br>
 </code></pre><br>
-<p>我检查过显存配置啊？Hermes AI 文档说 7B 模型只需要 16 GiB 显存，我的 RTX 4090 明明有 24 GiB。排查后发现，<strong>Docker 默认没限制显存分配</strong>，PyTorch 的 <code>torch.cuda.empty_cache()</code> 也没及时清理。另外我忘了给 <code>--num_gpus</code> 参数传 <code>1</code>，容器默认尝试占满所有可用显存。</p><br>
-<p>解决方案是在容器启动命令里加了 <code>--gpus '"device=0"'</code>，并在 <code>transformers</code> 初始化时显式指定 <code>device_map="auto"</code>。同时用 <code>nvidia-smi</code> 写了个监控脚本，显存超过 90% 自动重启容器。折腾了半小时，终于能在单卡上稳定推理了。</p><br>
-<h2>三、第二个坑：API 限流逼我上 Token 中转</h2><br>
-<p>单机跑通后，我把服务暴露给测试组。结果不到五分钟，日志开始刷：</p><br>
+<p>閹存垶顥呴弻銉ㄧ箖閺勬儳鐡ㄩ柊宥囩枂閸熷绱礖ermes AI 閺傚洦銆傜拠?7B 濡€崇€烽崣顏堟付鐟?16 GiB 閺勬儳鐡ㄩ敍灞惧灉閻?RTX 4090 閺勫孩妲戦張?24 GiB閵嗗倹甯撻弻銉ユ倵閸欐垹骞囬敍?strong>Docker 姒涙顓诲▽锟犳閸掕埖妯夌€涙ê鍨庨柊?/strong>閿涘yTorch 閻?<code>torch.cuda.empty_cache()</code> 娑旂喐鐥呴崣濠冩濞撳懐鎮婇妴鍌氬綗婢舵牗鍨滆箛妯圭啊缂?<code>--num_gpus</code> 閸欏倹鏆熸导?<code>1</code>閿涘苯顔愰崳銊╃帛鐠併倕鐨剧拠鏇炲窗濠娾剝澧嶉張澶婂讲閻劍妯夌€涙ǜ鈧?/p><br>
+<p>鐟欙絽鍠呴弬瑙勵攳閺勵垰婀€圭懓娅掗崥顖氬З閸涙垝鎶ら柌灞藉娴?<code>--gpus '"device=0"'</code>閿涘苯鑻熼崷?<code>transformers</code> 閸掓繂顫愰崠鏍ㄦ閺勬儳绱￠幐鍥х暰 <code>device_map="auto"</code>閵嗗倸鎮撻弮鍓佹暏 <code>nvidia-smi</code> 閸愭瑤绨℃稉顏嗘磧閹貉嗗壖閺堫剨绱濋弰鎯х摠鐡掑懓绻?90% 閼奉亜濮╅柌宥呮儙鐎圭懓娅掗妴鍌涘閼靛彞绨￠崡濠傜毈閺冭绱濈紒鍫滅艾閼宠棄婀崡鏇炲幢娑撳﹦菙鐎规碍甯归悶鍡曠啊閵?/p><br>
+<h2>娑撳鈧胶顑囨禍灞奸嚋閸ф埊绱癆PI 闂勬劖绁﹂柅鍏煎灉娑?Token 娑擃叀娴?/h2><br>
+<p>閸楁洘婧€鐠烘垿鈧艾鎮楅敍灞惧灉閹跺﹥婀囬崝鈩冩瘹闂囪尙绮板ù瀣槸缂佸嫨鈧倻绮ㄩ弸婊€绗夐崚棰佺安閸掑棝鎸撻敍灞炬）韫囨绱戞慨瀣煕閿?/p><br>
 <pre><code class="language-">Error 429 Too Many Requests<br>
 </code></pre><br>
-<p>Hermes AI 默认用 Token 桶限流，单节点只允许 60 RPM（每分钟请求数）。测试组用脚本并发发请求，瞬间打爆。更头疼的是，<strong>每次限流后要等 30 秒重置</strong>，测试直接说“卡死”。</p><br>
-<p>我尝试过调大 <code>max_batch_size</code> 和 <code>rate_limit</code>，但单个节点物理上限就摆在那。这时想起之前研究过 <strong>Token 中转</strong>方案 —— 把上游请求先打到一层代理，由代理统一调度 Token 配额，再分发给多个下游推理节点。我选择了 <strong>SkillAI</strong>（一个轻量级网关），它能动态分配 Token 桶，并支持轮询、最少连接等负载策略。</p><br>
-<p>部署架构变成了：</p><br>
-<pre><code class="language-">Client → SkillAI（Token 中转 + 负载均衡）→ Hermes AI 集群（3 个 GPU 节点）<br>
+<p>Hermes AI 姒涙顓婚悽?Token 濡楀爼妾哄ù渚婄礉閸楁洝濡悙鐟板涧閸忎浇顔?60 RPM閿涘牊鐦￠崚鍡涙寭鐠囬攱鐪伴弫甯礆閵嗗倹绁寸拠鏇犵矋閻劏鍓奸張顒€鑻熼崣鎴濆絺鐠囬攱鐪伴敍宀€鐏涢梻瀛樺ⅵ閻栧棎鈧倹娲挎径瀵告煠閻ㄥ嫭妲搁敍?strong>濮ｅ繑顐奸梽鎰ウ閸氬氦顩︾粵?30 缁夋帡鍣哥純?/strong>閿涘本绁寸拠鏇犳纯閹恒儴顕╅垾婊冨幢濮濈儵鈧縿鈧?/p><br>
+<p>閹存垵鐨剧拠鏇＄箖鐠嬪啫銇?<code>max_batch_size</code> 閸?<code>rate_limit</code>閿涘奔绲鹃崡鏇氶嚋閼哄倻鍋ｉ悧鈺冩倞娑撳﹪妾虹亸杈ㄦ啘閸︺劑鍋呴妴鍌濈箹閺冭埖鍏傜挧铚傜閸撳秶鐖虹粚鎯扮箖 <strong>Token 娑擃叀娴?/strong>閺傝顢?閳ユ柡鈧?閹跺﹣绗傚〒姝岊嚞濮瑰倸鍘涢幍鎾冲煂娑撯偓鐏炲倷鍞悶鍡礉閻㈠彉鍞悶鍡欑埠娑撯偓鐠嬪啫瀹?Token 闁板秹顤傞敍灞藉晙閸掑棗褰傜紒娆忣樋娑擃亙绗呭〒鍛婂腹閻炲棜濡悙骞库偓鍌涘灉闁瀚ㄦ禍?<strong>SkillAI</strong>閿涘牅绔存稉顏囦氦闁插繒楠囩純鎴濆彠閿涘绱濈€瑰啳鍏橀崝銊︹偓浣稿瀻闁?Token 濡楄绱濋獮鑸垫暜閹镐浇鐤嗙拠顫偓浣规付鐏忔垼绻涢幒銉х搼鐠愮喕娴囩粵鏍殣閵?/p><br>
+<p>闁劎璁查弸鑸电€崣妯诲灇娴滃棴绱?/p><br>
+<pre><code class="language-">Client 閳?SkillAI閿涘湵oken 娑擃叀娴?+ 鐠愮喕娴囬崸鍥€€閿涘鍟?Hermes AI 闂嗗棛鍏㈤敍? 娑?GPU 閼哄倻鍋ｉ敍?br>
 </code></pre><br>
-<p>实测 180 RPM 的并发，SkillAI 把请求均匀散到三个节点，每个节点还是 60 RPM，但整体不超限了。测试组反馈再无 429 报错。后面我又给 SkillAI 配了 Redis 做分布式 Token 桶，即使某个节点挂了，配额也不会丢失。</p><br>
-<h2>四、第三个坑：模型推理太慢，引入 DeepSeek API</h2><br>
-<p>即便做了负载均衡，单次推理平均耗时还是 8 秒 —— 主要因为 Hermes AI 的 7B 模型在本地推理，遇到长文本（比如 4096 tokens）时耗时暴涨。业务方催得急，我差点放弃本地推理。</p><br>
-<p>最后折中方案：<strong>将简单短文本请求留在本地 Hermes AI 节点处理</strong>，复杂长文本请求通过 <strong>DeepSeek API</strong> 走云端推理。我在 SkillAI 路由规则里加了一条：<code>if request.tokens > 2048</code> 则转发到 DeepSeek API。这样本地资源只处理 80% 的轻量请求，平均耗时降到 1.2 秒。</p><br>
-<p>这个切换只用改一行配置，SkillAI 支持热加载。不过要注意，DeepSeek API 需要提前买配额，我踩了一个小坑 —— 第一次调用时因为 Key 格式错误收到 <code>Error 401</code>。后来把环境变量 <code>DEEPSEEK_API_KEY</code> 格式统一为 <code>sk-xxx</code> 才通过。</p><br>
-<h2>五、总结与一点感悟</h2><br>
-<p>从部署 Hermes AI 到跑通全链路，前后重试了十几个配置项，<strong>踩了显存、限流、延迟三个大坑</strong>。2025 年 AI DevOps 的趋势很明显：<strong>单点靠不住，组合才是王道</strong>。SkillAI 做流量入口和 Token 中转，Hermes AI 做本地轻量推理，DeepSeek API 兜底复杂场景，这套架构目前跑了两周零报错。</p><br>
-<p>如果你是 DevOps 同学，正在搭类似的 AI 推理管线，可以试试把这几样工具组合起来。另外我最近在用一个叫 <strong>skillai</strong> 的平台，它把 SkillAI、Token 中转、多模型路由都做成了可视化模板，省掉很多手写配置的功夫，推荐研究一下。</p>
-<a href="/blog/" class="back-link">← 返回博客</a>
+<p>鐎圭偞绁?180 RPM 閻ㄥ嫬鑻熼崣鎴礉SkillAI 閹跺﹨顕Ч鍌氭綆閸栤偓閺侊絽鍩屾稉澶夐嚋閼哄倻鍋ｉ敍灞剧槨娑擃亣濡悙纭呯箷閺?60 RPM閿涘奔绲鹃弫缈犵秼娑撳秷绉撮梽鎰啊閵嗗倹绁寸拠鏇犵矋閸欏秹顩崘宥嗘￥ 429 閹躲儵鏁婇妴鍌氭倵闂堛垺鍨滈崣鍫㈢舶 SkillAI 闁板秳绨?Redis 閸嬫艾鍨庣敮鍐ㄧ础 Token 濡楄绱濋崡鍏呭▏閺屾劒閲滈懞鍌滃仯閹稿倷绨￠敍宀勫帳妫版繀绡冩稉宥勭窗娑撱垹銇戦妴?/p><br>
+<h2>閸ユ稏鈧胶顑囨稉澶夐嚋閸ф埊绱板Ο鈥崇€烽幒銊ф倞婢额亝鍙冮敍灞界穿閸?DeepSeek API</h2><br>
+<p>閸楀厖绌堕崑姘啊鐠愮喕娴囬崸鍥€€閿涘苯宕熷▎鈩冨腹閻炲棗閽╅崸鍥偓妤佹鏉╂ɑ妲?8 缁?閳ユ柡鈧?娑撴槒顩﹂崶鐘辫礋 Hermes AI 閻?7B 濡€崇€烽崷銊︽拱閸︾増甯归悶鍡礉闁洤鍩岄梹鎸庢瀮閺堫剨绱欏В鏂款洤 4096 tokens閿涘妞傞懓妤佹閺嗗瓨瀹氶妴鍌欑瑹閸斺剝鏌熼崒顒€绶遍幀銉礉閹存垵妯婇悙瑙勬杹瀵啯婀伴崷鐗堝腹閻炲棎鈧?/p><br>
+<p>閺堚偓閸氬孩濮屾稉顓熸煙濡楀牞绱?strong>鐏忓棛鐣濋崡鏇犵叚閺傚洦婀扮拠閿嬬湴閻ｆ瑥婀張顒€婀?Hermes AI 閼哄倻鍋ｆ径鍕倞</strong>閿涘苯顦查弶鍌炴毐閺傚洦婀扮拠閿嬬湴闁俺绻?<strong>DeepSeek API</strong> 鐠ч绨粩顖涘腹閻炲棎鈧倹鍨滈崷?SkillAI 鐠侯垳鏁辩憴鍕灟闁插苯濮炴禍鍡曠閺夆槄绱?code>if request.tokens > 2048</code> 閸掓瑨娴嗛崣鎴濆煂 DeepSeek API閵嗗倽绻栭弽閿嬫拱閸︽媽绁┃鎰涧婢跺嫮鎮?80% 閻ㄥ嫯浜ら柌蹇氼嚞濮瑰偊绱濋獮鍐叉綆閼版妞傞梽宥呭煂 1.2 缁夋帇鈧?/p><br>
+<p>鏉╂瑤閲滈崚鍥ㄥ床閸欘亞鏁ら弨閫涚鐞涘矂鍘ょ純顕嗙礉SkillAI 閺€顖涘瘮閻戭厼濮炴潪濮愨偓鍌欑瑝鏉╁洩顩﹀▔銊﹀壈閿涘瓕eepSeek API 闂団偓鐟曚焦褰侀崜宥勬嫳闁板秹顤傞敍灞惧灉闊晙绨℃稉鈧稉顏勭毈閸?閳ユ柡鈧?缁楊兛绔村▎陇鐨熼悽銊︽閸ョ姳璐?Key 閺嶇厧绱￠柨娆掝嚖閺€璺哄煂 <code>Error 401</code>閵嗗倸鎮楅弶銉﹀Ω閻滎垰顣ㄩ崣姗€鍣?<code>DEEPSEEK_API_KEY</code> 閺嶇厧绱＄紒鐔剁娑?<code>sk-xxx</code> 閹靛秹鈧俺绻冮妴?/p><br>
+<h2>娴滄柣鈧焦鈧崵绮ㄦ稉搴濈閻愯鍔呴幃?/h2><br>
+<p>娴犲酣鍎寸純?Hermes AI 閸掓媽绐囬柅姘弿闁炬崘鐭鹃敍灞藉閸氬酣鍣哥拠鏇氱啊閸椾礁鍤戞稉顏堝帳缂冾噣銆嶉敍?strong>闊晙绨￠弰鎯х摠閵嗕線妾哄ù浣碘偓浣告鏉╃喍绗佹稉顏勩亣閸?/strong>閵?025 楠?AI DevOps 閻ㄥ嫯绉奸崝鍨发閺勫孩妯夐敍?strong>閸楁洜鍋ｉ棃鐘辩瑝娴ｅ骏绱濈紒鍕値閹靛秵妲搁悳瀣壕</strong>閵嗕總killAI 閸嬫碍绁﹂柌蹇撳弳閸欙絽鎷?Token 娑擃叀娴嗛敍瀛抏rmes AI 閸嬫碍婀伴崷鎷屼氦闁插繑甯归悶鍡礉DeepSeek API 閸忔粌绨虫径宥嗘絽閸︾儤娅欓敍宀冪箹婵傛鐏﹂弸鍕窗閸撳秷绐囨禍鍡曡⒈閸涖劑娴傞幎銉╂晩閵?/p><br>
+<p>婵″倹鐏夋担鐘虫Ц DevOps 閸氬苯顒熼敍灞绢劀閸︺劍鎯岀猾璁虫妧閻?AI 閹恒劎鎮婄粻锛勫殠閿涘苯褰叉禒銉ㄧ槸鐠囨洘濡告潻娆忓殤閺嶅嘲浼愰崗椋庣矋閸氬牐鎹ｉ弶銉ｂ偓鍌氬綗婢舵牗鍨滈張鈧潻鎴濇躬閻劋绔存稉顏勫建 <strong>skillai</strong> 閻ㄥ嫬閽╅崣甯礉鐎瑰啯濡?SkillAI閵嗕箑oken 娑擃叀娴嗛妴浣割樋濡€崇€风捄顖滄暠闁棄浠涢幋鎰啊閸欘垵顫嬮崠鏍侀弶鍖＄礉閻焦甯€瀵板牆顦块幍瀣晸闁板秶鐤嗛惃鍕婢额偓绱濋幒銊ㄥ礃閻梻鈹掓稉鈧稉瀣ㄢ偓?/p>
+<a href="/blog/" class="back-link">閳?鏉╂柨娲栭崡姘吂</a>
 </div>
 
 <script>

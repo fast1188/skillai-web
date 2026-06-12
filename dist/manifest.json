@@ -21,13 +21,7 @@
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
-  ],
-  "categories": [
-    "productivity",
-    "utilities"
-  ],
-  "lang": "zh-CN",
-  "orientation": "any"
+  ]
 }

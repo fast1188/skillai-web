@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html style="background:#0a0e1a" lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -513,7 +513,7 @@
 <div class="skills-stats">
   共 <span id="totalCount">0</span> 个技能 · 按下载量排序
   <span style="margin:0 8px;color:#445566">|</span>
-  想要更多？<a href="https://clawhub.ai/skills?sort=downloads" target="_blank" style="color:#ff6b9d;font-weight:600;text-decoration:none;">前往 SkillAI 发现完整技能库 →</a>
+  想要更多？<a href="https://skillai.top/skills?sort=downloads" target="_blank" style="color:#ff6b9d;font-weight:600;text-decoration:none;">前往 SkillAI 发现完整技能库 →</a>
 </div>
 
 <!-- Filters -->
@@ -685,7 +685,7 @@ function escapeHtml(s) {
 function renderSkills(skills) {
   const grid = document.getElementById('skillsGrid');
   grid.innerHTML = skills.map((s, i) => {
-    const installCmd = 'clawhub install ' + s.author + '/' + (s.slug || s.name.toLowerCase().replace(/\s+/g, '-'));
+    const installCmd = 'skillai install ' + s.author + '/' + (s.slug || s.name.toLowerCase().replace(/\s+/g, '-'));
     const platforms = (s.platforms || []).map(p => '<span class="skill-platform">' + escapeHtml(p) + '</span>').join('');
     
     return '<div class="skill-card" data-cat="' + escapeHtml(s.cat || 'Other') + '">' +
@@ -712,7 +712,7 @@ function renderSkills(skills) {
       '</div>' +
       '<div class="skill-footer">' +
         '<button class="skill-install-btn" data-cmd="' + escapeHtml(installCmd) + '" onclick="copyCmd(this)">' +
-          'clawhub install ' + escapeHtml(s.author) + '/' + escapeHtml(s.slug || s.name.toLowerCase().replace(/\s+/g, '-')) +
+          'skillai install ' + escapeHtml(s.author) + '/' + escapeHtml(s.slug || s.name.toLowerCase().replace(/\s+/g, '-')) +
         '</button>' +
         '<button class="skill-copy-btn" onclick="copyCmd(this.previousElementSibling)" title="复制命令">??</button>' +
       '</div>' +

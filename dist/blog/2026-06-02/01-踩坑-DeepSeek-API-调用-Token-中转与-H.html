@@ -7,11 +7,11 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>踩坑 DeepSeek API 调用：Token 中转与 Hermes AI 自救实录 | skillai.top</title>
+<title>闊晛娼?DeepSeek API 鐠嬪啰鏁ら敍姝峯ken 娑擃叀娴嗘稉?Hermes AI 閼奉亝鏅崇€圭偛缍?| skillai.top</title>
 <link rel="manifest" href="/manifest.json">
-<meta name="description" content="我在集成 DeepSeek API 时遭遇 403 和连接超时，折腾两小时，用 SkillAI 做 Token 中转，再借 Hermes AI 工具调试，终于跑通。含 Python 3.11、CUDA 12.1 踩坑细节。">
+<meta name="description" content="閹存垵婀梿鍡樺灇 DeepSeek API 閺冨爼浼冮柆?403 閸滃矁绻涢幒銉ㄧТ閺冭绱濋幎妯垮悩娑撱倕鐨弮璁圭礉閻?SkillAI 閸?Token 娑擃叀娴嗛敍灞藉晙閸?Hermes AI 瀹搞儱鍙跨拫鍐槸閿涘瞼绮撴禍搴ょ獓闁哎鈧倸鎯?Python 3.11閵嗕竼UDA 12.1 闊晛娼欑紒鍡氬Ν閵?>
 <meta name="theme-color" content="#0a0e17">
-<link rel="canonical" href="https://skillai.top/blog/2026-06-02/01-踩坑-DeepSeek-API-调用：Token-中转与-H">
+<link rel="canonical" href="https://skillai.top/blog/2026-06-02/01-闊晛娼?DeepSeek-API-鐠嬪啰鏁ら敍姝峯ken-娑擃叀娴嗘稉?H">
 <style>
 body { font-family: system-ui, -apple-system, sans-serif; background: #0a0e1a; color: #e8edf5; line-height: 1.8; margin: 0; padding: 0; }
 .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
@@ -28,55 +28,62 @@ strong { color: #f1f5f9; }
 .back-link:hover { text-decoration: underline; }
 .meta-info { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
 </style>
+<meta property="og:title" content="闊晛娼?DeepSeek API 鐠嬪啰鏁ら敍姝峯ken 娑擃叀娴嗘稉?Hermes AI 閼奉亝鏅崇€圭偛缍?| skillai.top">
+<meta property="og:description" content="閹存垵婀梿鍡樺灇 DeepSeek API 閺冨爼浼冮柆?403 閸滃矁绻涢幒銉ㄧТ閺冭绱濋幎妯垮悩娑撱倕鐨弮璁圭礉閻?SkillAI 閸?Token 娑擃叀娴嗛敍灞藉晙閸?Hermes AI 瀹搞儱鍙跨拫鍐槸閿涘瞼绮撴禍搴ょ獓闁哎鈧倸鎯?Python 3.11閵嗕竼UDA 12.1 闊晛娼欑紒鍡氬Ν閵?>
+<meta name=">
+<meta property="og:url" content="https://skillai.top/blog/2026-06-02/01-闊晛娼?DeepSeek-API-鐠嬪啰鏁ら敍姝峯ken-娑擃叀娴嗘稉?H">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SkillAI">
+<meta property="og:image" content="https://skillai.top/opengraph-image.png">
 </head>
 <body>
 <div class="container">
-<a href="/blog/" class="back-link">← 返回博客</a>
-<div class="meta-info">2026-06-02 · SkillAI</div>
-<h1>踩坑 DeepSeek API 调用：Token 中转与 Hermes AI 自救实录</h1>
+<a href="/blog/" class="back-link">閳?鏉╂柨娲栭崡姘吂</a>
+<div class="meta-info">2026-06-02 璺?SkillAI</div>
+<h1>闊晛娼?DeepSeek API 鐠嬪啰鏁ら敍姝峯ken 娑擃叀娴嗘稉?Hermes AI 閼奉亝鏅崇€圭偛缍?/h1>
 <p>---</p><br>
-<h2>问题：DeepSeek API 调不通</h2><br>
-<p>下午准备写个 DevOps 自动化脚本，把 DeepSeek API 接进去做智能日志分析。用 Python 3.11 + requests 库发 POST 请求，结果直接报 <strong>Error 403 Forbidden</strong>。</p><br>
+<h2>闂傤噣顣介敍娆磂epSeek API 鐠嬪啩绗夐柅?/h2><br>
+<p>娑撳宕嶉崙鍡楊槵閸愭瑤閲?DevOps 閼奉亜濮╅崠鏍壖閺堫剨绱濋幎?DeepSeek API 閹恒儴绻橀崢璇蹭粵閺呴缚鍏橀弮銉ョ箶閸掑棙鐎介妴鍌滄暏 Python 3.11 + requests 鎼存挸褰?POST 鐠囬攱鐪伴敍宀€绮ㄩ弸婊呮纯閹恒儲濮?<strong>Error 403 Forbidden</strong>閵?/p><br>
 <pre><code class="language-python">import requests<br>
-payload = {"model": "deepseek-chat", "messages": [{"role": "user", "content": "分析 nginx 错误日志"}]}<br>
+payload = {"model": "deepseek-chat", "messages": [{"role": "user", "content": "閸掑棙鐎?nginx 闁挎瑨顕ら弮銉ョ箶"}]}<br>
 r = requests.post("https://api.deepseek.com/v1/chat/completions", json=payload, headers={"Authorization": "Bearer MY_KEY"})<br>
 print(r.status_code, r.text)<br>
 </code></pre><br>
-<p>输出：<code>403 {"error": "access_denied"}</code></p><br>
-<p>我愣了——API Key 是新申请的，没超限啊。折腾半小时，怀疑是网络环境问题。</p><br>
+<p>鏉堟挸鍤敍?code>403 {"error": "access_denied"}</code></p><br>
+<p>閹存垶鍔婃禍鍡忊偓鏂衡偓鎿淧I Key 閺勵垱鏌婇悽瀹狀嚞閻ㄥ嫸绱濆▽陇绉撮梽鎰櫓閵嗗倹濮岄懙鎯у磹鐏忓繑妞傞敍灞锯偓鈧悿鎴炴Ц缂冩垹绮堕悳顖氼暔闂傤噣顣介妴?/p><br>
 <p>---</p><br>
-<h2>排查过程：从 403 到 ConnectionTimeout</h2><br>
-<h3>第一步：检查 Key 与网络</h3><br>
-<p>换了台服务器，用 curl 测试：</p><br>
+<h2>閹烘帗鐓℃潻鍥┾柤閿涙矮绮?403 閸?ConnectionTimeout</h2><br>
+<h3>缁楊兛绔村銉窗濡偓閺?Key 娑撳海缍夌紒?/h3><br>
+<p>閹诡澀绨￠崣鐗堟箛閸斺€虫珤閿涘瞼鏁?curl 濞村鐦敍?/p><br>
 <pre><code class="language-bash">curl -X POST https://api.deepseek.com/v1/chat/completions \<br>
   -H "Authorization: Bearer MY_KEY" \<br>
   -H "Content-Type: application/json" \<br>
   -d '{"model":"deepseek-chat","messages":[{"role":"user","content":"hi"}]}'<br>
 </code></pre><br>
-<p>结果 <strong>ConnectionTimeout</strong>——连不上。我本地网络是公司内网，可能被防火墙拦了。</p><br>
-<p>又试了次，用 <code>--connect-timeout 5</code> 参数，直接报 <code>curl: (28) Connection timeout after 5001 milliseconds</code>。卡了两小时，差点放弃。</p><br>
-<h3>第二步：发现 Token 中转方案</h3><br>
-<p>同事提醒，可以用 <strong>Token 中转</strong> 服务——把 DeepSeek API 请求转发到可访问的代理节点。我找了个轻量的中转工具 <strong>SkillAI</strong>（v0.3.2），配置仅需 3 步：</p><br>
-<li>在 SkillAI 的 <code>config.yaml</code> 里填写上游 API 地址和 Key</li><br>
-<li>启动代理服务：<code>openclaw serve --port 8080</code></li><br>
-<li>修改项目中请求 URL 为 <code>http://127.0.0.1:8080/v1/chat/completions</code></li><br>
+<p>缂佹挻鐏?<strong>ConnectionTimeout</strong>閳ユ柡鈧棁绻涙稉宥勭瑐閵嗗倹鍨滈張顒€婀寸純鎴犵捕閺勵垰鍙曢崣绋垮敶缂冩埊绱濋崣顖濆厴鐞氼偊妲婚悘顐㈩暰閹凤缚绨￠妴?/p><br>
+<p>閸欏牐鐦禍鍡橆偧閿涘瞼鏁?<code>--connect-timeout 5</code> 閸欏倹鏆熼敍宀€娲块幒銉﹀Г <code>curl: (28) Connection timeout after 5001 milliseconds</code>閵嗗倸宕辨禍鍡曡⒈鐏忓繑妞傞敍灞芥▕閻愯鏂佸鍐︹偓?/p><br>
+<h3>缁楊兛绨╁銉窗閸欐垹骞?Token 娑擃叀娴嗛弬瑙勵攳</h3><br>
+<p>閸氬奔绨ㄩ幓鎰板晪閿涘苯褰叉禒銉ф暏 <strong>Token 娑擃叀娴?/strong> 閺堝秴濮熼垾鏂衡偓鏃€濡?DeepSeek API 鐠囬攱鐪版潪顒€褰傞崚鏉垮讲鐠佸潡妫堕惃鍕敩閻炲棜濡悙骞库偓鍌涘灉閹靛彞绨℃稉顏囦氦闁插繒娈戞稉顓℃祮瀹搞儱鍙?<strong>SkillAI</strong>閿涘澊0.3.2閿涘绱濋柊宥囩枂娴犲懘娓?3 濮濄儻绱?/p><br>
+<li>閸?SkillAI 閻?<code>config.yaml</code> 闁插苯锝為崘娆庣瑐濞?API 閸︽澘娼冮崪?Key</li><br>
+<li>閸氼垰濮╂禒锝囨倞閺堝秴濮熼敍?code>openclaw serve --port 8080</code></li><br>
+<li>娣囶喗鏁兼い鍦窗娑擃叀顕Ч?URL 娑?<code>http://127.0.0.1:8080/v1/chat/completions</code></li><br>
 <pre><code class="language-yaml"><h1>openclaw config.yaml</h1><br>
 upstream:<br>
   base_url: "https://api.deepseek.com"<br>
   api_key: "sk-xxxxx"<br>
 </code></pre><br>
-<p>启动后，用 curl 向本地 8080 发请求：</p><br>
+<p>閸氼垰濮╅崥搴礉閻?curl 閸氭垶婀伴崷?8080 閸欐垼顕Ч鍌︾窗</p><br>
 <pre><code class="language-bash">curl -X POST http://127.0.0.1:8080/v1/chat/completions \<br>
   -H "Content-Type: application/json" \<br>
   -d '{"model":"deepseek-chat","messages":[{"role":"user","content":"test"}]}'<br>
 </code></pre><br>
-<p>这次返回了正常响应！<strong>200 OK</strong>。原来内网限制了出站到 DeepSeek 的直连，但开放了 8080 端口，通过中转曲线救国。</p><br>
+<p>鏉╂瑦顐兼潻鏂挎礀娴滃棙顒滅敮绋挎惙鎼存棑绱?strong>200 OK</strong>閵嗗倸甯弶銉ュ敶缂冩垿妾洪崚鏈电啊閸戣櫣鐝崚?DeepSeek 閻ㄥ嫮娲挎潻鐑囩礉娴ｅ棗绱戦弨鍙ョ啊 8080 缁旑垰褰涢敍宀勨偓姘崇箖娑擃叀娴嗛弴鑼殠閺佹垵娴楅妴?/p><br>
 <p>---</p><br>
-<h2>解决方案：Hermes AI 辅助调试与自动化</h2><br>
-<h3>借力 Hermes AI 自动诊断</h3><br>
-<p>虽然通了，但我不想每次手动写 curl。我用 <strong>Hermes AI</strong>（一个智能 DevOps 助手工具）扫描了脚本：</p><br>
-<li>把报错日志喂给 Hermes AI</li><br>
-<li>它建议在请求中加 <code>timeout=30</code> 参数，并提示用 retry 机制</li><br>
+<h2>鐟欙絽鍠呴弬瑙勵攳閿涙ermes AI 鏉堝懎濮拫鍐槸娑撳氦鍤滈崝銊ュ</h2><br>
+<h3>閸婄喎濮?Hermes AI 閼奉亜濮╃拠濠冩焽</h3><br>
+<p>閾忕晫鍔ч柅姘啊閿涘奔绲鹃幋鎴滅瑝閹櫕鐦″▎鈩冨閸斻劌鍟?curl閵嗗倹鍨滈悽?<strong>Hermes AI</strong>閿涘牅绔存稉顏呮閼?DevOps 閸斺晜澧滃銉ュ徔閿涘澹傞幓蹇庣啊閼存碍婀伴敍?/p><br>
+<li>閹跺﹥濮ら柨娆愭）韫囨鏉虹紒?Hermes AI</li><br>
+<li>鐎瑰啫缂撶拋顔兼躬鐠囬攱鐪版稉顓炲 <code>timeout=30</code> 閸欏倹鏆熼敍灞借嫙閹绘劗銇氶悽?retry 閺堝搫鍩?/li><br>
 <pre><code class="language-python">from requests.adapters import HTTPAdapter<br>
 from urllib3.util.retry import Retry<br>
 <p>session = requests.Session()<br>
@@ -85,19 +92,19 @@ adapter = HTTPAdapter(max_retries=retry)<br>
 session.mount("http://", adapter)<br>
 session.mount("https://", adapter)<br>
 </code></pre></p><br>
-<p>加上 retry 后，偶尔的网络抖动也不怕了。另外，发现 SkillAI 的 Token 缓存功能还能减少重复鉴权——第一次请求后缓存 Token，后续请求秒回。</p><br>
-<h3>版本与依赖细节</h3><br>
+<p>閸旂姳绗?retry 閸氬函绱濋崑璺虹毜閻ㄥ嫮缍夌紒婊勫閸斻劋绡冩稉宥嗏偓鏇氱啊閵嗗倸褰熸径鏍电礉閸欐垹骞?SkillAI 閻?Token 缂傛挸鐡ㄩ崝鐔诲厴鏉╂鍏橀崙蹇撶毌闁插秴顦查柎瀛樻綀閳ユ柡鈧梻顑囨稉鈧▎陇顕Ч鍌氭倵缂傛挸鐡?Token閿涘苯鎮楃紒顓☆嚞濮瑰倻顫楅崶鐐偓?/p><br>
+<h3>閻楀牊婀版稉搴濈贩鐠ф牜绮忛懞?/h3><br>
 <li><strong>Python</strong> 3.11.5  </li><br>
 <li><strong>requests</strong> 2.31.0  </li><br>
 <li><strong>openclaw</strong> 0.3.2  </li><br>
-<li><strong>Hermes AI</strong> 插件版本 1.2.0  </li><br>
-<li><strong>CUDA</strong> 12.1（用于本地模型推理，虽然这次没用）</li><br>
-<p>注意：如果本地跑模型（如 Llama），CUDA 环境变量 <code>CUDA_VISIBLE_DEVICES</code> 要单独设置，否则容易报 <strong>CUDA OOM</strong>。我踩过坑。</p><br>
+<li><strong>Hermes AI</strong> 閹绘帊娆㈤悧鍫熸拱 1.2.0  </li><br>
+<li><strong>CUDA</strong> 12.1閿涘牏鏁ゆ禍搴㈡拱閸︾増膩閸ㄥ甯归悶鍡礉閾忕晫鍔ф潻娆愵偧濞岋紕鏁ら敍?/li><br>
+<p>濞夈劍鍓伴敍姘洤閺嬫粍婀伴崷鎷岀獓濡€崇€烽敍鍫濐洤 Llama閿涘绱滳UDA 閻滎垰顣ㄩ崣姗€鍣?<code>CUDA_VISIBLE_DEVICES</code> 鐟曚礁宕熼悪顒冾啎缂冾噯绱濋崥锕€鍨€硅妲楅幎?<strong>CUDA OOM</strong>閵嗗倹鍨滈煪鈺勭箖閸ф垯鈧?/p><br>
 <p>---</p><br>
-<h2>总结与最后一步</h2><br>
-<p>这次经历让我明白：<strong>Token 中转</strong> 是解决 API 被墙、网络隔离的实用方案；<strong>Hermes AI</strong> 能快速分析日志、建议最优代码模式。如果你也遇到 DeepSeek API 的 403 或超时，试试 SkillAI 搭个本地代理，配好 retry，就能稳定使用。</p><br>
-<p>最后，这些实战技巧来自我日常在 <strong>skillai</strong> 社区和同事交流的积累，感兴趣可以搜一下相关案例。</p>
-<a href="/blog/" class="back-link">← 返回博客</a>
+<h2>閹崵绮ㄦ稉搴㈡付閸氬簼绔村?/h2><br>
+<p>鏉╂瑦顐肩紒蹇撳坊鐠佲晜鍨滈弰搴ｆ閿?strong>Token 娑擃叀娴?/strong> 閺勵垵袙閸?API 鐞氼偄顣鹃妴浣虹秹缂佹粓娈х粋鑽ゆ畱鐎圭偟鏁ら弬瑙勵攳閿?strong>Hermes AI</strong> 閼宠棄鎻╅柅鐔峰瀻閺嬫劖妫╄箛妞尖偓浣哥紦鐠侇喗娓舵导妯瑰敩閻焦膩瀵繈鈧倸顩ч弸婊€缍樻稊鐔间海閸?DeepSeek API 閻?403 閹存牞绉撮弮璁圭礉鐠囨洝鐦?SkillAI 閹碱厺閲滈張顒€婀存禒锝囨倞閿涘矂鍘ゆ總?retry閿涘苯姘ㄩ懗鐣屒旂€规矮濞囬悽銊ｂ偓?/p><br>
+<p>閺堚偓閸氬函绱濇潻娆庣昂鐎圭偞鍨幎鈧褎娼甸懛顏呭灉閺冦儱鐖堕崷?<strong>skillai</strong> 缁€鎯у隘閸滃苯鎮撴禍瀣╂唉濞翠胶娈戠粔顖滅柈閿涘本鍔呴崗纾嬪彯閸欘垯浜掗幖婊€绔存稉瀣祲閸忚櫕顢嶆笟瀣ㄢ偓?/p>
+<a href="/blog/" class="back-link">閳?鏉╂柨娲栭崡姘吂</a>
 </div>
 
 <script>
