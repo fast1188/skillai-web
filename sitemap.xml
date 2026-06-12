@@ -2,9 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://skillai.top/</loc></url>
   <url><loc>https://skillai.top/blog/2026-06-02/01-DeepSeek API 调用踩坑记：从 Connectio</loc></url>
+  <url><loc>https://skillai.top/blog/2026-06-02/01-GPU集群利用率仅35%？我用开源预测工具把排队时间砍半</loc></url>
   <url><loc>https://skillai.top/blog/2026-06-02/01-踩坑 DeepSeek API 调用：Token 中转与 H</loc></url>
   <url><loc>https://skillai.top/blog/2026-06-02/02-2025 DevOps实战：用DeepSeek API与To</loc></url>
   <url><loc>https://skillai.top/blog/2026-06-02/02-从GitHub Copilot到DeepSeek API：我</loc></url>
+  <url><loc>https://skillai.top/blog/2026-06-02/02-记一次DevOps集成AI工具的踩坑：Token中转与Her</loc></url>
   <url><loc>https://skillai.top/blog/2026-06-02/03-2025年AI运维实战：DeepSeek API调用踩坑与T</loc></url>
   <url><loc>https://skillai.top/blog/2026-06-02/03-AI DevOps 实战：OpenClaw 与 Hermes</loc></url>
+  <url><loc>https://skillai.top/blog/2026-06-02/03-用DeepSeek API做Token中转，我踩了Herme</loc></url>
 </urlset>

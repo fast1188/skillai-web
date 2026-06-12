@@ -1,14 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html style="background:#0a0e1a" lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>新手教程 - OpenClaw Hermes Codex 快速上手指南</title>
-<meta name="description" content="3分钟快速上手 OpenClaw Hermes Codex。从下载安装到连接 AI 模型，手把手教你拥有自己的本地 AI 私人助理。">
-<meta name="keywords" content="OpenClaw教程,AI部署教程,新手入门,远程部署安装,AI助理使用指南">
-<meta property="og:title" content="新手教程 - OpenClaw Hermes Codex 快速上手指南">
-<meta property="og:description" content="3分钟快速上手 OpenClaw Hermes Codex。从下载安装到连接 AI 模型，手把手教你拥有自己的本地 AI 私人助理。">
-<meta property="og:image" content="https://skillai.top/og-tutorial.png">
+    <link rel="icon" type="image/png" href="/assets/logo-192.png">
+<title>新手教程 - SkillAI Hermes Codex 快速上手指南</title>
+<meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://skillai.top/opengraph-image.png">
+<meta name="theme-color" content="#0a0e17">
+<meta name="description" content="3分钟快速上手 SkillAI Hermes Codex。从下载安装到连接 AI 模型，手把手教你拥有自己的本地 AI 私人助理。">
+<meta name="keywords" content="SkillAI教程,AI部署教程,新手入门,远程部署安装,AI助理使用指南">
+<meta property="og:title" content="新手教程 - SkillAI Hermes Codex 快速上手指南">
+<meta property="og:description" content="3分钟快速上手 SkillAI Hermes Codex。从下载安装到连接 AI 模型，手把手教你拥有自己的本地 AI 私人助理。">
+    <meta property="og:url" content="https://skillai.top/tutorial/">
+    <meta property="og:type" content="website">
+<meta property="og:image" content="https://skillai.top/opengraph-image.png">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://skillai.top/tutorial/">
 <style>
@@ -122,8 +132,8 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 <div id="header" class="header">
   <nav class="nav container">
     <a href="/" class="nav-brand">
-      <img src="/assets/logo-192.png" alt="OpenClaw Hermes Codex" loading="lazy">
-      OpenClaw Hermes Codex
+      <img src="/assets/logo-192.png" alt="SkillAI Hermes Codex" loading="lazy">
+      SkillAI Hermes Codex
     </a>
     <ul class="nav-links">
       <li><a href="/">首页</a></li>
@@ -176,12 +186,12 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num"><span class="badge">1</span><h3>选择 AI 模型服务商</h3></div>
-        <div class="step-desc">OpenClaw 支持 DeepSeek、通义千问、智谱 GLM、豆包等主流模型。推荐使用 DeepSeek（免费额度充足）。前往 <a href="https://token.skillai.top" target="_blank" style="color:var(--accent)">token.skillai.top</a> 注册获取 API Key。</div>
+        <div class="step-desc">SkillAI 支持 DeepSeek、通义千问、智谱 GLM、豆包等主流模型。推荐使用 DeepSeek（免费额度充足）。前往 <a href="https://platform.deepseek.com/" target="_blank" style="color:var(--accent)">platform.deepseek.com</a> 注册获取 API Key。</div>
         <div class="step-note info"><span class="icon">??</span> 注册并创建 API Key，首次注册通常赠送免费额度，足够日常使用。</div>
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">2</span><h3>复制保存 API Key</h3></div>
-        <div class="step-desc">在 <a href="https://token.skillai.top" target="_blank" style="color:var(--accent)">token.skillai.top</a> 注册后创建 API Key，复制并保存到安全位置。接下来配置时会用到。</div>
+        <div class="step-desc">在 <a href="https://platform.deepseek.com/" target="_blank" style="color:var(--accent)">platform.deepseek.com</a> 注册后创建 API Key，复制并保存到安全位置。接下来配置时会用到。</div>
         <div class="step-note warning"><span class="icon">??</span> 请妥善保管 API Key，不要分享给他人。如 Key 泄露可随时在控制台吊销重建。</div>
       </div>
     </div>
@@ -193,8 +203,8 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <h2 class="section-title"><span>?? 第三步：配置并连接</span></h2>
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-num"><span class="badge">1</span><h3>启动 OpenClaw</h3></div>
-        <div class="step-desc">安装完成后，在终端输入以下命令启动 OpenClaw：</div>
+        <div class="step-num"><span class="badge">1</span><h3>启动 SkillAI</h3></div>
+        <div class="step-desc">安装完成后，在终端输入以下命令启动 SkillAI：</div>
         <div class="step-code"><code>openclaw start</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
         <div class="step-note info"><span class="icon">??</span> 首次启动会自动创建配置目录。</div>
       </div>
@@ -212,7 +222,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
       </div>
       <div class="step-card">
         <div class="step-num"><span class="badge">4</span><h3>选择工作模式</h3></div>
-        <div class="step-desc">OpenClaw 提供多种模式——对话模式、自动化任务模式、代码辅助模式。选择适合你的方式。</div>
+        <div class="step-desc">SkillAI 提供多种模式——对话模式、自动化任务模式、代码辅助模式。选择适合你的方式。</div>
         <div class="step-code"><code>openclaw mode chat</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
         <div class="step-note info"><span class="icon">??</span> 使用 <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">openclaw --help</code> 查看全部命令。</div>
       </div>
@@ -226,7 +236,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num"><span class="badge">1</span><h3>对话式交互</h3></div>
-        <div class="step-desc">就像跟朋友聊天一样，用自然语言告诉 AI 你想做什么。OpenClaw 会自动理解并执行。</div>
+        <div class="step-desc">就像跟朋友聊天一样，用自然语言告诉 AI 你想做什么。SkillAI 会自动理解并执行。</div>
         <div class="step-code"><code>openclaw chat "帮我整理桌面文件"</code><button class="copy-btn" onclick="copyText(this)">??</button></div>
       </div>
       <div class="step-card">
@@ -255,7 +265,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">需要编程基础才能使用吗？<span class="arrow">▼</span></button>
-        <div class="faq-a">完全不需要！用自然语言描述需求，OpenClaw 会自动理解并执行。当然有编程基础可以更充分发挥高级功能。</div>
+        <div class="faq-a">完全不需要！用自然语言描述需求，SkillAI 会自动理解并执行。当然有编程基础可以更充分发挥高级功能。</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">如何更新到最新版本？<span class="arrow">▼</span></button>
@@ -276,9 +286,9 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
 <section class="cta-section">
   <div class="container">
     <h2>准备好了吗？</h2>
-    <p>立即下载 OpenClaw Hermes Codex，开启你的 AI 自动化之旅。</p>
+    <p>立即下载 SkillAI Hermes Codex，开启你的 AI 自动化之旅。</p>
     <div class="cta-buttons">
-      <a href="/downloads/OpenClaw-Windows-Setup.bat" class="btn btn-primary" style="padding:12px 32px;font-size:.9rem">?? 免费下载 Windows 版</a>
+      <a href="/downloads/SkillAI-Windows-Setup.bat" class="btn btn-primary" style="padding:12px 32px;font-size:.9rem">?? 免费下载 Windows 版</a>
       <a href="/download/" class="btn btn-outline" style="padding:12px 32px;font-size:.9rem">查看所有平台 →</a>
     </div>
   </div>
@@ -288,7 +298,7 @@ body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xm
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3><img src="/assets/logo-192.png" width="24" height="24" alt="" style="border-radius:4px"> OpenClaw Hermes Codex</h3>
+        <h3><img src="/assets/logo-192.png" width="24" height="24" alt="" style="border-radius:4px"> SkillAI Hermes Codex</h3>
         <p>您的全能 AI 私人助理部署工具，一键自动化部署、智能配置、数据隐私保护，让每个人都能轻松拥有本地 AI 助手。</p>
       </div>
       <div class="footer-col">

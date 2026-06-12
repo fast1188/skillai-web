@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /downloads/
-Disallow: /_next/
-Disallow: /assets/
-
-Sitemap: https://skillai.top/sitemap.xml

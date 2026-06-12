@@ -10,3 +10,4 @@ run_*.py
 Thumbs.db
 *.log
 node_modules/
+.vercel
