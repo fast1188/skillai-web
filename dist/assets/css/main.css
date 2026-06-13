@@ -2,7 +2,7 @@
    1) 修复浅色文字对比度
    2) Footer 字体和导航栏一致
    3) Header 重复去重
-   4) 隐藏设计与开发由 New API
+   4) 隐藏skillai.top 团队
    5) Vendor LOGO 缺失 fallback */
 
 :root { --text-primary: #f5f5f5; --text-secondary: #d4d4d4; --text-muted: #a3a3a3; --bg-dark: #0a0a0a; --accent: #7c5cff; }
@@ -20,7 +20,7 @@ header a[href*="/download"] ~ a[href*="/download"] { display: none !important; }
 footer, footer * { font-size: 0.875rem !important; }
 footer .text-sm { font-size: 0.875rem !important; }
 
-/* 隐藏设计与开发由 New API */
+/* 隐藏skillai.top 团队 */
 a[href*="newapi.pro"]:not([target="_blank"]), a[href*="github.com/songquanpeng/one-api"]:not([target="_blank"]), footer a[href*="newapi"]:not([target="_blank"]) { display: none !important; }
 
 /* Vendor LOGO 缺失 fallback */

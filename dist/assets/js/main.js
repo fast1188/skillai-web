@@ -21,7 +21,7 @@
     document.querySelectorAll('a, span, div, p').forEach(el => {
       if (el.children.length === 0) {
         const t = (el.textContent || '').trim();
-        if (t.indexOf('\u8BBE\u8BA1\u4E0E\u5F00\u53D1\u7531 New API') >= 0 || t === 'New API' || t.indexOf('designed by New API') >= 0) {
+        if (t.indexOf('\u8BBE\u8BA1\u4E0E\u5F00\u53D1\u7531 New API') >= 0 || t === 'New API' || t.indexOf('由 skillai.top 提供') >= 0) {
           el.remove();
         }
       }
