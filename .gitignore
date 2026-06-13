@@ -11,3 +11,8 @@ Thumbs.db
 *.log
 node_modules/
 .vercel
+
+# 排除备份目录
+dist.bak-*/
+.cache/
+*.bak

@@ -1,11 +1,11 @@
 {
-  "name": "SkillAI - AI自动化助手部署平台",
-  "short_name": "SkillAI",
-  "description": "AI自动化助手部署平台，3分钟快速部署，支持多款主流AI模型",
+  "name": "skillai.top",
+  "short_name": "skillai",
+  "description": "AI 大模型统一 API 网关",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0e1a",
-  "theme_color": "#0a0e1a",
+  "background_color": "#0a0e17",
+  "theme_color": "#0a0e17",
   "icons": [
     {
       "src": "/favicon-192.png",
@@ -16,12 +16,6 @@
       "src": "/favicon-512.png",
       "sizes": "512x512",
       "type": "image/png"
-    },
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
     }
   ]
 }
