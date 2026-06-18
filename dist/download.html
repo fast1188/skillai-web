@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>SkillAI 下载中心 - Windows / macOS / Linux 安装包与远程部署</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="description" content="下载 SkillAI AI 自动化助手，支持 Windows、macOS、Linux，提供入门体验包、技能包合集和远程部署服务，让 AI 帮你自动完成工作。">
+<meta name="keywords" content="SkillAI下载,AI自动化助手下载,Windows AI助手,macOS AI助手,Linux AI助手,远程部署,AI技能包">
+<link rel="canonical" href="https://skillai.top/download.html">
+<meta property="og:title" content="SkillAI 下载中心 - Windows/macOS/Linux 安装包">
+<meta property="og:description" content="下载 AI自动化助手，支持全平台安装和远程部署服务">
+<meta property="og:url" content="https://skillai.top/download.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SkillAI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SkillAI 下载中心 - Windows/macOS/Linux 安装包">
+<meta name="twitter:description" content="下载 AI自动化助手，支持全平台安装和远程部署服务">
+<meta name="theme-color" content="#0a0e17">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0A0A;color:#fff;font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;min-height:100vh}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.header{text-align:center;padding:40px 0 30px}
+h1{font-size:42px;font-weight:900;letter-spacing:6px;background:linear-gradient(90deg,#FF5E3A,#FF8533 45%,#00E5E5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.subtitle{color:#666;letter-spacing:4px;font-size:14px}
+.tagline{color:#FF6600;font-size:13px;letter-spacing:4px;margin-top:6px;opacity:0.6}
+
+.section-title{font-size:20px;font-weight:700;margin:40px 0 20px;padding-left:12px;border-left:3px solid #FF4444}
+
+/* 入门体验包 - 三平台 */
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.platform-card{background:linear-gradient(145deg,#141414,#1A1A1A);border:1px solid #2A2A2A;border-radius:14px;padding:28px 20px;text-align:center;transition:all 0.3s}
+.platform-card:hover{border-color:#FF4444;transform:translateY(-3px)}
+.platform-card .icon{font-size:44px;margin-bottom:12px}
+.platform-card h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.platform-card p{font-size:13px;color:#777;line-height:1.5}
+.platform-card .tag{display:inline-block;margin-top:10px;padding:3px 12px;background:rgba(0,229,229,0.15);color:#00E5E5;border-radius:20px;font-size:11px}
+.platform-card .btn{display:inline-block;margin-top:16px;padding:10px 28px;background:linear-gradient(135deg,#FF4444,#CC1111);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.3s;text-decoration:none}
+.platform-card .btn:hover{background:linear-gradient(135deg,#FF6666,#DD2222);transform:scale(1.05)}
+.m-label{background:rgba(255,68,68,0.2);color:#FF4444;border:1px solid rgba(255,68,68,0.3);padding:2px 10px;border-radius:12px;font-size:11px;display:inline-block;margin-bottom:8px}
+
+/* 付费产品 */
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:20px 0}
+.product-card{background:linear-gradient(145deg,#141414,#1A1A1A);border:1px solid #2A2A2A;border-radius:16px;padding:32px 24px;transition:all 0.3s;position:relative;overflow:hidden}
+.product-card:hover{border-color:#FF4444;transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,50,50,0.1)}
+.product-card .badge{position:absolute;top:12px;right:12px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600}
+.badge-free{background:rgba(0,229,229,0.2);color:#00E5E5}
+.badge-hot{background:rgba(255,68,68,0.2);color:#FF4444}
+.product-card h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.product-card .price{font-size:28px;font-weight:900;margin:12px 0;background:linear-gradient(90deg,#FF5E3A,#00E5E5);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.product-card .price .ori{font-size:16px;color:#555;-webkit-text-fill-color:#555;text-decoration:line-through;margin-left:8px}
+.product-card ul{list-style:none;margin:12px 0}
+.product-card li{font-size:13px;color:#999;padding:4px 0;display:flex;align-items:center;gap:8px}
+.product-card li::before{content:'✓';font-size:11px}
+.product-card .btn-buy{display:inline-block;margin-top:16px;padding:12px 32px;background:linear-gradient(135deg,#FF4444,#CC1111);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s;text-decoration:none;text-align:center}
+.product-card .btn-buy:hover{transform:scale(1.05)}
+.product-card .note{font-size:12px;color:#555;margin-top:10px}
+
+/* 更新说明 */
+.notice{background:linear-gradient(145deg,#141414,#1A1A1A);border:1px solid #2A2A2A;border-radius:14px;padding:24px;margin:30px 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.notice .icon{font-size:32px}
+.notice .text{flex:1;min-width:200px}
+.notice .text h4{font-size:16px;margin-bottom:4px}
+.notice .text p{font-size:13px;color:#888}
+
+.footer{text-align:center;padding:40px;color:#444;font-size:13px;border-top:1px solid #1A1A1A;margin-top:40px}
+.footer a{color:#666;text-decoration:none}
+.footer a:hover{color:#FF4444}
+
+@media(max-width:768px){
+  .platform-grid{grid-template-columns:1fr}
+  .products{grid-template-columns:1fr}
+  h1{font-size:30px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Download Center",
+  "description": "下载 AI自动化助手，支持全平台安装和远程部署服务",
+  "url": "https://skillai.top/download.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SkillAI",
+    "url": "https://skillai.top"
+  }
+}
+</script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" style="gap:12px;">
+            <img src="assets/images/openclaw-logo-nav-new.svg" alt="SkillAI" height="80" style="height:80px;width:auto;flex-shrink:0;">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="skills.html" class="nav-link">skill技能</a>
+      <a href="download.html" class="nav-link active">远程安装</a>
+      <a href="community.html" class="nav-link">AI社区</a>
+      <a href="top-models.html" class="nav-link">TOP模型</a>
+      <a href="top-agents.html" class="nav-link">TOP智能体</a>
+      <a href="about.html" class="nav-link">关于</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+<div class="container">
+  <div class="header">
+    <h1>SkillAI</h1>
+    <p class="subtitle">THE AI THAT ACTUALLY DOES THINGS</p>
+    <p class="tagline">从免费体验到完整部署，总有一款适合你</p>
+  </div>
+
+  <div class="section-title">🎁 入门体验包 · 三系统通用</div>
+  <p style="color:#777;font-size:14px;margin-bottom:16px">Windows / macOS / Linux 均可使用，适合先体验 SkillAI 的 AI 自动化能力。</p>
+  <div class="platform-grid">
+    <div class="platform-card">
+      <div class="icon">🪟</div>
+      <h3>Windows 版</h3>
+      <p>Windows 10/11 · 64 位<br>适合办公电脑快速体验</p>
+      <span class="tag">约 500MB</span>
+    </div>
+    <div class="platform-card">
+      <span class="m-label">推荐</span>
+      <div class="icon">🍎</div>
+      <h3>macOS 版</h3>
+      <p>macOS 12+ · Intel / Apple 芯片<br>通用安装包</p>
+      <span class="tag">约 500MB</span>
+    </div>
+    <div class="platform-card">
+      <div class="icon">🐧</div>
+      <h3>Linux 版</h3>
+      <p>Ubuntu / Debian / CentOS<br>适合服务器和开发者环境</p>
+      <span class="tag">约 480MB</span>
+    </div>
+  </div>
+
+  <div class="section-title">📦 付费升级</div>
+  <div class="products">
+    <div class="product-card">
+      <span class="badge badge-hot">热销</span>
+      <h3>技能包合集</h3>
+      <p style="color:#888;font-size:14px">中文业务技能描述合集，覆盖常见办公与运营场景。</p>
+      <div class="price">¥8.80 <span class="ori">¥29.9</span></div>
+      <ul>
+        <li>36,900+ 条中文技能描述</li>
+        <li>覆盖 50+ 行业分类</li>
+        <li>支持导入 SkillAI</li>
+        <li>网盘发货，便于后续更新</li>
+      </ul>
+      <a class="btn-buy" href="contact/">咨询购买</a>
+      <p class="note">适合想快速扩展 AI 助手能力的用户。</p>
+    </div>
+
+    <div class="product-card">
+      <span class="badge badge-free">持续更新</span>
+      <h3>网盘更新版</h3>
+      <p style="color:#888;font-size:14px">SkillAI 最新版本与中文入门资料，持续同步更新。</p>
+      <div class="price">¥16 <span class="ori">¥49</span></div>
+      <ul>
+        <li>SkillAI 最新程序包</li>
+        <li>内置实用技能与示例</li>
+        <li>Win / Mac / Linux 三平台资料</li>
+        <li>含中文操作手册和入门教程</li>
+      </ul>
+      <a class="btn-buy" href="contact/">咨询购买</a>
+      <p class="note">购买后可获取后续更新链接。</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    <div class="icon">🔄</div>
+    <div class="text">
+      <h4>持续更新 · 一次获取长期有效</h4>
+      <p>购买用户可获取后续版本更新。需要远程安装或场景定制，可通过联系方式咨询。</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:30px 0;border-top:1px solid #1A1A1A;margin-top:20px">
+    <p style="color:#666;margin-bottom:12px;font-size:14px">需要完整部署、远程指导或业务场景定制？</p>
+    <a href="contact/" style="display:inline-block;padding:14px 48px;background:linear-gradient(135deg,#FF5E3A,#00E5E5);color:#fff;border:none;border-radius:12px;font-size:18px;font-weight:700;text-decoration:none;transition:all 0.3s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">了解完整部署服务</a>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024-2026 SkillAI.top All Rights Reserved.</p>
+    <p style="margin-top:6px"><a href="index.html">首页</a> · <a href="blog/">博客</a> · <a href="contact/">联系咨询</a></p>
+  </div>
+</div>
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    bp.type = 'text/javascript';
+    bp.async = true;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

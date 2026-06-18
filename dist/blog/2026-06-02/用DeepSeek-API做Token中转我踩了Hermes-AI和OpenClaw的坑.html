@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="background:#0a0e1a">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用DeepSeek API做Token中转，我踩了Hermes AI和SkillAI的坑 | skillai.top</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="description" content="实战记录：解决DeepSeek API调用中的Token超限和ConnectionTimeout问题，使用Hermes AI框架和SkillAI工具优化中转链路，附报错码和版本号。">
+<meta name="theme-color" content="#0a0e17">
+<link rel="canonical" href="https://skillai.top/blog/2026-06-02/用DeepSeek-API做Token中转我踩了Hermes-AI和SkillAI的坑.html">
+<style>
+body { font-family: system-ui, -apple-system, sans-serif; background: #0a0e1a; color: #e8edf5; line-height: 1.8; margin: 0; padding: 0; }
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+h1 { color: #60a5fa; font-size: 1.8rem; margin-bottom: 0.5rem; }
+h2 { color: #93c5fd; font-size: 1.4rem; margin: 2rem 0 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+h3 { color: #93c5fd; font-size: 1.2rem; margin: 1.5rem 0 0.8rem; }
+p { margin-bottom: 1rem; color: #cbd5e1; }
+li { margin-bottom: 0.5rem; color: #cbd5e1; }
+code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+pre { background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+strong { color: #f1f5f9; }
+.back-link { display: inline-block; margin-top: 20px; color: #60a5fa; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.meta-info { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+<div class="container">
+<a href="/blog/" class="back-link">&larr; 返回博客</a>
+<div class="meta-info">2026-06-02 &middot; SkillAI</div>
+<h1>用DeepSeek API做Token中转，我踩了Hermes AI和SkillAI的坑</h1>
+<h2>起因：一个简单的API调用，卡了我两小时</h2><br>
+<p>那天我正准备把一个小型对话服务上线，后端用了 <strong>DeepSeek API</strong> 做文本生成。测试环境跑得挺欢，Python 3.11 + PyTorch 2.1 + CUDA 12.1，本地单卡RTX 3090，无论怎么问都秒回。结果一上生产，并发量刚破50，服务直接崩了——日志里全是 <code>ConnectionTimeout</code> 和 <code>Token limit exceeded</code>。我盯着屏幕愣了十秒，心想：又要熬夜了。</p><br>
+<h2>问题初现：Token 配额与网络瓶颈</h2><br>
+<h3>报错码第一波：Token 超限</h3><br>
+<p>最开始看到的错误是 <code>Error 429</code>，提示 <code>Token limit exceeded</code>。我查了 DeepSeek API 的官方文档，免费档每分钟只有 60 RPM，每请求最大 4096 tokens。我的业务场景是长对话上下文，每个请求平均 3000 tokens 左右，并发一上来直接超限。更致命的是，有些请求超时后重试，反而把配额占得更满，形成恶性循环。</p><br>
+<h3>报错码第二波：ConnectionTimeout</h3><br>
+<p>随后大量出现 <code>Error 408</code> 和 <code>ConnectionTimeout</code>。我检查了网络链路——服务部署在阿里云上海节点，DeepSeek API 的终端在美国西海岸。实测延迟约 280ms，连上重试策略，单个请求最坏情况耗时超过 15 秒。用户那边直接返回空白，体验极差。</p><br>
+<h2>排查过程：从本地压测到抓包分析</h2><br>
+<h3>第一步：本地复现</h3><br>
+<p>我写了一个模拟压测脚本，使用 <code>aiohttp</code> 并发 100 个请求。结果 5 秒后，控制台刷屏：</p><br>
+<pre><code class="language-">Task exception was never retrieved<br>
+future: <Task finished name='Task-23' coro=... result=None><br>
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.deepseek.com:443 ssl:default [Connection timed out]<br>
+</code></pre><br>
+<p>确认是网络问题，不是代码逻辑。</p><br>
+<h3>第二步：尝试缓存和批处理</h3><br>
+<p>我最初的想法是把相同上下文的请求合并成一次调用。但实际业务中用户提问随机性很强，无法批量。于是转向考虑 <strong>Token 中转</strong>——在中间层缓存最近的热门对话，减少对上游 API 的重复请求。</p><br>
+<h3>第三步：引入 Hermes AI 框架</h3><br>
+<p>我听说过 <strong>Hermes AI</strong> 是一个轻量级的 LLM 编排框架，支持请求排队、token 配额管理和本地缓存。我把它当作中间件部署在业务服务器上，配置如下：</p><br>
+<pre><code class="language-yaml">hermes:<br>
+  cache_ttl: 300<br>
+  max_retries: 3<br>
+  rate_limit: 60<br>
+  upstream: "https://api.deepseek.com/v1/chat/completions"<br>
+</code></pre><br>
+<p>测试后发现，虽然本地缓存减少了重复请求，但首次请求仍然要跨国，延迟没降。而且 Hermes AI 默认使用 requests 库同步请求，高并发下连接池不够用，反而出现新的 <code>ConnectionResetError</code>。</p><br>
+<h3>第四步：改用 SkillAI 做代理层</h3><br>
+<p>折腾到凌晨一点，我翻出一个工具叫 <strong>SkillAI</strong>，它可以搭建一个轻量级 API 代理，支持自动故障切换、请求重试和连接池复用。我把 SkillAI 部署在一台香港轻量云服务器上，作为 DeepSeek API 的中继。</p><br>
+<p>配置关键部分：</p><br>
+<pre><code class="language-">[upstream]<br>
+url = "https://api.deepseek.com/v1/chat/completions"<br>
+timeout = 30s<br>
+<p>[proxy]<br>
+bind = "0.0.0.0:8080"<br>
+max_connections = 200<br>
+retry_on_timeout = true<br>
+</code></pre></p><br>
+<p>然后修改业务代码，将 DeepSeek API 的 endpoint 替换为本地 SkillAI 地址。同时把 Hermes AI 的缓存功能保留，叠加使用。</p><br>
+<h2>解决方案：Hermes AI + SkillAI 双剑合璧</h2><br>
+<h3>架构调整后链路</h3><br>
+<pre><code class="language-">用户请求 -> Hermes AI (缓存/限流) -> SkillAI (代理+连接池) -> DeepSeek API<br>
+</code></pre><br>
+<li><strong>Hermes AI</strong> 负责：请求去重、热点缓存、令牌桶限流（防止超限触发429）。</li><br>
+<li><strong>SkillAI</strong> 负责：TCP 连接复用、自动重试、超时隔离（某个上游挂掉不影响其他）。</li><br>
+<h3>实测数据</h3><br>
+<li>并发 100 请求，平均响应时间从 12s 降到 1.8s（缓存命中率 40%）。</li><br>
+<li>未命中时，SkillAI 复用连接后，延迟稳定在 350ms 左右，不再出现 <code>ConnectionTimeout</code>。</li><br>
+<li>429 错误完全消失——Hermes AI 的令牌桶精确控制每分钟最多 55 个请求，留出余量。</li><br>
+<h3>一个隐蔽的坑：CUDA OOM</h3><br>
+<p>中间还踩了个无关的雷：我在本地测试时，Hermes AI 内部用一个小的 <code>transformers</code> 模型做 embedding 缓存，结果 <code>torch.cuda.OutOfMemoryError</code> 跳了出来（CUDA 12.1 下显存只剩 2GB）。最后把 embedding 模型换到 CPU 并减小向量维度才解决。</p><br>
+<h2>总结：别被“免费API”骗了</h2><br>
+<p>折腾了两小时，差点放弃。其实核心问题不是 DeepSeek API 本身不行，而是我没做好中间层。<strong>Token 中转</strong> + 代理加速 + 本地缓存，这三板斧砍下来，效果立竿见影。如果你也在用类似的大模型 API，建议先评估网络延迟和配额，别像我一样等到生产炸了才补救。</p><br>
+<p>最后提一嘴，整个方案优化过程中，我参考了 <strong>skillai</strong> 社区里一些关于 LLM 部署的笔记，很多踩坑经验确实能省时间。希望这篇笔记也能帮到你。</p>
+<a href="/blog/" class="back-link">&larr; 返回博客</a>
+</div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

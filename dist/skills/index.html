@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html style="background:#0a0e1a" lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -8,12 +8,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="icon" type="image/png" href="/favicon-192.png">
+    <link rel="icon" type="image/png" href="/assets/logo-192.png">
 <title>技能工厂 - SkillAI 热门100个技能</title>
 <link rel="manifest" href="/manifest.json">
 <meta name="description" content="浏览 SkillAI 最热门的 100 个 AI 技能，涵盖编程、写作、搜索、自动化等领域，一键安装到你的 SkillAI AI 助手。">
 <meta name="theme-color" content="#0a0e17">
-<link rel="stylesheet" >
+<link rel="stylesheet" href="/assets/css/main.css">
 <style>
 /* ===== SkillAI-Style Skills Grid ===== */
 .skills-hero {
@@ -476,16 +476,16 @@
 <nav class="navbar">
   <div class="nav-container">
     <a href="/index.html" class="nav-logo" style="gap:12px;">
-            <img src="/assets/images/skillai-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;" alt="">
+            <img src="/assets/images/openclaw-logo-nav-new.svg" height="80" style="height:80px;width:auto;flex-shrink:0;" alt="">
     </a>
     <div class="nav-links">
       <a href="/index.html" class="nav-link">首页</a>
-      <a href="/skills/" class="nav-link active">skill技能</a>
-      <a href="/download/" class="nav-link">远程安装</a>
-      <a href="/community/" class="nav-link">AI社区</a>
-      <a href="/top-models/" class="nav-link">TOP模型</a>
-      <a href="/top-agents/" class="nav-link">TOP智能体</a>
-      <a href="/about/" class="nav-link">关于</a>
+      <a href="/skills.html" class="nav-link active">skill技能</a>
+      <a href="/download.html" class="nav-link">远程安装</a>
+      <a href="/community.html" class="nav-link">AI社区</a>
+      <a href="/top-models.html" class="nav-link">TOP模型</a>
+      <a href="/top-agents.html" class="nav-link">TOP智能体</a>
+      <a href="/about.html" class="nav-link">关于</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -495,12 +495,12 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
       <a href="/index.html" class="mobile-link">首页</a>
-      <a href="/skills/" class="mobile-link">skill技能</a>
-      <a href="/download/" class="mobile-link">远程安装</a>
-      <a href="/community/" class="mobile-link">AI社区</a>
-      <a href="/top-models/" class="mobile-link">TOP模型</a>
-      <a href="/top-agents/" class="mobile-link">TOP智能体</a>
-      <a href="/about/" class="mobile-link">关于</a>
+      <a href="/skills.html" class="mobile-link">skill技能</a>
+      <a href="/download.html" class="mobile-link">远程安装</a>
+      <a href="/community.html" class="mobile-link">AI社区</a>
+      <a href="/top-models.html" class="mobile-link">TOP模型</a>
+      <a href="/top-agents.html" class="mobile-link">TOP智能体</a>
+      <a href="/about.html" class="mobile-link">关于</a>
     </div>
 
 <!-- Hero -->
@@ -513,7 +513,7 @@
 <div class="skills-stats">
   共 <span id="totalCount">0</span> 个技能 · 按下载量排序
   <span style="margin:0 8px;color:#445566">|</span>
-  想要更多？<a href="https://skillai.top/skills?sort=downloads" target="_blank" style="color:#ff6b9d;font-weight:600;text-decoration:none;">前往 SkillAI 发现完整技能库 →</a>
+  想要更多？<a href="https://clawhub.ai/skills?sort=downloads" target="_blank" style="color:#ff6b9d;font-weight:600;text-decoration:none;">前往 SkillAI 发现完整技能库 →</a>
 </div>
 
 <!-- Filters -->
@@ -596,12 +596,12 @@
       <!-- 横排导航 -->
       <div class="footer-nav" style="display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:20px;">
         <a href="/index.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">首页</a>
-        <a href="/skills/" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">skill技能</a>
-        <a href="/download/" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">远程安装</a>
-        <a href="/community/" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">AI社区</a>
-        <a href="/top-models/" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP模型</a>
-        <a href="/top-agents/" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP智能体</a>
-        <a href="/about/" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">关于</a>
+        <a href="/skills.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">skill技能</a>
+        <a href="/download.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">远程安装</a>
+        <a href="/community.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">AI社区</a>
+        <a href="/top-models.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP模型</a>
+        <a href="/top-agents.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">TOP智能体</a>
+        <a href="/about.html" style="color:#8899aa;font-size:0.85rem;text-decoration:none;transition:color 0.2s;">关于</a>
       </div>
     </div>
     <div class="footer-bottom" style="text-align:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.04);color:#445566;font-size:0.78rem;">
@@ -611,7 +611,7 @@
 <div class="footer-bottom" style="text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.04);color:#445566;font-size:0.78rem;"><p>&copy; 2024-2026 SkillAI.top All Rights Reserved.</p></div>
 </footer>
 
-<script ></script>
+<script src="/assets/js/main.js"></script>
 <script>
 // ============================================================
 // SkillAI Top 25 Skills (已汉化, 按下载量排序)
@@ -635,7 +635,7 @@ const skillsData = [
   {author:"steipete", name:"图像生成 Pro", slug:"nano-banana-pro", desc:"使用 Gemini 3 Pro Image 生成/编辑图片，支持文生图和图生图，1K/2K/4K 分辨率。", icon:"??", stars:"387", downloads:"98.2k", updated:"1天前", cat:"开发工具"},
   {author:"pollyreach", name:"电话助手", slug:"pollyreach", desc:"为每个 AI 智能体配备电话号码，实现打电话、找联系人、完成任务的能力。", icon:"??", stars:"48", downloads:"97.8k", updated:"1周前", cat:"数据&API"},
   {author:"steipete", name:"笔记管理", slug:"obsidian", desc:"通过 obsidian-cli 管理 Obsidian 笔记库，自动化处理 Markdown 笔记。", icon:"??", stars:"397", downloads:"96.4k", updated:"1天前", cat:"开发工具"},
-  {author:"jacky1n7", name:"Tavily 网络搜索", slug:"skillai-tavily-search", desc:"通过 Tavily API 进行网络搜索，作为 Brave 搜索的替代方案。用于查询网络信息和资料。", icon:"??", stars:"257", downloads:"94k", updated:"1周前", cat:"数据&API"},
+  {author:"jacky1n7", name:"Tavily 网络搜索", slug:"openclaw-tavily-search", desc:"通过 Tavily API 进行网络搜索，作为 Brave 搜索的替代方案。用于查询网络信息和资料。", icon:"??", stars:"257", downloads:"94k", updated:"1周前", cat:"数据&API"},
   {author:"maximeprades", name:"自动更新器", slug:"auto-updater", desc:"每天自动更新 Clawbot 和所有已安装技能。通过定时任务检查更新、应用更新并汇总报告。", icon:"??", stars:"406", downloads:"88.1k", updated:"1天前", cat:"自动化", platforms:['macOS', 'Linux']},
   {author:"steipete", name:"Notion 管理", slug:"notion", desc:"Notion API 集成，创建和管理页面、数据库、区块，让笔记和知识库管理自动化。", icon:"??", stars:"254", downloads:"87.7k", updated:"1周前", cat:"开发工具"},
   {author:"ide-rea", name:"百度搜索", slug:"baidu-search", desc:"使用百度 AI 搜索引擎进行网络搜索。用于实时信息查询、资料查找和研究。", icon:"??", stars:"214", downloads:"86.7k", updated:"1周前", cat:"数据&API"},
@@ -685,7 +685,7 @@ function escapeHtml(s) {
 function renderSkills(skills) {
   const grid = document.getElementById('skillsGrid');
   grid.innerHTML = skills.map((s, i) => {
-    const installCmd = 'skillai install ' + s.author + '/' + (s.slug || s.name.toLowerCase().replace(/\s+/g, '-'));
+    const installCmd = 'clawhub install ' + s.author + '/' + (s.slug || s.name.toLowerCase().replace(/\s+/g, '-'));
     const platforms = (s.platforms || []).map(p => '<span class="skill-platform">' + escapeHtml(p) + '</span>').join('');
     
     return '<div class="skill-card" data-cat="' + escapeHtml(s.cat || 'Other') + '">' +
@@ -712,7 +712,7 @@ function renderSkills(skills) {
       '</div>' +
       '<div class="skill-footer">' +
         '<button class="skill-install-btn" data-cmd="' + escapeHtml(installCmd) + '" onclick="copyCmd(this)">' +
-          'skillai install ' + escapeHtml(s.author) + '/' + escapeHtml(s.slug || s.name.toLowerCase().replace(/\s+/g, '-')) +
+          'clawhub install ' + escapeHtml(s.author) + '/' + escapeHtml(s.slug || s.name.toLowerCase().replace(/\s+/g, '-')) +
         '</button>' +
         '<button class="skill-copy-btn" onclick="copyCmd(this.previousElementSibling)" title="复制命令">??</button>' +
       '</div>' +
